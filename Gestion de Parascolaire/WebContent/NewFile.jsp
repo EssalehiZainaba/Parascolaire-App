@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-TESTTT1 //ZAINABA
+TESTTT1 //ZAINABA <br>
+<p style="color:blue;">This is another test</p>
 </body>
 </html>
