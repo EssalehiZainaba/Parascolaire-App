@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+fieldset {
+	border-color:blue;
+}
+
+legend {
+	color:blue;
+}
+
+span {
+	color:red;
+}
+
+
+p.success {
+	color:green;
+}
+
+
+p.failure {
+	color:red;
+}
