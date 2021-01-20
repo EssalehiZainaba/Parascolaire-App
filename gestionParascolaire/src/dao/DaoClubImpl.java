@@ -13,16 +13,24 @@ import beans.Club;
 
 public class DaoClubImpl implements DaoClub{
 	
+	private SessionFactory factory;
+	
+	public DaoClubImpl (SessionFactory factory)
+	{
+		this.factory = factory;
+	}
+	
 	public Club get(String name)
 	{
-		SessionFactory factory = HibernateUtil.getSessionFactory();
+		
 		Session session = factory.openSession();
 	    Transaction tx = null;
 	    Club club=null;
 	      
 	      try {
 	         tx = session.beginTransaction();
-	         List clubs = session.createQuery("FROM Club WHERE name='"+name+"'").list(); 
+	         @SuppressWarnings("unchecked")
+			 List<Club> clubs =(List<Club>) session.createQuery("FROM Club WHERE name='"+name+"'").list(); 
 	         club=(Club)clubs.get(0);
 	         tx.commit();
 	      } catch (HibernateException e) {
@@ -38,7 +46,7 @@ public class DaoClubImpl implements DaoClub{
 	public int add(String name , String description , String paragraphe)
 	{
 		
-		SessionFactory factory = HibernateUtil.getSessionFactory();
+		
 		Session session = factory.openSession();
 	    Transaction tx = null;
 	    Integer clubID = null;
