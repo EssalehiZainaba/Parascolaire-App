@@ -37,17 +37,7 @@ public class PresentationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DaoClubImpl clubHelp= new DaoClubImpl();
 		
-		
-		
-		String name=request.getParameter("name");
-		Club club = clubHelp.get(name);
-		
-		System.out.println(club.getId());
-		System.out.println(club.getName());
-		System.out.println(club.getDescription());
-		System.out.println(club.getParagraphe());
 		
 	}
 

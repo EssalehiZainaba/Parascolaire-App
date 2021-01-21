@@ -2,6 +2,10 @@ package dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.hibernate.HibernateException;
 
 import org.hibernate.Session;
@@ -13,26 +17,26 @@ import beans.Club;
 
 public class DaoClubImpl implements DaoClub{
 	
-	public Club get(String name)
+	public Club get(int id)
 	{
-		SessionFactory factory = HibernateUtil.getSessionFactory();
-		Session session = factory.openSession();
-	    Transaction tx = null;
-	    Club club=null;
-	      
-	      try {
-	         tx = session.beginTransaction();
-	         List clubs = session.createQuery("FROM Club WHERE name='"+name+"'").list(); 
-	         club=(Club)clubs.get(0);
-	         tx.commit();
-	      } catch (HibernateException e) {
-	         if (tx!=null) tx.rollback();
-	         e.printStackTrace(); 
-	      } finally {
-	         session.close(); 
-	      }
-	      
-	      return club;
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("UsersDB");
+		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		Club club=new Club();
+		try {
+			club = entityManager.find(Club.class,id);
+			entityManager.getTransaction().commit();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			entityManager.close();
+			entityManagerFactory.close();
+		}
+		return club;
 	}
 	
 	public int add(String name , String description , String paragraphe)
