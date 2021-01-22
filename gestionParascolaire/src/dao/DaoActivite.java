@@ -1,6 +1,6 @@
 package dao;
 
-import beans.Activite;
+import entities.Activite;
 
 public interface DaoActivite {
 	

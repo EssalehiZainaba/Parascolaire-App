@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-import beans.Etudiant;
+import entities.Etudiant;
 
 public class DaoEtudiantImpl implements DaoEtudiant{
 	

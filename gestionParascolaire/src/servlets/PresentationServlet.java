@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Club;
-import dao.DaoClubImpl;
+import dao.JPAUtil;
 
 /**
  * Servlet implementation class PresentationServlet
@@ -29,8 +28,8 @@ public class PresentationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		this.getServletContext().getRequestDispatcher("/presentation.jsp").forward(request, response);
+		JPAUtil.getEntityManagerFactory();
 	}
 
 	/**

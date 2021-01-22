@@ -1,2 +1,6 @@
+/META-INF/
 /beans/
 /dao/
+/listener/
+/servlets/
+/entities/

@@ -2,16 +2,20 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
-import beans.Activite;
+import entities.Activite;
 
 public class DaoActiviteImpl implements DaoActivite{
+	
+	private EntityManagerFactory factory;
+	
+	public DaoActiviteImpl(EntityManagerFactory factory) {
+		this.factory = factory;
+	}
 
 	@Override
 	public void add(Activite activite) {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("UsersDB");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		try {
 			entityManager.persist(activite);
@@ -23,7 +27,6 @@ public class DaoActiviteImpl implements DaoActivite{
 		}
 		finally {
 			entityManager.close();
-			entityManagerFactory.close();
 		}
 		
 		
@@ -31,8 +34,7 @@ public class DaoActiviteImpl implements DaoActivite{
 
 	@Override
 	public Activite get(int id) {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("UsersDB");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityManager entityManager = factory.createEntityManager();
 		Activite activite = new Activite();
 		entityManager.getTransaction().begin();
 		try {
@@ -45,7 +47,6 @@ public class DaoActiviteImpl implements DaoActivite{
 		}
 		finally {
 			entityManager.close();
-			entityManagerFactory.close();
 		}
 		
 		return activite;
@@ -53,8 +54,7 @@ public class DaoActiviteImpl implements DaoActivite{
 
 	@Override
 	public void delete(int id) {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("UsersDB");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		try {
 			Activite activite = entityManager.find(Activite.class, id );
@@ -67,7 +67,6 @@ public class DaoActiviteImpl implements DaoActivite{
 		}
 		finally {
 			entityManager.close();
-			entityManagerFactory.close();
 		}
 		
 	}
