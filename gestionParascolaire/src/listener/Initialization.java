@@ -4,9 +4,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import org.hibernate.SessionFactory;
-
-import dao.HibernateUtil;
 
 /**
  * Application Lifecycle Listener implementation class Initialization

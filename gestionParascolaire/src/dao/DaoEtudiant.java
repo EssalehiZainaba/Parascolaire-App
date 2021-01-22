@@ -1,6 +1,6 @@
 package dao;
 
-import beans.Etudiant;
+import entities.Etudiant;
 
 public interface DaoEtudiant {
 	Etudiant find(int id);

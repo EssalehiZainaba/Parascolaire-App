@@ -1,6 +1,6 @@
 package dao;
 
-import beans.Club;
+import entities.Club;
 
 public interface DaoClub {
 	Club get(int id);
