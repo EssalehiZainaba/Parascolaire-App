@@ -17,6 +17,7 @@ import beans.Club;
 
 public class DaoClubImpl implements DaoClub{
 	
+<<<<<<< HEAD
 	public Club get(int id)
 	{
 		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("UsersDB");
@@ -37,12 +38,42 @@ public class DaoClubImpl implements DaoClub{
 			entityManagerFactory.close();
 		}
 		return club;
+=======
+	private SessionFactory factory;
+	
+	public DaoClubImpl (SessionFactory factory)
+	{
+		this.factory = factory;
+	}
+	
+	public Club get(String name)
+	{
+		
+		Session session = factory.openSession();
+	    Transaction tx = null;
+	    Club club=null;
+	      
+	      try {
+	         tx = session.beginTransaction();
+	         @SuppressWarnings("unchecked")
+			 List<Club> clubs =(List<Club>) session.createQuery("FROM Club WHERE name='"+name+"'").list(); 
+	         club=(Club)clubs.get(0);
+	         tx.commit();
+	      } catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      } finally {
+	         session.close(); 
+	      }
+	      
+	      return club;
+>>>>>>> ffd4dc4d9f00ed13a0863bf0c76ebfeea08cd1ab
 	}
 	
 	public int add(String name , String description , String paragraphe)
 	{
 		
-		SessionFactory factory = HibernateUtil.getSessionFactory();
+		
 		Session session = factory.openSession();
 	    Transaction tx = null;
 	    Integer clubID = null;
