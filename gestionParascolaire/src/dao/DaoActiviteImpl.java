@@ -1,51 +1,20 @@
 package dao;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.hibernate.HibernateException;
+import beans.Activite;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+public class DaoActiviteImpl implements DaoActivite{
 
-
-import beans.Club;
-
-public class DaoClubImpl implements DaoClub{
-	
-	public Club get(int id)
-	{
-		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("UsersDB");
-		EntityManager entityManager=entityManagerFactory.createEntityManager();
-		entityManager.getTransaction().begin();
-		Club club=new Club();
-		try {
-			club = entityManager.find(Club.class,id);
-			entityManager.getTransaction().commit();
-			
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		finally {
-			entityManager.close();
-			entityManagerFactory.close();
-		}
-		return club;
-	}
-	
-	public void add(Club club)
-	{
+	@Override
+	public void add(Activite activite) {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("UsersDB");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		try {
-			entityManager.persist(club);
+			entityManager.persist(activite);
 			entityManager.getTransaction().commit();
 		}
 		catch(Exception e)
@@ -59,25 +28,19 @@ public class DaoClubImpl implements DaoClub{
 		
 		
 	}
-	
-	public void update()
-	{
-		
-	}
-	
-	public void delete(int id)
-	{
+
+	@Override
+	public Activite get(int id) {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("UsersDB");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		Activite activite = new Activite();
 		entityManager.getTransaction().begin();
 		try {
-			Club club = entityManager.find(Club.class,id);
-			entityManager.remove(club);
+			activite = entityManager.find(Activite.class, id );
 			entityManager.getTransaction().commit();
 		}
-		catch( Exception e)
+		catch(Exception e)
 		{
-			
 			e.printStackTrace();
 		}
 		finally {
@@ -85,7 +48,27 @@ public class DaoClubImpl implements DaoClub{
 			entityManagerFactory.close();
 		}
 		
-		
+		return activite;
+	}
+
+	@Override
+	public void delete(int id) {
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("UsersDB");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		try {
+			Activite activite = entityManager.find(Activite.class, id );
+			entityManager.remove(activite);
+			entityManager.getTransaction().commit();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			entityManager.close();
+			entityManagerFactory.close();
+		}
 		
 	}
 
