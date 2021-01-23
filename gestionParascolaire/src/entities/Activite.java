@@ -2,6 +2,7 @@ package entities;
 
 import java.util.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,11 +23,7 @@ public class Activite {
 	
 	public Activite() {}
 	
-	
-	
-	
-	
-	
+
 	public Activite(boolean is_private, String nom_activite, Date date_activite, String lieu_activite,
 			String description) {
 		this.is_private = is_private;
