@@ -4,17 +4,17 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="responsable_club")
-public class responsableClub {
+public class ResponsableClub {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_responsable")
 	private int id;
 
 	
-	public responsableClub() {}
+	public ResponsableClub() {}
 	
 	
-	public responsableClub(int id) {
+	public ResponsableClub(int id) {
 		this.id = id;
 	}
 

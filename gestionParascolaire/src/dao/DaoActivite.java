@@ -5,7 +5,7 @@ import entities.Activite;
 public interface DaoActivite {
 	
 	void add(Activite activite);
-	Activite get(int id);
+	Activite find(int id);
 	void delete(int id);
 	
 

@@ -33,7 +33,7 @@ public class DaoActiviteImpl implements DaoActivite{
 	}
 
 	@Override
-	public Activite get(int id) {
+	public Activite find(int id) {
 		EntityManager entityManager = factory.createEntityManager();
 		Activite activite = new Activite();
 		entityManager.getTransaction().begin();

@@ -2,7 +2,7 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import entities.utilisateur;
+import entities.Utilisateur;
 
 public class DaoUtilisateurImpl implements DaoUtilisateur {
 
@@ -14,7 +14,7 @@ public class DaoUtilisateurImpl implements DaoUtilisateur {
     }
     
     @Override
-    public void add(utilisateur utilisateur) {
+    public void add(Utilisateur utilisateur) {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		try {
@@ -33,12 +33,12 @@ public class DaoUtilisateurImpl implements DaoUtilisateur {
 	}
 
 	@Override
-	public utilisateur get(int id) {
+	public Utilisateur find(int id) {
 		EntityManager entityManager = factory.createEntityManager();
-		utilisateur utilisateur = new utilisateur();
+		Utilisateur utilisateur = new Utilisateur();
 		entityManager.getTransaction().begin();
 		try {
-			utilisateur = entityManager.find(utilisateur.class, id );
+			utilisateur = entityManager.find(Utilisateur.class, id );
 			entityManager.getTransaction().commit();
 		}
 		catch(Exception e)
@@ -57,7 +57,7 @@ public class DaoUtilisateurImpl implements DaoUtilisateur {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		try {
-			utilisateur utilisateur = entityManager.find(utilisateur.class, id );
+			Utilisateur utilisateur = entityManager.find(Utilisateur.class, id );
 			entityManager.remove(utilisateur);
 			entityManager.getTransaction().commit();
 		}

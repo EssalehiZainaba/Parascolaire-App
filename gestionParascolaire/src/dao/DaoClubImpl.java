@@ -15,7 +15,7 @@ public class DaoClubImpl implements DaoClub{
 		this.factory = factory;
 	}
 	
-	public Club get(int id)
+	public Club find(int id)
 	{
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
