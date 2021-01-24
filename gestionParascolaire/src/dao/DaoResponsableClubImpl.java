@@ -3,7 +3,7 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import entities.responsableClub;
+import entities.ResponsableClub;
 
 public class DaoResponsableClubImpl implements DaoResponsableClub{
 
@@ -15,7 +15,7 @@ public class DaoResponsableClubImpl implements DaoResponsableClub{
 	}
 
 	@Override
-	public void add(responsableClub responsableClub) {
+	public void add(ResponsableClub responsableClub) {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		try {
@@ -33,12 +33,12 @@ public class DaoResponsableClubImpl implements DaoResponsableClub{
 	}
 
 	@Override
-	public responsableClub get(int id) {
+	public ResponsableClub find(int id) {
 		EntityManager entityManager = factory.createEntityManager();
-		responsableClub responsableClub = new responsableClub();
+		ResponsableClub responsableClub = new ResponsableClub();
 		entityManager.getTransaction().begin();
 		try {
-			responsableClub = entityManager.find(responsableClub.class, id );
+			responsableClub = entityManager.find(ResponsableClub.class, id );
 			entityManager.getTransaction().commit();
 		}
 		catch(Exception e)
@@ -57,7 +57,7 @@ public class DaoResponsableClubImpl implements DaoResponsableClub{
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		try {
-			responsableClub responsableClub = entityManager.find(responsableClub.class, id );
+			ResponsableClub responsableClub = entityManager.find(ResponsableClub.class, id );
 			entityManager.remove(responsableClub);
 			entityManager.getTransaction().commit();
 		}

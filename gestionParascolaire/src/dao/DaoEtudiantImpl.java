@@ -14,6 +14,7 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 		this.factory = factory;
 	}
 	
+	@Override
 	public Etudiant find(int id) {
 		Etudiant etd = null;
 		EntityManager em = factory.createEntityManager();
@@ -30,6 +31,7 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 		return etd;
 	}
 	
+	@Override
 	public void update(Etudiant etd) {
 		EntityManager em = factory.createEntityManager();
 		EntityTransaction tx = em.getTransaction();

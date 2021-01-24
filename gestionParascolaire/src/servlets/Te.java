@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import dao.DaoUtilisateurImpl;
-import entities.utilisateur;
+import entities.Utilisateur;
 
 
 public class Te {
@@ -13,7 +13,7 @@ public class Te {
 	public static void main(String[] args) {
 		
 	
-		utilisateur utilisateur = new utilisateur();
+		Utilisateur utilisateur = new Utilisateur();
 		utilisateur.setLogin("123");
 		utilisateur.setPassword("aaa");
 		

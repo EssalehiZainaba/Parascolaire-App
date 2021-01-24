@@ -1,11 +1,11 @@
 package dao;
 
-import entities.responsableClub;
+import entities.ResponsableClub;
 
 public interface DaoResponsableClub {
 
-	void add(responsableClub responsableClub);
-	responsableClub get(int id);
+	void add(ResponsableClub responsableClub);
+	ResponsableClub find(int id);
 	void delete(int id);
 	
 }

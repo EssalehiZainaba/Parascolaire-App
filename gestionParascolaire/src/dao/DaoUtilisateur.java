@@ -1,11 +1,11 @@
 package dao;
 
-import entities.utilisateur;
+import entities.Utilisateur;
 
 public interface DaoUtilisateur {
 	
-	void add(utilisateur utilisateur);
-	utilisateur get(int id);
+	void add(Utilisateur utilisateur);
+	Utilisateur find(int id);
 	void delete(int id);
 
 }
