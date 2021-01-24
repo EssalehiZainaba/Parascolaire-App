@@ -10,8 +10,7 @@ public class DaoResponsableClubImpl implements DaoResponsableClub{
 	private EntityManagerFactory factory;
 
 	public DaoResponsableClubImpl(EntityManagerFactory factory) {
-		super();
-		factory = this.factory;
+		this.factory = factory;
 	}
 
 	@Override
