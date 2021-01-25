@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table
@@ -19,6 +21,10 @@ public class Activite {
 	private Date date_activite;
 	private String lieu_activite;
 	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name="id_club")
+	private Club club;
 	
 	
 	public Activite() {}
@@ -74,6 +80,13 @@ public class Activite {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public Club getClub() {
+		return club;
+	}
+	public void setClub(Club club) {
+		this.club = club;
+	}
+	
 	
 	
 	

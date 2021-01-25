@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoActivite;
+import dao.DaoActiviteImpl;
 import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.DaoEtudiant;
@@ -14,6 +16,7 @@ import dao.DaoEtudiantImpl;
 import dao.DaoResponsableClub;
 import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
+import entities.Activite;
 import entities.Club;
 import entities.Etudiant;
 import entities.ResponsableClub;
@@ -39,6 +42,47 @@ public class PresentationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.getServletContext().getRequestDispatcher("/presentation.jsp").forward(request, response);
 		
+		/*
+		 * TEST FOR ONETOONE AND MANYTOONE
+		 */
+		
+		/*
+		ResponsableClub resp = new ResponsableClub("resp@club.test", "resppwd");
+		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
+		daoResp.add(resp);
+		resp = daoResp.find(1);
+		
+		
+		Club club = new Club();
+		club.setName("MyClub");
+		club.setDescription("The best club");
+		club.setParagraphe("jk");
+		club.setResponsableClub(resp);
+		
+		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		daoClub.add(club);
+		club = daoClub.find(1);
+		
+		Activite activite = new Activite();
+		activite.setClub(club);
+		activite.setNom_activite("réunion project JEE");
+		DaoActivite daoAct = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+		daoAct.add(activite);
+		
+		club = daoClub.find(1);
+		System.out.println("Activité's name = "+club.getActivites().get(0).getNom_activite());
+		 
+		*/
+		
+		
+		
+		
+		/*
+		 * TEST FOR INHERITENCE AND ONETOONE
+		 */
+		
+		
+		/*
 		Etudiant etd = new Etudiant("etd@login.test", "etdpwd");
 		DaoEtudiant daoEtd = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
 		daoEtd.add(etd);;
@@ -65,6 +109,7 @@ public class PresentationServlet extends HttpServlet {
 		
 		ResponsableClub respFind2 = daoResp.find(2);
 		System.out.println("id_resp = "+respFind2.getId()+" / club_name = "+respFind2.getClub().getName());
+		*/
 	}
 
 	/**
