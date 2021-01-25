@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -8,19 +10,23 @@ import javax.persistence.*;
 public class Club {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id_club")
 	private int id;
-	@Column(name = "name")
 	private String name;
-	@Column(name = "description")
 	private String description;
-	@Column(name = "paragraphe")
 	private String paragraphe;
+	
 	@OneToOne
 	@JoinColumn(name = "id_responsable_club", referencedColumnName = "id_utilisateur")
 	private ResponsableClub responsableClub;
-
 	
+	@OneToMany(mappedBy="club", fetch = FetchType.EAGER)
+	List<Activite> activites;
+	
+	public List<Activite> getActivites() {
+		return activites;
+	}
+
 	
 	public Club() {}
 	
