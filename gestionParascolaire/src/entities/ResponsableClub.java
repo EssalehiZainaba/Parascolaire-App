@@ -3,7 +3,6 @@ package entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="responsable_club")
 @DiscriminatorValue("resp")
 public class ResponsableClub extends Utilisateur{
 

@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -23,8 +24,19 @@ public class Club {
 	@OneToMany(mappedBy="club", fetch = FetchType.EAGER)
 	List<Activite> activites;
 	
+	@OneToMany(mappedBy="club")
+	Set<Appartenance> appartenances;
+	
 	public List<Activite> getActivites() {
 		return activites;
+	}
+	
+	public Set<Appartenance> getAppartenances() {
+		return appartenances;
+	}
+
+	public void addAppartenances(Appartenance appartenance) {
+		this.appartenances.add(appartenance);
 	}
 
 	
