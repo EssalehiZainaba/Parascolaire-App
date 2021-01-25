@@ -4,18 +4,19 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="responsable_club")
-public class ResponsableClub {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_responsable")
-	private int id;
+@DiscriminatorValue("resp")
+public class ResponsableClub extends Utilisateur{
 
+	@OneToOne(mappedBy = "responsableClub")
+	Club club;
+	
 	
 	public ResponsableClub() {}
 	
 	
-	public ResponsableClub(int id) {
-		this.id = id;
+	public ResponsableClub(String login, String pwd) {
+		this.login = login;
+		this.password = pwd;
 	}
 
 
@@ -26,6 +27,16 @@ public class ResponsableClub {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+	public Club getClub() {
+		return club;
+	}
+
+
+	public void setClub(Club club) {
+		this.club = club;
 	}
 	
 	
