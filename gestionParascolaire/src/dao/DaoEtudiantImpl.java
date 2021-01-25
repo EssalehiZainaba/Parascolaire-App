@@ -45,4 +45,22 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 			em.close();
 		}
 	}
+	
+	@Override
+	public void add(Etudiant etd) {
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		try {
+			entityManager.persist(etd);
+			entityManager.getTransaction().commit();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			entityManager.close();
+		}
+		
+	}
 }

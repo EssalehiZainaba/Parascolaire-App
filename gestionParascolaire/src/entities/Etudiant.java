@@ -1,31 +1,30 @@
 package entities;
 
-import javax.persistence.Column;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 
 
 @Entity
 @Table (name="etudiant")
-public class Etudiant {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_etudiant")
-	private int id;
+@DiscriminatorValue("etd")
+public class Etudiant extends Utilisateur{
+
 	private String nom;
 	private String prenom;
 	private String filiere;
 	private String cne;
 	private String pays;
 	private String ville;
+	private String adresse;
 	
-	public int getId() {
-		return id;
+	public Etudiant(String login, String pwd) {
+		this.login = login;
+		this.password = pwd;
 	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -44,11 +43,11 @@ public class Etudiant {
 	public String getVille() {
 		return ville;
 	}
-	
-	
-	public void setId(int id) {
-		this.id = id;
+	public String getAdresse() {
+		return adresse;
 	}
+	
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
@@ -66,5 +65,8 @@ public class Etudiant {
 	}
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 }

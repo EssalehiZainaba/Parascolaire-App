@@ -7,7 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoClub;
+import dao.DaoClubImpl;
+import dao.DaoEtudiant;
+import dao.DaoEtudiantImpl;
+import dao.DaoResponsableClub;
+import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
+import entities.Club;
+import entities.Etudiant;
+import entities.ResponsableClub;
 
 /**
  * Servlet implementation class PresentationServlet
@@ -29,7 +38,33 @@ public class PresentationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.getServletContext().getRequestDispatcher("/presentation.jsp").forward(request, response);
-		JPAUtil.getEntityManagerFactory();
+		
+		Etudiant etd = new Etudiant("etd@login.test", "etdpwd");
+		DaoEtudiant daoEtd = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
+		daoEtd.add(etd);;
+
+		ResponsableClub resp = new ResponsableClub();
+		resp.setLogin("resp@club.test");
+		resp.setPassword("password");
+		DaoResponsableClub daoResp= new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
+		daoResp.add(resp);
+		ResponsableClub respFind = daoResp.find(2);
+		System.out.println("id_resp = "+respFind.getId()+" / login = "+respFind.getLogin()+" / pwd = "+respFind.getPassword());
+		
+		
+		Club club = new Club();
+		club.setName("social");
+		club.setDescription("amine harka's favourite");
+		club.setParagraphe("randomrandomrandom");
+		club.setResponsableClub(respFind);  //the second time you test this it will give an error unless you clear the database or change the code (because it will try to map the same responsable for two clubs)
+		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		daoClub.add(club);
+		
+		Club clubFind = daoClub.find(1);
+		System.out.println("id_club = "+clubFind.getId()+" / id_resp = "+clubFind.getResponsableClub().getId());
+		
+		ResponsableClub respFind2 = daoResp.find(2);
+		System.out.println("id_resp = "+respFind2.getId()+" / club_name = "+respFind2.getClub().getName());
 	}
 
 	/**

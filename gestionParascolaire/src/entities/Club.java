@@ -1,4 +1,5 @@
 package entities;
+
 import javax.persistence.*;
 
 
@@ -15,6 +16,10 @@ public class Club {
 	private String description;
 	@Column(name = "paragraphe")
 	private String paragraphe;
+	@OneToOne
+	@JoinColumn(name = "id_responsable_club", referencedColumnName = "id_utilisateur")
+	private ResponsableClub responsableClub;
+
 	
 	
 	public Club() {}
@@ -64,6 +69,14 @@ public class Club {
 
 	public void setParagraphe(String paragraphe) {
 		this.paragraphe = paragraphe;
+	}
+
+	public ResponsableClub getResponsableClub() {
+		return responsableClub;
+	}
+
+	public void setResponsableClub(ResponsableClub responsableClub) {
+		this.responsableClub = responsableClub;
 	}
 	
 	

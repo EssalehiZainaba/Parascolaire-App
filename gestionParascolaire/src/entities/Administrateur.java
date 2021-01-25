@@ -1,28 +1,18 @@
 package entities;
 
-import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="administrateur")
-public class Administrateur {
+@DiscriminatorValue("admin")
+public class Administrateur extends Utilisateur{
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_administrateur")
-	private int id;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
+	public Administrateur(int id, String login, String pwd) {
 		this.id = id;
+		this.login = login;
+		this.password = pwd;
 	}
-	
 	
 }
