@@ -1,14 +1,15 @@
 package entities;
 
 
+import java.util.Set;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
 
 
 @Entity
-@Table (name="etudiant")
 @DiscriminatorValue("etd")
 public class Etudiant extends Utilisateur{
 
@@ -19,7 +20,20 @@ public class Etudiant extends Utilisateur{
 	private String pays;
 	private String ville;
 	private String adresse;
+	@OneToMany(mappedBy="etd")
+	Set<Appartenance> appartenances;
 	
+	public Set<Appartenance> getAppartenances() {
+		return appartenances;
+	}
+
+	public void addAppartenances(Appartenance appartenance) {
+		this.appartenances.add(appartenance);
+	}
+	
+	public Etudiant () {
+		
+	}
 	public Etudiant(String login, String pwd) {
 		this.login = login;
 		this.password = pwd;

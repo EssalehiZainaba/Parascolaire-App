@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DaoActivite;
 import dao.DaoActiviteImpl;
+import dao.DaoAppartenance;
+import dao.DaoAppartenanceImpl;
 import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.DaoEtudiant;
@@ -17,6 +19,7 @@ import dao.DaoResponsableClub;
 import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
 import entities.Activite;
+import entities.Appartenance;
 import entities.Club;
 import entities.Etudiant;
 import entities.ResponsableClub;
@@ -43,10 +46,10 @@ public class PresentationServlet extends HttpServlet {
 		this.getServletContext().getRequestDispatcher("/presentation.jsp").forward(request, response);
 		
 		/*
-		 * TEST FOR ONETOONE AND MANYTOONE
+		 * TEST FOR ONETOONE AND MANYTOONE AND MANYTOMANY
 		 */
 		
-		/*
+		
 		ResponsableClub resp = new ResponsableClub("resp@club.test", "resppwd");
 		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
 		daoResp.add(resp);
@@ -72,7 +75,20 @@ public class PresentationServlet extends HttpServlet {
 		club = daoClub.find(1);
 		System.out.println("Activité's name = "+club.getActivites().get(0).getNom_activite());
 		 
-		*/
+		 
+		Etudiant etd = new Etudiant("test@test.test", "pwd");
+		DaoEtudiant daoEtd = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
+		daoEtd.add(etd);
+		
+		etd = daoEtd.find(2);
+		
+		Appartenance appar = new Appartenance();
+		appar.setEtd(daoEtd.find(2));
+		appar.setClub(daoClub.find(1));
+		appar.setDateAppartenance(null);
+		DaoAppartenance daoAppar = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());
+		daoAppar.add(appar);
+		
 		
 		
 		
