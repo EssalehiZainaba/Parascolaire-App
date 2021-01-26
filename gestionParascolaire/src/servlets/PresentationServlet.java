@@ -13,6 +13,8 @@ import dao.DaoAppartenance;
 import dao.DaoAppartenanceImpl;
 import dao.DaoClub;
 import dao.DaoClubImpl;
+import dao.DaoDemandeInscription;
+import dao.DaoDemandeInscriptionImpl;
 import dao.DaoEtudiant;
 import dao.DaoEtudiantImpl;
 import dao.DaoResponsableClub;
@@ -21,6 +23,7 @@ import dao.JPAUtil;
 import entities.Activite;
 import entities.Appartenance;
 import entities.Club;
+import entities.DemandeInscription;
 import entities.Etudiant;
 import entities.ResponsableClub;
 
@@ -88,6 +91,13 @@ public class PresentationServlet extends HttpServlet {
 		appar.setDateAppartenance(null);
 		DaoAppartenance daoAppar = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());
 		daoAppar.add(appar);
+		
+		DemandeInscription demande = new DemandeInscription();
+		demande.setEtudiant(daoEtd.find(2));
+		demande.setClub(daoClub.find(1));
+		demande.setDateDemande(null);
+		DaoDemandeInscription daoDemande = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
+		daoDemande.add(demande);
 		
 		
 		
