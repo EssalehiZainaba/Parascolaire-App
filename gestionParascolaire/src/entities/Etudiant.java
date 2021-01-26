@@ -1,11 +1,18 @@
 package entities;
 
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 
 
@@ -22,6 +29,10 @@ public class Etudiant extends Utilisateur{
 	private String adresse;
 	@OneToMany(mappedBy="etd")
 	Set<Appartenance> appartenances;
+	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JoinTable (name="participation", joinColumns=@JoinColumn(name="id_etudiant"), inverseJoinColumns=@JoinColumn(name="id_activite") )
+	List<Activite> activites;
 	
 	public Set<Appartenance> getAppartenances() {
 		return appartenances;
@@ -29,6 +40,14 @@ public class Etudiant extends Utilisateur{
 
 	public void addAppartenances(Appartenance appartenance) {
 		this.appartenances.add(appartenance);
+	}
+	
+	public List<Activite> getActivites() {
+		return activites;
+	}
+
+	public void addActivites(Activite activite) {
+		this.activites.add(activite);
 	}
 	
 	public Etudiant () {
@@ -60,6 +79,7 @@ public class Etudiant extends Utilisateur{
 	public String getAdresse() {
 		return adresse;
 	}
+	
 	
 	
 	public void setNom(String nom) {

@@ -5,6 +5,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 
 @Entity
 @Table(name = "club")
@@ -21,7 +24,8 @@ public class Club {
 	@JoinColumn(name = "id_responsable_club", referencedColumnName = "id_utilisateur")
 	private ResponsableClub responsableClub;
 	
-	@OneToMany(mappedBy="club", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="club")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	List<Activite> activites;
 	
 	@OneToMany(mappedBy="club")

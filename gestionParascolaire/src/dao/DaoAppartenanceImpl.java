@@ -9,7 +9,7 @@ import entities.AppartenanceKey;
 
 public class DaoAppartenanceImpl implements DaoAppartenance{
 	
-private EntityManagerFactory factory;
+	private EntityManagerFactory factory;
 	
 	public DaoAppartenanceImpl(EntityManagerFactory factory) {
 		this.factory = factory;
