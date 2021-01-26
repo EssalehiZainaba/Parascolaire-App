@@ -1,15 +1,19 @@
 package entities;
 
 import java.util.Date;
-
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 @Entity
 @Table
 public class Activite {
@@ -25,6 +29,9 @@ public class Activite {
 	@ManyToOne
 	@JoinColumn(name="id_club")
 	private Club club;
+	@ManyToMany(mappedBy="activites")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	List<Etudiant> etudiants;
 	
 	
 	public Activite() {}
@@ -40,6 +47,13 @@ public class Activite {
 	}
 
 
+	public List<Etudiant> getEtudiants() {
+		return etudiants;
+	}
+
+	public void addEtudiants(Etudiant etudiant) {
+		this.etudiants.add(etudiant);
+	}
 
 
 

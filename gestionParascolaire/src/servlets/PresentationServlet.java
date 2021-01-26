@@ -17,6 +17,8 @@ import dao.DaoDemandeInscription;
 import dao.DaoDemandeInscriptionImpl;
 import dao.DaoEtudiant;
 import dao.DaoEtudiantImpl;
+import dao.DaoParticipation;
+import dao.DaoParticipationImpl;
 import dao.DaoResponsableClub;
 import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
@@ -99,6 +101,13 @@ public class PresentationServlet extends HttpServlet {
 		DaoDemandeInscription daoDemande = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
 		daoDemande.add(demande);
 		
+		
+		DaoParticipation daoPart = new DaoParticipationImpl(JPAUtil.getEntityManagerFactory());
+		daoPart.participer(daoEtd.find(2), daoAct.find(1));
+		
+		System.out.println("Etudiant's activity's name = " + daoEtd.find(2).getActivites().get(0).getNom_activite());
+		System.out.println("Activity's etudiant's login = " + daoAct.find(1).getEtudiants().get(0).getLogin());
+
 		
 		
 		
