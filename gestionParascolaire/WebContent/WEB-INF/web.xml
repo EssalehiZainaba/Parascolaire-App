@@ -16,7 +16,9 @@
         </jsp-property-group>
     </jsp-config>
   <servlet>
-  	<servlet-name>presentation</servlet-name>
+  
+  
+  <servlet-name>presentation</servlet-name>
   	<servlet-class>servlets.PresentationServlet</servlet-class>
   </servlet>
   <servlet-mapping>
@@ -24,5 +26,14 @@
   	<url-pattern>/presentation</url-pattern>
   </servlet-mapping>
   
+  
+  <servlet>
+  	<servlet-name>respoClub</servlet-name>
+  	<servlet-class>servlets.respoClub</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>respoClub</servlet-name>
+  	<url-pattern>/respo</url-pattern>
+  </servlet-mapping>
   
 </web-app>

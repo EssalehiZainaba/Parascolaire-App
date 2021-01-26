@@ -33,6 +33,14 @@
         <artifactId>standard</artifactId>
         <version>1.1.2</version>
     </dependency>
+    
+    <!--for password fct -->
+    <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.4</version>
+</dependency>
+
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
