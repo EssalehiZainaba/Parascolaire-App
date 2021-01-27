@@ -78,7 +78,7 @@ public class PresentationServlet extends HttpServlet {
 		daoAct.add(activite);
 		
 		club = daoClub.find(1);
-		System.out.println("Activité's name = "+club.getActivites().get(0).getNom_activite());
+		System.out.println("Activité's name = "+club.getActivites().get(0).getNom());
 		 
 		 
 		Etudiant etd = new Etudiant("test@test.test", "pwd");
@@ -87,9 +87,7 @@ public class PresentationServlet extends HttpServlet {
 		
 		etd = daoEtd.find(2);
 		
-		Appartenance appar = new Appartenance();
-		appar.setEtd(daoEtd.find(2));
-		appar.setClub(daoClub.find(1));
+		Appartenance appar = new Appartenance(daoEtd.find(2), daoClub.find(1));
 		appar.setDateAppartenance(null);
 		DaoAppartenance daoAppar = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());
 		daoAppar.add(appar);
@@ -105,7 +103,7 @@ public class PresentationServlet extends HttpServlet {
 		DaoParticipation daoPart = new DaoParticipationImpl(JPAUtil.getEntityManagerFactory());
 		daoPart.participer(daoEtd.find(2), daoAct.find(1));
 		
-		System.out.println("Etudiant's activity's name = " + daoEtd.find(2).getActivites().get(0).getNom_activite());
+		System.out.println("Etudiant's activity's name = " + daoEtd.find(2).getActivites().get(0).getNom());
 		System.out.println("Activity's etudiant's login = " + daoAct.find(1).getEtudiants().get(0).getLogin());
 
 		

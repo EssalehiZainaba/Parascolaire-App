@@ -15,7 +15,6 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 
-
 @Entity
 @DiscriminatorValue("etd")
 public class Etudiant extends Utilisateur{
@@ -27,36 +26,24 @@ public class Etudiant extends Utilisateur{
 	private String pays;
 	private String ville;
 	private String adresse;
+	
 	@OneToMany(mappedBy="etd")
 	Set<Appartenance> appartenances;
+	
 	@ManyToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable (name="participation", joinColumns=@JoinColumn(name="id_etudiant"), inverseJoinColumns=@JoinColumn(name="id_activite") )
 	List<Activite> activites;
 	
-	public Set<Appartenance> getAppartenances() {
-		return appartenances;
-	}
-
-	public void addAppartenances(Appartenance appartenance) {
-		this.appartenances.add(appartenance);
-	}
 	
-	public List<Activite> getActivites() {
-		return activites;
-	}
-
-	public void addActivites(Activite activite) {
-		this.activites.add(activite);
-	}
 	
-	public Etudiant () {
-		
-	}
+	public Etudiant () {}
 	public Etudiant(String login, String pwd) {
 		this.login = login;
 		this.password = pwd;
 	}
+	
+	
 	
 	public String getNom() {
 		return nom;
@@ -102,5 +89,21 @@ public class Etudiant extends Utilisateur{
 	}
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
+	}
+	
+	
+	
+	public Set<Appartenance> getAppartenances() {
+		return appartenances;
+	}
+	public void addAppartenances(Appartenance appartenance) {
+		this.appartenances.add(appartenance);
+	}
+	
+	public List<Activite> getActivites() {
+		return activites;
+	}
+	public void addActivites(Activite activite) {
+		this.activites.add(activite);
 	}
 }

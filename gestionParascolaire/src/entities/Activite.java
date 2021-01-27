@@ -14,88 +14,84 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+
+
 @Entity
 @Table
 public class Activite {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private boolean is_private;
-	private String nom_activite;
-	private Date date_activite;
-	private String lieu_activite;
+	
+	private boolean privatee;
+	private String nom;
+	private Date date;
+	private String lieu;
 	private String description;
 	
 	@ManyToOne
 	@JoinColumn(name="id_club")
 	private Club club;
+	
 	@ManyToMany(mappedBy="activites")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	List<Etudiant> etudiants;
 	
 	
-	public Activite() {}
 	
-
-	public Activite(boolean is_private, String nom_activite, Date date_activite, String lieu_activite,
-			String description) {
-		this.is_private = is_private;
-		this.nom_activite = nom_activite;
-		this.date_activite = date_activite;
-		this.lieu_activite = lieu_activite;
+	public Activite() {}
+	public Activite(boolean privatee, String nom, Date date, String lieu, String description) {
+		this.privatee = privatee;
+		this.nom = nom;
+		this.date = date;
+		this.lieu = lieu;
 		this.description = description;
 	}
 
 
-	public List<Etudiant> getEtudiants() {
-		return etudiants;
-	}
-
-	public void addEtudiants(Etudiant etudiant) {
-		this.etudiants.add(etudiant);
-	}
-
-
-
-
+	
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public boolean isPrivatee() {
+		return privatee;
 	}
-	public boolean isIs_private() {
-		return is_private;
+	public String getNom() {
+		return nom;
 	}
-	public void setIs_private(boolean is_private) {
-		this.is_private = is_private;
+	public Date getDate() {
+		return date;
 	}
-	public String getNom_activite() {
-		return nom_activite;
-	}
-	public void setNom_activite(String nom_activite) {
-		this.nom_activite = nom_activite;
-	}
-	public Date getDate_activite() {
-		return date_activite;
-	}
-	public void setDate_activite(Date date_activite) {
-		this.date_activite = date_activite;
-	}
-	public String getLieu_activite() {
-		return lieu_activite;
-	}
-	public void setLieu_activite(String lieu_activite) {
-		this.lieu_activite = lieu_activite;
+	public String getLieu() {
+		return lieu;
 	}
 	public String getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	public Club getClub() {
 		return club;
+	}
+
+
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setprivatee(boolean privatee) {
+		this.privatee = privatee;
+	}
+	public void setNom_activite(String nom) {
+		this.nom = nom;
+	}
+	public void setDate_activite(Date date) {
+		this.date = date;
+	}
+	public void setLieu_activite(String lieu) {
+		this.lieu = lieu;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public void setClub(Club club) {
 		this.club = club;
@@ -103,7 +99,11 @@ public class Activite {
 	
 	
 	
-	
-	
+	public List<Etudiant> getEtudiants() {
+		return etudiants;
+	}
+	public void addEtudiants(Etudiant etudiant) {
+		this.etudiants.add(etudiant);
+	}
 
 }

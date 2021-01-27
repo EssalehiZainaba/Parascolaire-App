@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="demande_inscription")
 public class DemandeInscription {
@@ -35,15 +36,12 @@ public class DemandeInscription {
 	public AppartenanceKey getId() {
 		return id;
 	}
-
 	public Etudiant getEtudiant() {
 		return etudiant;
 	}
-
 	public Club getClub() {
 		return club;
 	}
-
 	public Date getDateDemande() {
 		return dateDemande;
 	}
@@ -53,15 +51,12 @@ public class DemandeInscription {
 	public void setId(AppartenanceKey id) {
 		this.id = id;
 	}
-
 	public void setEtudiant(Etudiant etudiant) {
 		this.etudiant = etudiant;
 	}
-
 	public void setClub(Club club) {
 		this.club = club;
 	}
-
 	public void setDateDemande(Date dateDemande) {
 		this.dateDemande = dateDemande;
 	}
