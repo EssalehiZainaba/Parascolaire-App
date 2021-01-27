@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 
+
 @Entity
 @DiscriminatorValue("resp")
 public class ResponsableClub extends Utilisateur{
@@ -10,9 +11,8 @@ public class ResponsableClub extends Utilisateur{
 	Club club;
 	
 	
+	
 	public ResponsableClub() {}
-	
-	
 	public ResponsableClub(String login, String pwd) {
 		this.login = login;
 		this.password = pwd;
@@ -22,18 +22,15 @@ public class ResponsableClub extends Utilisateur{
 	public int getId() {
 		return id;
 	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
 	public Club getClub() {
 		return club;
 	}
 
-
+	
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 	public void setClub(Club club) {
 		this.club = club;
 	}

@@ -8,5 +8,4 @@ public interface DaoActivite {
 	Activite find(int id);
 	void delete(int id);
 	
-
 }

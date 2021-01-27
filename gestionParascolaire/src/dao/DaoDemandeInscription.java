@@ -7,4 +7,5 @@ public interface DaoDemandeInscription {
 
 	void add(DemandeInscription demande);
 	DemandeInscription find(AppartenanceKey key);
+	
 }

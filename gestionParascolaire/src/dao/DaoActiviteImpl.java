@@ -2,6 +2,7 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 import entities.Activite;
 
@@ -13,62 +14,59 @@ public class DaoActiviteImpl implements DaoActivite{
 		this.factory = factory;
 	}
 
+	
+	
 	@Override
 	public void add(Activite activite) {
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			entityManager.persist(activite);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			tx.begin();
+			em.persist(activite);
+			tx.commit();
+		} catch(Exception e) {
 			e.printStackTrace();
-		}
-		finally {
-			entityManager.close();
-		}
-		
-		
+			tx.rollback();
+		} finally {
+			em.close();
+		}	
 	}
-
+	
+	
+	
 	@Override
 	public Activite find(int id) {
-		EntityManager entityManager = factory.createEntityManager();
-		Activite activite = new Activite();
-		entityManager.getTransaction().begin();
+		Activite activite = null;
+		EntityManager em = factory.createEntityManager();
 		try {
-			activite = entityManager.find(Activite.class, id );
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			activite = em.find(Activite.class, id );
+		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
-		}
-		
 		return activite;
 	}
 
+	
+	
 	@Override
 	public void delete(int id) {
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			Activite activite = entityManager.find(Activite.class, id );
-			entityManager.remove(activite);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			tx.begin();
+			Activite activite = em.find(Activite.class, id );
+			em.remove(activite);
+			tx.commit();
+		} catch(Exception e) {
 			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
-		}
-		
 	}
 
+	
+	
 }

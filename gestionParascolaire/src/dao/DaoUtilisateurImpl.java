@@ -2,6 +2,8 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+
 import entities.Utilisateur;
 
 public class DaoUtilisateurImpl implements DaoUtilisateur {
@@ -9,70 +11,61 @@ public class DaoUtilisateurImpl implements DaoUtilisateur {
     private EntityManagerFactory factory;
 
     public DaoUtilisateurImpl(EntityManagerFactory factory) {
-	
-	   this.factory = factory;
+    	this.factory = factory;
     }
+    
+    
     
     @Override
     public void add(Utilisateur utilisateur) {
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			entityManager.persist(utilisateur);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			tx.begin();
+			em.persist(utilisateur);
+			tx.commit();
+		} catch(Exception e) {
 			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
-		}
-		
-		
 	}
 
+    
+    
 	@Override
 	public Utilisateur find(int id) {
-		EntityManager entityManager = factory.createEntityManager();
-		Utilisateur utilisateur = new Utilisateur();
-		entityManager.getTransaction().begin();
+		Utilisateur utilisateur = null;
+		EntityManager em = factory.createEntityManager();
 		try {
-			utilisateur = entityManager.find(Utilisateur.class, id );
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			utilisateur = em.find(Utilisateur.class, id );
+		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
-		}
-		
 		return utilisateur;
 	}
 
+	
+	
 	@Override
 	public void delete(int id) {
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			Utilisateur utilisateur = entityManager.find(Utilisateur.class, id );
-			entityManager.remove(utilisateur);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			Utilisateur utilisateur = em.find(Utilisateur.class, id);
+			em.remove(utilisateur);
+			tx.commit();
+		} catch(Exception e) {
 			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
-		}
-		
 	}
 	
-	
-
 	
 	
 }
