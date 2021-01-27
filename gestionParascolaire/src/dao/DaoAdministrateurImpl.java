@@ -15,20 +15,21 @@ public class DaoAdministrateurImpl implements DaoAdministrateur{
 	}
 	
 	
+	
 	@Override
 	public Administrateur find(int id) {
 		Administrateur admin = null;
 		EntityManager em = factory.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
 		try {
-			tx.begin();
 			admin = em.find(Administrateur.class, id);
-			em.getTransaction().commit();
 		} catch(Exception e) {
-			tx.rollback();
+			e.printStackTrace();
 		} finally {
 			em.close();
 		}
 		return admin;
 	}
+	
+	
+	
 }

@@ -14,22 +14,41 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 		this.factory = factory;
 	}
 	
+	
+	
 	@Override
-	public Etudiant find(int id) {
-		Etudiant etd = null;
+	public void add(Etudiant etd) {
 		EntityManager em = factory.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		try {
 			tx.begin();
-			etd = em.find(Etudiant.class, id);
-			em.getTransaction().commit();
+			em.persist(etd);
+			tx.commit();
 		} catch(Exception e) {
+			e.printStackTrace();
 			tx.rollback();
+		} finally {
+			em.close();
+		}
+	}
+	
+	
+	
+	@Override
+	public Etudiant find(int id) {
+		Etudiant etd = null;
+		EntityManager em = factory.createEntityManager();
+		try {
+			etd = em.find(Etudiant.class, id);
+		} catch(Exception e) {
+			e.printStackTrace();
 		} finally {
 			em.close();
 		}
 		return etd;
 	}
+	
+	
 	
 	@Override
 	public void update(Etudiant etd) {
@@ -45,22 +64,25 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 			em.close();
 		}
 	}
-	
+
+
+
 	@Override
-	public void add(Etudiant etd) {
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
+	public void delete(int id) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			entityManager.persist(etd);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			Etudiant etudiant = em.find(Etudiant.class, id);
+			em.remove(etudiant);
+			tx.commit();
+		} catch(Exception e) {
 			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
-		}
-		
 	}
+	
+	
+
 }

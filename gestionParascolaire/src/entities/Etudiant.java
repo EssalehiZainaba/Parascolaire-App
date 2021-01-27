@@ -27,7 +27,7 @@ public class Etudiant extends Utilisateur{
 	private String ville;
 	private String adresse;
 	
-	@OneToMany(mappedBy="etd")
+	@OneToMany(mappedBy="etudiant")
 	Set<Appartenance> appartenances;
 	
 	@ManyToMany

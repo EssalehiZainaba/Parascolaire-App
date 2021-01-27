@@ -16,44 +16,37 @@ public class DaoAppartenanceImpl implements DaoAppartenance{
 	}
 	
 	
+	
 	@Override
 	public Appartenance find(AppartenanceKey id) {
 		Appartenance appar = null;
 		EntityManager em = factory.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
 		try {
-			tx.begin();
 			appar = em.find(Appartenance.class, id);
-			em.getTransaction().commit();
 		} catch(Exception e) {
-			tx.rollback();
+			e.printStackTrace();
 		} finally {
 			em.close();
 		}
 		return appar;
 	}
 
+	
 
 	@Override
 	public void add(Appartenance appar) {
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			/*AppartenanceKey apparKey = new AppartenanceKey();
-			apparKey.setIdClub(appar.getClub().getId());
-			apparKey.setIdEtudiant(appar.getEtd().getId());
-			appar.setId(apparKey);*/
-			entityManager.merge(appar);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
+			tx.begin();
+			em.merge(appar);
+			tx.commit();
+		} catch(Exception e) {
 			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
-		}
-		
 	}
 
 

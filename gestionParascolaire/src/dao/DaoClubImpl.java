@@ -3,7 +3,7 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-
+import javax.persistence.EntityTransaction;
 
 import entities.Club;
 
@@ -15,70 +15,66 @@ public class DaoClubImpl implements DaoClub{
 		this.factory = factory;
 	}
 	
-	public Club find(int id)
-	{
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
-		Club club=new Club();
+	
+	
+	@Override
+	public void add(Club club) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			club = entityManager.find(Club.class,id);
-			entityManager.getTransaction().commit();
-			
-		}
-		catch(Exception e)
-		{
+			tx.begin();
+			em.persist(club);
+			tx.commit();
+		} catch(Exception e) {
 			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
 		}
-		finally {
-			entityManager.close();
+	}
+	
+	
+	
+	@Override
+	public Club find(int id) {
+		Club club = null;
+		EntityManager em = factory.createEntityManager();
+		try {
+			club = em.find(Club.class,id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
 		}
 		return club;
 	}
 	
-	public void add(Club club)
-	{
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
-		try {
-			entityManager.persist(club);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		finally {
-			entityManager.close();
-		}
-		
+	
+	
+	@Override
+	public void update() {
 		
 	}
 	
-	public void update()
-	{
-		
-	}
 	
-	public void delete(int id)
-	{
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
+	
+	@Override
+	public void delete(int id) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		try {
-			Club club = entityManager.find(Club.class,id);
-			entityManager.remove(club);
-			entityManager.getTransaction().commit();
-		}
-		catch( Exception e)
-		{
-			
+			tx.begin();
+			Club club = em.find(Club.class,id);
+			em.remove(club);
+			tx.commit();
+		} catch( Exception e) {
 			e.printStackTrace();
-		}
-		finally {
-			entityManager.close();
-		}
-		
-		
-		
+			tx.rollback();
+		} finally {
+			em.close();
+		}	
 	}
 
+	
+	
 }
