@@ -18,7 +18,7 @@
     width: 85%;
 }
 
-#profile {
+#profil {
     background-color: rgba(19, 18, 18);
     color: #bcb6ae;
     height: 400px;
@@ -32,12 +32,12 @@
     box-shadow: 5px 4px 10px 1px rgba(3, 3, 3, 0.897);
 }
 
-#profile h1{
+#profil h1{
     color:#bcb6ae;
     text-transform: uppercase;
 }
 
-#profile .row{
+#profil .row{
     width: 80%;
     height: 50px;
     display: flex;
@@ -47,7 +47,7 @@
     font-weight: bold;
 }
 
-#profile .row div{
+#profil .row div{
     width:50%;
     height: 100%;
     text-align: center;
@@ -57,7 +57,7 @@
     
 }
 
-#profile span{
+#profil span{
   color: rgb(226, 159, 71);
     font-size: 20px;
     font-weight: lighter;
@@ -111,7 +111,7 @@ button:hover{
     justify-content: space-between;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out 0.4s;
 }
 
 #formulaire input{
