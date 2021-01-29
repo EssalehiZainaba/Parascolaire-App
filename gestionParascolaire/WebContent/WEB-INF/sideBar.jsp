@@ -7,17 +7,17 @@
             <li class="menu">
 
                 <a class="button link">
-                    <i class="fas fa-caret-right"></i>
+                    <i class="fas fa-caret-right rotated"></i>
                     &nbsp&nbspActivités Publiques
                 </a>
 
-                <ul class="sub-menu">
+                <ul class="sub-menu open">
 
-                    <li><a class="element act-pub" href="">Tout les clubs</a></li>
+                    <li><a class="element act-pub openn" href="">Tout les clubs</a></li>
 
                     <li>
 
-                        <a class="button link element act-pub" href="#">
+                        <a class="button link element act-pub openn" href="#">
                             <i class="fas fa-caret-right"></i>
                             &nbsp&nbspMes clubs
                         </a>
@@ -33,7 +33,7 @@
 
                     <li>
 
-                        <a class="button link element act-pub" href="#">
+                        <a class="button link element act-pub openn" href="#">
                             <i class="fas fa-caret-right"></i>
                             &nbsp&nbspAutres clubs
                         </a>
@@ -54,14 +54,15 @@
             <li class="menu">
 
                 <a class="button link">
-                    <i class="fas fa-caret-right"></i>
+                    <i class="fas fa-caret-right rotated"></i>
                     &nbsp&nbspActivités Privées
                 </a>
 
-                <ul class="sub-menu">
-                    <li><a class="element act-prv" href="#">Social</a></li>
-                    <li><a class="element act-prv" href="#">Apps Club</a></li>
-                    <li><a class="element act-prv" href="#">ENACTUS</a></li>
+                <ul class="sub-menu open">
+                	<li><a class="element act-prv openn" href="#">Tous</a></li>
+                    <li><a class="element act-prv openn" href="#">Social</a></li>
+                    <li><a class="element act-prv openn" href="#">Apps Club</a></li>
+                    <li><a class="element act-prv openn" href="#">ENACTUS</a></li>
                 </ul>
 
             </li>
