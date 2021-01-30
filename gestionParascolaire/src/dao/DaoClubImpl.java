@@ -1,9 +1,15 @@
 package dao;
 
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+
 
 import entities.Club;
 
@@ -75,6 +81,15 @@ public class DaoClubImpl implements DaoClub{
 		}	
 	}
 
-	
-	
+    @Override
+    @SuppressWarnings("unchecked")
+	public List<Club> lister() {
+
+		EntityManager em = factory.createEntityManager();
+		em.getTransaction();
+		List<Club> clubs =  (List<Club>) em.createQuery( "SELECT u FROM Club u ").getResultList();
+	     em.close();
+	     return clubs;
+    	
+	}
 }

@@ -73,12 +73,12 @@ public class PresentationServlet extends HttpServlet {
 		
 		Activite activite = new Activite();
 		activite.setClub(club);
-		activite.setNom_activite("réunion project JEE");
+		activite.setNom_activite("rï¿½union project JEE");
 		DaoActivite daoAct = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
 		daoAct.add(activite);
 		
 		club = daoClub.find(1);
-		System.out.println("Activité's name = "+club.getActivites().get(0).getNom());
+		System.out.println("Activitï¿½'s name = "+club.getActivites().get(0).getNom());
 		 
 		 
 		Etudiant etd = new Etudiant("test@test.test", "pwd");
@@ -118,7 +118,7 @@ public class PresentationServlet extends HttpServlet {
 		/*
 		Etudiant etd = new Etudiant("etd@login.test", "etdpwd");
 		DaoEtudiant daoEtd = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
-		daoEtd.add(etd);;
+		daoEtd.add(etd);
 
 		ResponsableClub resp = new ResponsableClub();
 		resp.setLogin("resp@club.test");
