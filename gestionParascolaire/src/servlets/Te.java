@@ -22,7 +22,7 @@ public class Te {
 		d.delete(1);*/
 		
 		
-		test.sendMail("KKKKKKKK@gmail.com"); //you can also put your email here for test
+		//test.sendMail("KKKKKKKK@gmail.com"); //you can also put your email here for test
 		
 		
 	}

@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import entities.Club;
 
 public interface DaoClub {
@@ -8,5 +10,6 @@ public interface DaoClub {
 	Club find(int id);
 	void update();
 	void delete(int id);
+	List<Club> lister();
 
 }
