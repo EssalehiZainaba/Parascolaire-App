@@ -1,8 +1,17 @@
 package services;
 
+
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Properties;
 
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -29,7 +38,6 @@ public class CreerClubForm {
 
 	 public HashMap<String,String> Erreur = new HashMap<String, String>();
 		
-	 public String resultat;
 	 
 	 DaoClub daoClub;
 	 
@@ -40,12 +48,6 @@ public class CreerClubForm {
 		   
 	   }
 
-	  public String getResultat()
-	   {
-		   
-		   return resultat;
-		   
-	   }
 	  
 	  public CreerClubForm(DaoClub daoClub)
 	  {
@@ -94,10 +96,32 @@ public class CreerClubForm {
 		
 	 public  String password()
 		{
-		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@$&*?";
 		String password = RandomStringUtils.random( 15, characters );
 		return password;
 		}
+	 
+	 
+	 public String passwordHashing(String password) 
+	 {
+		 String saltString = "this is a salt";
+		 byte[] salt = saltString.getBytes();
+		 
+		 KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+		 try {
+
+			 SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+			 byte[] hash = factory.generateSecret(spec).getEncoded();
+			 
+			 return Base64.getEncoder().encodeToString(hash);
+			 
+		 }catch(NoSuchAlgorithmException | InvalidKeySpecException e)
+		 {
+			e.printStackTrace(); 
+			 return null;
+		 }
+		
+	 }
 	  
 	 
 	 public static void sendMail(String recepient, String login, String Password, String name) throws Exception
@@ -120,8 +144,6 @@ public class CreerClubForm {
 		    	
 			});
 		    
-		    //Message message = prepareMessage(session, myAccountEmail, recepient);
-		    
 		  
 		    Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(myAccountEmail));
@@ -133,26 +155,7 @@ public class CreerClubForm {
 		    Transport.send(message);   	
 		    
 		}
-		
-	
-	/*private static Message prepareMessage(Session session, String myAccountEmail, String recepient) {
-			try {
-				
-				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(myAccountEmail));
-				message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-				message.setSubject("Votre compte du plateforme Gestion Parascolaire Ensaa");
-				message.setText("");
-				return message;
-			}catch(Exception e)
-			{
-				System.out.print("error sending mssg");
-			}		
-			return null;
-		}*/
-
-	 
-	 
+ 
 	 
  public Club creerClub(HttpServletRequest request) 
 {
@@ -187,12 +190,13 @@ public class CreerClubForm {
 	 
 	 if ( getErreur().isEmpty() ) {
 		
-		ResponsableClub resp = new ResponsableClub(Login(name), password());
+		String password = password();
+		
+		ResponsableClub resp = new ResponsableClub(Login(name), passwordHashing(password));
 		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
 		daoResp.add(resp);
 		resp = daoResp.find(resp.getId());
 		
-	    //DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory()); 
 		club.setName(name); 
 		club.setDescription("desc");
 		club.setParagraphe("parag");
@@ -201,17 +205,14 @@ public class CreerClubForm {
 		daoClub.add(club);
 		
 		try {
-			sendMail(email,Login(name),password(),name);
+			sendMail(email, Login(name), password, name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		 
-	   resultat="Ajout club avec succes.";
+
        
      } else {
-    	 club = null;
-    	 
-     	resultat="echec d'ajout club.";
+    	 club = null; 	
         	        }
 	 
 		return club;
