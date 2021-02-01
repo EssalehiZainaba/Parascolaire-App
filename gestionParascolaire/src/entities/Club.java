@@ -19,8 +19,14 @@ public class Club {
 	private int id;
 	
 	private String name;
+	@Column(columnDefinition="TEXT")
 	private String description;
+	@Column(columnDefinition="TEXT")
 	private String paragraphe;
+	private String logoPath;
+	private String img1Path;
+	private String img2Path;
+	private String img3Path;
 	
 	@OneToOne
 	@JoinColumn(name = "id_responsable_club", referencedColumnName = "id_utilisateur")
@@ -78,9 +84,34 @@ public class Club {
 	public void setResponsableClub(ResponsableClub responsableClub) {
 		this.responsableClub = responsableClub;
 	}
+	
 
 	
 	
+	public String getLogoPath() {
+		return logoPath;
+	}
+	public void setLogoPath(String logoPath) {
+		this.logoPath = logoPath;
+	}
+	public String getImg1Path() {
+		return img1Path;
+	}
+	public void setImg1Path(String img1Path) {
+		this.img1Path = img1Path;
+	}
+	public String getImg2Path() {
+		return img2Path;
+	}
+	public void setImg2Path(String img2Path) {
+		this.img2Path = img2Path;
+	}
+	public String getImg3Path() {
+		return img3Path;
+	}
+	public void setImg3Path(String img3Path) {
+		this.img3Path = img3Path;
+	}
 	public List<Activite> getActivites() {
 		return activites;
 	}

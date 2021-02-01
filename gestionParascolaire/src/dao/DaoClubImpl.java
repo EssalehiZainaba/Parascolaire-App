@@ -58,8 +58,19 @@ public class DaoClubImpl implements DaoClub{
 	
 	
 	@Override
-	public void update() {
-		
+	public void update(Club club) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		try {
+			tx.begin();
+			em.merge(club);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
+		}
 	}
 	
 	
