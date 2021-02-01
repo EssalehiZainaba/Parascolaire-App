@@ -58,7 +58,10 @@ public class CreationActivite extends HttpServlet {
 		else
 			System.out.println("good brother");*/
 		
-		Boolean test = Boolean.parseBoolean(request.getParameter("privatee"));
+		String testNom = request.getParameter("nom");
+		System.out.println(testNom);
+		
+		Boolean test = Boolean.parseBoolean(request.getParameter("privee"));
 		System.out.println(test);
 		
 		}
