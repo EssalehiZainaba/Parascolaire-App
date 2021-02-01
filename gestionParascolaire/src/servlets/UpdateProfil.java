@@ -20,13 +20,13 @@ import services.UpdateProfilForm;
 @WebServlet("/UpdateProfil")
 public class UpdateProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private DaoEtudiant daoEtudiant;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public UpdateProfil() {
-        super();
-        // TODO Auto-generated constructor stub
+    	daoEtudiant = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
     }
 
 	/**
@@ -45,7 +45,6 @@ public class UpdateProfil extends HttpServlet {
 		etd.setPays("Ait Iyaza");
 		etd.setVille("Morocco");
 		
-		DaoEtudiant daoEtudiant = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
 		daoEtudiant.add(etd);
 		etd = daoEtudiant.find(1);		
 		HttpSession session = request.getSession();
@@ -61,7 +60,6 @@ public class UpdateProfil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		DaoEtudiant daoEtudiant = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
 		HttpSession session = request.getSession();
 		int id = ((Etudiant)session.getAttribute("etd")).getId();
 		

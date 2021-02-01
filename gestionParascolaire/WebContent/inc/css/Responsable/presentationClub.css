@@ -27,7 +27,7 @@
     justify-content: space-around;
 }
 
-#paragraphe,#description{
+label{
     font-size: 20px;
     color:rgb(240, 176, 92,0.8); 
     background-color: rgb(26, 24, 24);
@@ -71,7 +71,7 @@
     font-weight: bold;
 }
 
-#presentationForm textarea{
+#presentationForm textarea,#presentationForm input{
     width: 60%;
     height: 60px;
     border: none;
@@ -84,13 +84,27 @@
     font-size: 18px;
 }
 
-#presentationForm textarea:focus {
+#presentationForm textarea:focus ,#presentationForm input:focus{
     border-bottom:  solid rgb(37, 39, 39) 3px ;
 }
 
 #presentationForm input[type="file"] {
     display: none;
 }
+
+.radio{
+	display:flex;
+	justify-content: space-around;
+	width:100%;
+	margin-top: 50px;
+    
+}
+.radio div{
+	width:auto;
+	display;inline-block;
+}
+
+
 
 button{
     width: 120px;

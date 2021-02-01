@@ -8,8 +8,12 @@
 	<link rel="stylesheet" href="./inc/css/sideBar.css">
 	<link rel="stylesheet" href="./inc/css/Responsable/presentationClub.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
+ 	
 </head>
 <body>
+	<jsp:useBean id= "pm" class="services.PresentationManager" scope="request" />        
+
+	<jsp:setProperty name="pm" property="*" />
 
     <%@ include file="../header.jsp" %>
 	
@@ -17,15 +21,17 @@
 	
    <div id="container">
    
- 		  <form id="presentationForm">
+ 		  <form id="presentationForm" method="post" action="ajouterPresentation" enctype="multipart/form-data">
 	
 	            <div class="text">
 	                <label id="description">Description :</label>
 	                <textarea name="description"></textarea>
+	                <span class="erreur" style="color:red">${pm.getErreurs()["description"]}</span>
 	            </div>
 	            <div class="text">
 	                <label id="paragraphe">Paragraphe :</label>
-	                <textarea name="paragraphe"></textarea> 
+	                <textarea name="paragraphe"></textarea>
+	                <span class="erreur" style="color:red">${pm.getErreurs()["paragraphe"]} </span> 
 	            </div>
 	            <div>       
 	                <label class="logo images" for="logo">
@@ -33,6 +39,7 @@
 	                    ajouter logo
 	                </label>
 	                <input type="file" id="logo" name="logo" accept="image/*">
+	                <span class="erreur" style="color:red">${pm.getErreurs()["logo"]} </span>
 	            </div>
 	            <div>
 	                <label class="images" for="image1">
@@ -40,6 +47,7 @@
 	                    ajouter 1ere image
 	                </label>  
 	                <input type="file" id="image1" name="image1" accept="image/*">
+	                <span class="erreur" style="color:red">${pm.getErreurs()["image1"]} </span>
 	            </div>
 	            <div>
 	                <label class="images" for="image2">
@@ -47,6 +55,7 @@
 	                    ajouter 2eme image
 	                </label>
 	                <input type="file" id="image2" name="image2" accept="image/*">
+	                <span class="erreur" style="color:red">${pm.getErreurs()["image2"]} </span>
 	            </div>
 	            <div>
 	                <label class="images" for="image3">
@@ -54,6 +63,7 @@
 	                    ajouter 3eme image
 	                </label>
 	                <input type="file" id="image3" name="image3" accept="image/*">
+	                <span class="erreur" style="color:red">${pm.getErreurs()["image3"]} </span>
 	            </div>
 	
 	            <button type="submit">Créer</button> 

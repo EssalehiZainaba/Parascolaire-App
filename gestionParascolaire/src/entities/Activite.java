@@ -29,6 +29,7 @@ public class Activite {
 	private Date date;
 	private String lieu;
 	private String description;
+	private String imagePath;
 	
 	@ManyToOne
 	@JoinColumn(name="id_club")
@@ -105,5 +106,13 @@ public class Activite {
 	public void addEtudiants(Etudiant etudiant) {
 		this.etudiants.add(etudiant);
 	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+	
+	
 
 }
