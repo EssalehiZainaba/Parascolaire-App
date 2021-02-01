@@ -25,7 +25,7 @@ public class ActiviteManager {
 	final static String CHAMP_DATE="date";
 	final static String CHAMP_LIEU="lieu";
 	final static String CHAMP_IMAGE="image";
-	final static String CHAMP_PRIVATEE="privatee";
+	final static String CHAMP_PRIVEE="privee";
 	
 	
 	
@@ -59,7 +59,7 @@ public class ActiviteManager {
 		String nom = request.getParameter(CHAMP_NOM);
 		String description = request.getParameter(CHAMP_DESCRIPTION);
 		String lieu = request.getParameter(CHAMP_LIEU);
-		boolean privatee = Boolean.parseBoolean(request.getParameter(CHAMP_PRIVATEE));
+		boolean privee = Boolean.parseBoolean(request.getParameter(CHAMP_PRIVEE));
 		
 		try {
 			date=new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("date"));
@@ -104,10 +104,10 @@ public class ActiviteManager {
 		}
 		
 		try {
-			this.booleanValidation(privatee);
+			this.booleanValidation(privee);
 		}
 		catch(Exception e){
-			erreurs.put(CHAMP_PRIVATEE, e.getMessage());
+			erreurs.put(CHAMP_PRIVEE, e.getMessage());
 		}
 		
 		if(erreurs.isEmpty())
@@ -120,7 +120,7 @@ public class ActiviteManager {
 			activite.setDescription(description);
 			activite.setLieu_activite(lieu);
 			activite.setDate_activite(date);
-			activite.setprivatee(privatee);
+			activite.setPrivee(privee);
 			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
 			
 			daoActivite.add(activite);
@@ -159,10 +159,10 @@ public class ActiviteManager {
 			throw new Exception("merci de saisir la date");
 	}
 	
-	private void booleanValidation(Boolean privatee) throws Exception
+	private void booleanValidation(Boolean privee) throws Exception
 	{
 		
-		if(privatee == null)
+		if(privee == null)
 			throw new Exception("merci de selectionner une option");
 	}
 
