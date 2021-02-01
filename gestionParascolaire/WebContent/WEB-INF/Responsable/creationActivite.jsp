@@ -45,9 +45,9 @@
 	            </div>
 	            <div class="radio ">
 	            	<label>privé/public</label>
-	            	<div><label>Privé</label><input type="radio" name="privatee" value="true"></div>
-	            	<div><label>Public</label><input type="radio" name="privatee" value="false"></div>
-	            	<span class="erreur" style="color:red">${am.getErreurs()["privatee"]}</span>
+	            	<div><label>Privé</label><input type="radio" name="privee" value="true"></div>
+	            	<div><label>Public</label><input type="radio" name="privee" value="false"></div>
+	            	<span class="erreur" style="color:red">${am.getErreurs()["privee"]}</span>
 	            </div>
 	            <div>
 	                <label class="images" for="image">

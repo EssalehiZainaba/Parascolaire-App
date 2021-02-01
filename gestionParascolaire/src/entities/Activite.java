@@ -24,7 +24,7 @@ public class Activite {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private boolean privatee;
+	private boolean privee;
 	private String nom;
 	private Date date;
 	private String lieu;
@@ -42,8 +42,8 @@ public class Activite {
 	
 	
 	public Activite() {}
-	public Activite(boolean privatee, String nom, Date date, String lieu, String description) {
-		this.privatee = privatee;
+	public Activite(boolean privee, String nom, Date date, String lieu, String description) {
+		this.privee = privee;
 		this.nom = nom;
 		this.date = date;
 		this.lieu = lieu;
@@ -55,8 +55,8 @@ public class Activite {
 	public int getId() {
 		return id;
 	}
-	public boolean isPrivatee() {
-		return privatee;
+	public boolean isPrivee() {
+		return privee;
 	}
 	public String getNom() {
 		return nom;
@@ -79,8 +79,8 @@ public class Activite {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setprivatee(boolean privatee) {
-		this.privatee = privatee;
+	public void setPrivee(boolean privee) {
+		this.privee = privee;
 	}
 	public void setNom_activite(String nom) {
 		this.nom = nom;
