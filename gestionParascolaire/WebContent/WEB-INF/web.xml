@@ -37,6 +37,15 @@
   </servlet-mapping>
   
   <servlet>
+  <servlet-name>ListeClubs</servlet-name>
+  	<servlet-class>servlets.ListeClubs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ListeClubs</servlet-name>
+  	<url-pattern>/ListeClub</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>SupprimerClub</servlet-name>
   	<servlet-class>servlets.SupprimerClub</servlet-class>
   </servlet>

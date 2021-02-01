@@ -29,8 +29,7 @@ public class CreerClubForm {
 
 	 public HashMap<String,String> Erreur = new HashMap<String, String>();
 		
-	 public String resultat;
-	 
+
 	 DaoClub daoClub;
 	 
 	 public HashMap<String,String> getErreur()
@@ -40,12 +39,6 @@ public class CreerClubForm {
 		   
 	   }
 
-	  public String getResultat()
-	   {
-		   
-		   return resultat;
-		   
-	   }
 	  
 	  public CreerClubForm(DaoClub daoClub)
 	  {
@@ -68,7 +61,7 @@ public class CreerClubForm {
 				{
 					if( daoClub.lister().get(i).getName().equals(name))
 					{
-						throw new Exception( "ce nom existe deja." );
+						throw new Exception( "ce de club nom existe deja." );
 					}
 				
 				}
@@ -94,7 +87,7 @@ public class CreerClubForm {
 		
 	 public  String password()
 		{
-		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*?";
 		String password = RandomStringUtils.random( 15, characters );
 		return password;
 		}
@@ -119,39 +112,20 @@ public class CreerClubForm {
 		    	}
 		    	
 			});
-		    
-		    //Message message = prepareMessage(session, myAccountEmail, recepient);
+
 		    
 		  
 		    Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(myAccountEmail));
 			message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
 			message.setSubject("Compte Responsable du club "+name+" de la plateforme Parascolaire Ensaa");
-			message.setText("Login : "+login+"   Mot de passe : "+Password );
+			message.setText("Bonjour,\n\n votre Login du Plateforme Gestion Parascolaires Ensa Aagdir est le suivant \nLogin : "+login+"\nMot de passe : "+Password+"\n\nCordialement" );
 				
 		    
 		    Transport.send(message);   	
 		    
 		}
 		
-	
-	/*private static Message prepareMessage(Session session, String myAccountEmail, String recepient) {
-			try {
-				
-				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(myAccountEmail));
-				message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-				message.setSubject("Votre compte du plateforme Gestion Parascolaire Ensaa");
-				message.setText("");
-				return message;
-			}catch(Exception e)
-			{
-				System.out.print("error sending mssg");
-			}		
-			return null;
-		}*/
-
-	 
 	 
 	 
  public Club creerClub(HttpServletRequest request) 
@@ -187,31 +161,29 @@ public class CreerClubForm {
 	 
 	 if ( getErreur().isEmpty() ) {
 		
-		ResponsableClub resp = new ResponsableClub(Login(name), password());
+		 String password = password();
+		 
+		ResponsableClub resp = new ResponsableClub(Login(name), password);
 		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
 		daoResp.add(resp);
 		resp = daoResp.find(resp.getId());
 		
-	    //DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory()); 
 		club.setName(name); 
-		club.setDescription("desc");
-		club.setParagraphe("parag");
+
 		club.setResponsableClub(resp);
 		
 		daoClub.add(club);
 		
 		try {
-			sendMail(email,Login(name),password(),name);
+			sendMail(email,Login(name),password,name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		 
-	   resultat="Ajout club avec succes.";
-       
+
      } else {
     	 club = null;
     	 
-     	resultat="echec d'ajout club.";
         	        }
 	 
 		return club;
