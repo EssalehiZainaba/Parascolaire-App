@@ -55,6 +55,100 @@ public class PresentationServlet extends HttpServlet {
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/presentation.jsp").forward(request, response);
 		
 		
+<<<<<<< HEAD
+=======
+		
+		
+		
+		ResponsableClub resp = new ResponsableClub("resp@club.test", "resppwd");
+		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
+		daoResp.add(resp);
+		resp = daoResp.find(1);
+		
+		
+		Club club = new Club();
+		club.setName("MyClub");
+		club.setDescription("The best club");
+		club.setParagraphe("jk");
+		club.setResponsableClub(resp);
+		
+		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		daoClub.add(club);
+		club = daoClub.find(1);
+		
+		Activite activite = new Activite();
+		activite.setClub(club);
+		activite.setNom_activite("r�union project JEE");
+		DaoActivite daoAct = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+		daoAct.add(activite);
+		
+		club = daoClub.find(1);
+		System.out.println("Activit�'s name = "+club.getActivites().get(0).getNom());
+		 
+		 
+		Etudiant etd = new Etudiant("test@test.test", "pwd");
+		DaoEtudiant daoEtd = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
+		daoEtd.add(etd);
+		
+		etd = daoEtd.find(2);
+		
+		Appartenance appar = new Appartenance(daoEtd.find(2), daoClub.find(1));
+		appar.setDateAppartenance(null);
+		DaoAppartenance daoAppar = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());
+		daoAppar.add(appar);
+		
+		DemandeInscription demande = new DemandeInscription();
+		demande.setEtudiant(daoEtd.find(2));
+		demande.setClub(daoClub.find(1));
+		demande.setDateDemande(null);
+		DaoDemandeInscription daoDemande = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
+		daoDemande.add(demande);
+		
+		
+		DaoParticipation daoPart = new DaoParticipationImpl(JPAUtil.getEntityManagerFactory());
+		daoPart.participer(daoEtd.find(2), daoAct.find(1));
+		
+		System.out.println("Etudiant's activity's name = " + daoEtd.find(2).getActivites().get(0).getNom());
+		System.out.println("Activity's etudiant's login = " + daoAct.find(1).getEtudiants().get(0).getLogin());
+
+		
+		
+		
+		
+		/*
+		 * TEST FOR INHERITENCE AND ONETOONE
+		 */
+		
+		
+		/*
+		Etudiant etd = new Etudiant("etd@login.test", "etdpwd");
+		DaoEtudiant daoEtd = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
+		daoEtd.add(etd);
+
+		ResponsableClub resp = new ResponsableClub();
+		resp.setLogin("resp@club.test");
+		resp.setPassword("password");
+		DaoResponsableClub daoResp= new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
+		daoResp.add(resp);
+		ResponsableClub respFind = daoResp.find(2);
+		System.out.println("id_resp = "+respFind.getId()+" / login = "+respFind.getLogin()+" / pwd = "+respFind.getPassword());
+		
+		
+		Club club = new Club();
+		club.setName("social");
+		club.setDescription("amine harka's favourite");
+		club.setParagraphe("randomrandomrandom");
+		club.setResponsableClub(respFind);  //the second time you test this it will give an error unless you clear the database or change the code (because it will try to map the same responsable for two clubs)
+		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		daoClub.add(club);
+		
+		Club clubFind = daoClub.find(1);
+		System.out.println("id_club = "+clubFind.getId()+" / id_resp = "+clubFind.getResponsableClub().getId());
+		
+		ResponsableClub respFind2 = daoResp.find(2);
+		System.out.println("id_resp = "+respFind2.getId()+" / club_name = "+respFind2.getClub().getName());
+		*/
+>>>>>>> 6e58b9587ac35c7e4b50f19dbe0aab7a8f2a30c4
 	}
 	
 	

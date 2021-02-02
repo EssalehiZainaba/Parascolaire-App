@@ -12,18 +12,24 @@ import dao.DaoClubImpl;
 import dao.JPAUtil;
 
 /**
- * Servlet implementation class Accueil
+ * Servlet implementation class Header
  */
-@WebServlet("/Accueil")
-public class Accueil extends HttpServlet {
+@WebServlet("/Header")
+public class Header extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+ 
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		 DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
 		 request.setAttribute("clubs", daoClub.lister());
-		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/accueil.jsp").forward(request, response);
+	
+		//this.getServletContext().getRequestDispatcher("/WEB-INF/header.jsp").forward(request, response);
+		// response.sendRedirect( request.getContextPath() + "/Accueil" );
 	}
+
 
 
 }

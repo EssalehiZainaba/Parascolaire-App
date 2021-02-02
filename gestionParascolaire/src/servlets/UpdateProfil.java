@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.DaoClub;
+import dao.DaoClubImpl;
 import dao.DaoEtudiant;
 import dao.DaoEtudiantImpl;
 import dao.JPAUtil;
@@ -34,13 +36,18 @@ public class UpdateProfil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
+		 DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		 request.setAttribute("clubs", daoClub.lister());
+		
 		//NORMALLY THERE IS ALWAYS AN ETUDIANT IN SESSION
 		//THIS CODE IS JUST FOR TESTING PURPOSES
 		Etudiant etd = new Etudiant("login@etd.test", "etdpwd");
 		etd.setCne("D876245414");
 		etd.setNom("Essalhi");
 		etd.setPrenom("Zendaya");
-		etd.setFiliere("Génie Acting");
+		etd.setFiliere("Gï¿½nie Acting");
 		etd.setAdresse("Somewhere");
 		etd.setPays("Ait Iyaza");
 		etd.setVille("Morocco");

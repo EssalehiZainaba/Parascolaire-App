@@ -81,6 +81,7 @@ public class CreerClubForm {
 	  
 	  public String Login(String club)
 		{
+		    club = club.trim().replaceAll("\\s", "");
 			return club+"@uiz.ac.ma";
 		}
 	  

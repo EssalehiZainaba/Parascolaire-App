@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoClub;
+import dao.DaoClubImpl;
+import dao.JPAUtil;
+
 /**
  * Servlet implementation class creerPresentationClub
  */
@@ -26,7 +30,10 @@ public class creerPresentationClub extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		 DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		 request.setAttribute("clubs", daoClub.lister());
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Responsable/presentationClub.jsp").forward(request, response);
 	}
 
