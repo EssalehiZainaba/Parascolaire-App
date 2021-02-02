@@ -34,6 +34,9 @@ public class SupprimerClub extends HttpServlet {
 		int idClub = Integer.parseInt(request.getParameter("id"));
 		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());	
 		
+
+		 request.setAttribute("clubs", daoClub.lister());
+		
 		if(idClub != 0)
 		{
 			
@@ -48,7 +51,7 @@ public class SupprimerClub extends HttpServlet {
 		request.setAttribute( "clubs", daoClub.lister());
 		
 		request.setAttribute( "clubs", daoClub.lister());
-		 response.sendRedirect( request.getContextPath() + "/CreerClub" );
+		response.sendRedirect( request.getContextPath() + "/CreerClub" );
 		 }
 
 		

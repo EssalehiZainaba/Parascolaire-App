@@ -55,6 +55,8 @@ public class PresentationServlet extends HttpServlet {
 		 */
 		
 		
+		
+		
 		ResponsableClub resp = new ResponsableClub("resp@club.test", "resppwd");
 		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
 		daoResp.add(resp);

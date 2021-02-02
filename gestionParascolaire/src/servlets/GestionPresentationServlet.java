@@ -56,6 +56,9 @@ public class GestionPresentationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		 DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		 request.setAttribute("clubs", daoClub.lister());
+		
 		request.getRequestDispatcher("WEB-INF/Responsable/presentationClub.jsp").forward(request, response);
 	}
 
@@ -63,6 +66,9 @@ public class GestionPresentationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
 		PresentationManager presentationManager = new PresentationManager();
 		String chemin = this.getServletContext().getRealPath("images");
 		Club club = presentationManager.managePresentation(request,chemin);

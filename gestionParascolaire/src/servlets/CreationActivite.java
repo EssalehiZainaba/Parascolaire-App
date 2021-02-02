@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoClub;
+import dao.DaoClubImpl;
+import dao.JPAUtil;
 import entities.Activite;
 import services.ActiviteManager;
 
@@ -37,6 +40,9 @@ public class CreationActivite extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		 DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		 request.setAttribute("clubs", daoClub.lister());
 		
 		request.getRequestDispatcher("WEB-INF/Responsable/creationActivite.jsp").forward(request, response);
 	}
