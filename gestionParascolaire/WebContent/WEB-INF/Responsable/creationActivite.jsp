@@ -6,7 +6,7 @@
 	<title>creation d'activité</title>
 	<link rel="stylesheet" href="./inc/css/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/sideBar.css">
-	<link rel="stylesheet" href="./inc/css/Responsable/presentationClub.css">
+	<link rel="stylesheet" href="./inc/css/Responsable/creationActivite.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
  	
 </head>
@@ -21,7 +21,7 @@
 	
    <div id="container">
    
- 		  <form id="presentationForm" method="post" action="ajouterActivite" enctype="multipart/form-data">
+ 		  <form id="activiteForm" method="post" action="ajouterActivite" enctype="multipart/form-data">
 	
 	            <div class="text">
 	                <label id="nom">Nom d'activité :</label>

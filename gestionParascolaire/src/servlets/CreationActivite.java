@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,9 +14,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import entities.Activite;
 import services.ActiviteManager;
+import services.FilesManager;
+import services.FilesManagerImpl;
 
 /**
  * Servlet implementation class CreationActivite
@@ -39,6 +44,7 @@ public class CreationActivite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.getRequestDispatcher("WEB-INF/Responsable/creationActivite.jsp").forward(request, response);
+		
 	}
 
 	/**
@@ -57,12 +63,10 @@ public class CreationActivite extends HttpServlet {
 			
 		else
 			System.out.println("good brother");*/
-		
-		String testNom = request.getParameter("nom");
-		System.out.println(testNom);
-		
-		Boolean test = Boolean.parseBoolean(request.getParameter("privee"));
-		System.out.println(test);
+	/*	Part part = request.getPart("image");
+		FilesManager fm = new FilesManagerImpl();
+		fm.ecrireFichier(part,".\\");*/
+		System.out.println(System.getenv());
 		
 		}
 		

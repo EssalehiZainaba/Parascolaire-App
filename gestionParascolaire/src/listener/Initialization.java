@@ -29,8 +29,10 @@ public class Initialization implements ServletContextListener {
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
-    public void contextInitialized(ServletContextEvent arg0)  { 
+    public void contextInitialized(ServletContextEvent event)  { 
          
+    	String chemin = "C:\\Users\\toshiba\\Desktop\\here\\GestionParascolaire\\gestionParascolaire\\WebContent\\images\\";
+    	event.getServletContext().setAttribute("chemin",chemin);
     }
 	
 }

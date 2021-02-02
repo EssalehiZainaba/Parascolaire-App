@@ -91,5 +91,10 @@ public class FilesManagerImpl implements FilesManager{
 	    return nomFichier;
 		
 	}
+	
+	public void write()
+	{
+		
+	}
 
 }

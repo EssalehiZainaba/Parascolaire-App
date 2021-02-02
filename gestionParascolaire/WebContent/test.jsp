@@ -7,18 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="presentation" >
-		<fieldset>
-			<legend>Club Creation</legend>
-			<table>
-				<tr>  <td>  Name  </td>    <td>  <input type="text" name="name"></td>   </tr>
-				<tr>  <td>  Description  </td>    <td>  <input type="text" name="description"></td>   </tr>
-				<tr>  <td>  Paragraphe  </td>    <td>  <input type="text" name="paragraphe"></td>   </tr>
-			</table>
-			<input type="submit" value="Create">
-		</fieldset>
-		
-	</form>
-	<c:out value="Hello Brother"></c:out>
+	<a href="presentation?clubId=1">Club Sociale</a><br>
+	<a href="presentation?clubId=2">Club sportif</a><br>
+	<a href="presentation?clubId=3">Enactus</a><br>
+	<a href="presentation?clubId=4">las lyndas</a><br>
+	<a href="presentation?clubId=5">appsClub</a><br>
+	
+	${applicationScope.chemin}
 </body>
 </html>

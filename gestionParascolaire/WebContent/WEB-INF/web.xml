@@ -15,16 +15,6 @@
             <include-prelude>/WEB-INF/jstlLib.jsp</include-prelude>
         </jsp-property-group>
     </jsp-config>
-  <servlet>
-  
-  
-  <servlet-name>presentation</servlet-name>
-  	<servlet-class>servlets.PresentationServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>presentation</servlet-name>
-  	<url-pattern>/presentation</url-pattern>
-  </servlet-mapping>
   
   
   <servlet>

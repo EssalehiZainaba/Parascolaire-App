@@ -40,7 +40,7 @@ maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
 public class GestionPresentationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static final String CHEMIN ="C:\\Users\\toshiba\\Desktop\\test\\" ;
+	
 	
        
     /**
@@ -64,7 +64,7 @@ public class GestionPresentationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PresentationManager presentationManager = new PresentationManager();
-		String chemin = this.getServletContext().getRealPath("images");
+		String chemin = (String)this.getServletContext().getAttribute("chemin");
 		Club club = presentationManager.managePresentation(request,chemin);
 		if(club==null)
 		{
@@ -74,7 +74,7 @@ public class GestionPresentationServlet extends HttpServlet {
 		}
 			
 		else
-			System.out.println("Congratulations");
+			request.getRequestDispatcher("WEB-INF/Responsable/presentationClub.jsp").forward(request, response);
 		
 	}
 	
