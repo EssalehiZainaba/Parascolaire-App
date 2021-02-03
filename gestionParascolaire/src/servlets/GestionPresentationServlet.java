@@ -37,6 +37,7 @@ import services.PresentationManager;
  */
 @MultipartConfig(location="C:\\Users\\toshiba\\Desktop\\test\\", fileSizeThreshold=1024*1024, 
 maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
+@WebServlet("/ajouterPresentation")
 public class GestionPresentationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -56,8 +57,6 @@ public class GestionPresentationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
-		
 		request.getRequestDispatcher("WEB-INF/Responsable/presentationClub.jsp").forward(request, response);
 	}
 
@@ -66,14 +65,11 @@ public class GestionPresentationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
 		PresentationManager presentationManager = new PresentationManager();
 		String chemin = (String)this.getServletContext().getAttribute("chemin");
 		Club club = presentationManager.managePresentation(request,chemin);
 		if(club==null)
 		{
-			System.out.println("you have a probleme");
 			request.setAttribute("pm",presentationManager);
 			request.getRequestDispatcher("WEB-INF/Responsable/presentationClub.jsp").forward(request, response);
 		}

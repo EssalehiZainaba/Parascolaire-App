@@ -7,12 +7,14 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Club;
+import entities.ResponsableClub;
 
 public class PresentationManager {
 	
@@ -23,11 +25,21 @@ public class PresentationManager {
 	final static String CHAMP_PARAGRAPHE="paragraphe";
 	final static String CHAMP_DESCRIPTION="description";
 	
+	private Club club ;
 	
 	private Map<String,String> erreurs = new HashMap<String,String>();
 	
 	
 	
+	
+	public Club getClub() {
+		return club;
+	}
+
+	public void setClub(Club club) {
+		this.club = club;
+	}
+
 	public Map<String, String> getErreurs() {
 		return erreurs;
 	}
@@ -39,7 +51,7 @@ public class PresentationManager {
 	public Club managePresentation(HttpServletRequest request,String chemin)
 	{
 		
-		Club club = null;
+		club = null;
 		Part partLogo=null;
 		Part partImg1 = null;
 		Part partImg2 = null;
@@ -126,14 +138,18 @@ public class PresentationManager {
 			erreurs.put(CHAMP_IMG3, e.getMessage());
 		}
 		
+		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		/*HttpSession session = request.getSession();
+		ResponsableClub rc = (ResponsableClub)session.getAttribute("responsable");
+		int id = rc.getClub().getId();*///you gotta use sessions here !!!!!!!!!!!!!!!!!!!!!!!!
+		club = daoClub.find(2);
+		club.setParagraphe(paragraphe);
+		club.setDescription(description);
+		
 		if(erreurs.isEmpty())
 		{
 			
 			FilesManager filesManager = new FilesManagerImpl();
-			DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-			club = daoClub.find(1);
-			club.setParagraphe(paragraphe);
-			club.setDescription(description);
 			club.setLogoPath(filesManager.ecrireFichier(partLogo, chemin));
 			club.setImg1Path(filesManager.ecrireFichier(partImg1, chemin));
 			club.setImg2Path(filesManager.ecrireFichier(partImg2, chemin));
@@ -144,7 +160,7 @@ public class PresentationManager {
 			
 		}
 					
-		return club;
+		return null;
 		
 		
 		
@@ -154,7 +170,7 @@ public class PresentationManager {
 	private void textValidation(String text) throws Exception
 	{
 		if(text.trim().length()==0 || text == null)
-			throw new Exception("Merci de Remplir ce champ");
+			throw new Exception("*required");
 	}
 	
 	private void imageValidation(Part part) throws Exception

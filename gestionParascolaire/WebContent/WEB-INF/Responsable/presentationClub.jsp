@@ -25,15 +25,15 @@
 	
 	            <div class="text">
 	                <label id="description">Description :</label>
-	                <textarea name="description"></textarea>
+	                <textarea name="description" >${pm.getClub().getDescription()}</textarea>
 	                <span class="erreur" style="color:red">${pm.getErreurs()["description"]}</span>
 	            </div>
 	            <div class="text">
 	                <label id="paragraphe">Paragraphe :</label>
-	                <textarea name="paragraphe"></textarea>
+	                <textarea name="paragraphe"> ${pm.getClub().getParagraphe()} </textarea>
 	                <span class="erreur" style="color:red">${pm.getErreurs()["paragraphe"]} </span> 
 	            </div>
-	            <div>       
+	            <div class = "imageContainer">       
 	                <label class="logo images" for="logo">
 	                    <span><i class="fas fa-images"></i></span> 
 	                    ajouter logo
@@ -41,7 +41,7 @@
 	                <input type="file" id="logo" name="logo" accept="image/*">
 	                <span class="erreur" style="color:red">${pm.getErreurs()["logo"]} </span>
 	            </div>
-	            <div>
+	            <div class = "imageContainer">
 	                <label class="images" for="image1">
 	                    <span><i class="fas fa-images"></i></span>    
 	                    ajouter 1ere image
@@ -49,7 +49,7 @@
 	                <input type="file" id="image1" name="image1" accept="image/*">
 	                <span class="erreur" style="color:red">${pm.getErreurs()["image1"]} </span>
 	            </div>
-	            <div>
+	            <div class = "imageContainer">
 	                <label class="images" for="image2">
 	                <span><i class="fas fa-images"></i> </span> 
 	                    ajouter 2eme image
@@ -57,7 +57,7 @@
 	                <input type="file" id="image2" name="image2" accept="image/*">
 	                <span class="erreur" style="color:red">${pm.getErreurs()["image2"]} </span>
 	            </div>
-	            <div>
+	            <div class = "imageContainer">
 	                <label class="images" for="image3">
 	                    <span><i class="fas fa-images"></i>  </span> 
 	                    ajouter 3eme image

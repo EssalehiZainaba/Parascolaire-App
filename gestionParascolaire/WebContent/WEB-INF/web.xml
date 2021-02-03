@@ -43,14 +43,6 @@
   	<servlet-name>SupprimerClub</servlet-name>
   	<url-pattern>/suppClub</url-pattern>
   </servlet-mapping>
-  <servlet>
-  	<servlet-name>GestionPresentationServlet</servlet-name>
-  	<servlet-class>servlets.GestionPresentationServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>GestionPresentationServlet</servlet-name>
-  	<url-pattern>/ajouterPresentation</url-pattern>
-  </servlet-mapping>
   
   <filter>
     <filter-name>Set Character Encoding</filter-name>
