@@ -1,10 +1,14 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import entities.Activite;
+import entities.Etudiant;
 
 public class DaoActiviteImpl implements DaoActivite{
 	
@@ -66,6 +70,92 @@ public class DaoActiviteImpl implements DaoActivite{
 			em.close();
 		}
 	}
+
+
+
+	@Override
+	public List<Activite> lister() {
+		EntityManager em = factory.createEntityManager();
+		@SuppressWarnings("unchecked")
+		List<Activite> activites = em.createQuery("SELECT a FROM Activite a").getResultList();
+		em.close();
+		return activites;
+	}
+	
+	
+	
+	@Override
+	public List<Activite> listerToutPublique() {
+		EntityManager em = factory.createEntityManager();
+		@SuppressWarnings("unchecked")
+		List<Activite> activites = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false").getResultList();
+		em.close();
+		return activites;
+	}
+	
+	
+	
+	@Override
+	public List<Activite> listerTousMesClubs(boolean privee, Etudiant etd) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=:privee AND a.club IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd)");
+		query.setParameter("privee", privee);
+		query.setParameter("etd", etd);
+		@SuppressWarnings("unchecked")
+		List<Activite> activites = query.getResultList();
+		em.close();
+		return activites;
+	}
+
+
+
+	@Override
+	public List<Activite> listerTousAutresClubs(Etudiant etd) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false AND a.club IN (SELECT c FROM Club c WHERE c NOT IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd))");
+		query.setParameter("etd", etd);
+		@SuppressWarnings("unchecked")
+		List<Activite> activites = query.getResultList();
+		em.close();
+		return activites;
+	}
+
+
+
+	@Override
+	public List<Activite> listerPublique(String clubName) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=false");
+		query.setParameter("clubName", clubName);
+		@SuppressWarnings("unchecked")
+		List<Activite> activites = query.getResultList();
+		em.close();
+		return activites;
+	}
+
+
+
+	@Override
+	public List<Activite> listerPrivee(String clubName, Etudiant etd) {
+		EntityManager em = factory.createEntityManager();
+		Query quer = em.createQuery("SELECT a.club FROM Appartenance AS a WHERE a.etudiant=:etd AND a.club.name=:clubName");
+		quer.setParameter("etd", etd);
+		quer.setParameter("clubName", clubName);
+		@SuppressWarnings("unchecked")
+		List<Activite> club = quer.getResultList();
+		
+		if (!club.isEmpty()) {
+			Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=true");
+			query.setParameter("clubName", clubName);
+			@SuppressWarnings("unchecked")
+			List<Activite> activites = query.getResultList();
+			em.close();
+			return activites;
+		}
+		em.close();
+		return null;
+	}
+
 
 	
 	

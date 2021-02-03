@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,16 +21,19 @@ import services.UpdateProfilForm;
 /**
  * Servlet implementation class UpdateProfil
  */
-@WebServlet("/UpdateProfil")
-public class UpdateProfil extends HttpServlet {
+@WebServlet("/Profil")
+public class Profil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DaoEtudiant daoEtudiant;
+	private DaoClub daoClub;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateProfil() {
-    	daoEtudiant = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
+    public Profil() {
+    	EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
+    	daoEtudiant = new DaoEtudiantImpl(factory);
+    	daoClub = new DaoClubImpl(factory);
     }
 
 	/**
@@ -37,13 +42,16 @@ public class UpdateProfil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+
+		request.setAttribute("clubs", daoClub.lister());
+		
 		//NORMALLY THERE IS ALWAYS AN ETUDIANT IN SESSION
 		//THIS CODE IS JUST FOR TESTING PURPOSES
 		Etudiant etd = new Etudiant("login@etd.test", "etdpwd");
 		etd.setCne("D876245414");
 		etd.setNom("Essalhi");
 		etd.setPrenom("Zendaya");
-		etd.setFiliere("Gï¿½nie Acting");
+		etd.setFiliere("Génie Acting");
 		etd.setAdresse("Somewhere");
 		etd.setPays("Ait Iyaza");
 		etd.setVille("Morocco");

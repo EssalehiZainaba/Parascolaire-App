@@ -18,24 +18,41 @@
     <div id="container">
         
         <div class="activites">
-        	<div class="activite">
-        		<div class="row">
-        			<span>Nom :</span>
-        			<span>test</span>
+        	<c:forEach items="${activites }" var="activite">
+        		<div class="activite">
+	        		<div class="row">
+	        			<span>Club :</span>
+	        			<span>${activite.club.name }</span>
+	        		</div>
+	        		<div class="row">
+	        			<span>Nom :</span>
+	        			<span>${activite.nom }</span>
+	        		</div>
+	        		<div class="row">
+	        			<span>Description :</span>
+	        			<span>${activite.description }</span>
+	        		</div>
+	        		<div class="row">
+	        			<span>Date :</span>
+	        			<span>${activite.date }</span>
+	        		</div>
+	        		<div class="row">
+	        			<span>Lieu :</span>
+	        			<span>${activite.lieu }</span>
+	        		</div>
+	        		<div class="row">
+	        			<span>Privée :</span>
+	        			<span>${activite.privee }</span>
+	        		</div>
+	        	</div>
+        	</c:forEach>
+        	
+        	<c:if test="${!empty result }">
+        		<div class="result">
+        			<h1>${result }</h1>
         		</div>
-        		<div class="row">
-        			<span>Description :</span>
-        			<span>test</span>
-        		</div>
-        		<div class="row">
-        			<span>Date :</span>
-        			<span>test</span>
-        		</div>
-        		<div class="row">
-        			<span>Lieu :</span>
-        			<span>test</span>
-        		</div>
-        	</div>
+        	</c:if>
+
         
         </div>
 

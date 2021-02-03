@@ -1,7 +1,7 @@
  <nav class="side-bar">
         <ul class="side-links">
 
-            <li><a class="link" href="#">Profil</a></li>
+            <li><a class="link" href="Profil">Profil</a></li>
 
 
             <li class="menu">
@@ -13,7 +13,7 @@
 
                 <ul class="sub-menu open">
 
-                    <li><a class="element act-pub openn" href="">Tout les clubs</a></li>
+                    <li><a class="element act-pub openn" href="Activites?clubName=tout&privee=false">Tout les clubs</a></li>
 
                     <li>
 
@@ -23,10 +23,11 @@
                         </a>
 
                         <ul class="sub-menu">
-                            <li><a class="element act-pub-my-clubs" href="alt/accueil etudiant1.html">Tous</a></li>
-                            <li><a class="element act-pub-my-clubs" href="alt/accueil etudiant2.html">Social</a></li>
-                            <li><a class="element act-pub-my-clubs" href="#">Apps Club</a></li>
-                            <li><a class="element act-pub-my-clubs" href="#">ENACTUS</a></li>
+                        	<li><a class="element act-pub-my-clubs" href="Activites?clubName=tousMesClubs&privee=false">Tous</a></li>
+                        	<c:forEach items="${mesClubs }" var="club">
+                        		<li><a class="element act-pub-my-clubs" href="Activites?clubName=${club.name }&privee=false">${club.name }</a></li>
+                        	</c:forEach>
+
                         </ul>
 
                     </li>
@@ -39,9 +40,10 @@
                         </a>
 
                         <ul class="sub-menu">
-                            <li><a class="element act-pub-other-clubs" href="#">Tous</a></li>
-                            <li><a class="element act-pub-other-clubs" href="#">BTP</a></li>
-                            <li><a class="element act-pub-other-clubs" href="#">Metanoia</a></li>
+                            <li><a class="element act-pub-other-clubs" href="Activites?clubName=tousAutresClubs&privee=false">Tous</a></li>
+                        	<c:forEach items="${autresClubs }" var="club">
+                        		<li><a class="element act-pub-other-clubs" href="Activites?clubName=${club.name }&privee=false">${club.name }</a></li>
+                        	</c:forEach>
                         </ul>
 
                     </li>
@@ -59,10 +61,10 @@
                 </a>
 
                 <ul class="sub-menu open">
-                	<li><a class="element act-prv openn" href="#">Tous</a></li>
-                    <li><a class="element act-prv openn" href="#">Social</a></li>
-                    <li><a class="element act-prv openn" href="#">Apps Club</a></li>
-                    <li><a class="element act-prv openn" href="#">ENACTUS</a></li>
+                	<li><a class="element act-prv openn" href="Activites?clubName=tousMesClubs&privee=true">Tous</a></li>
+           	        <c:forEach items="${mesClubs }" var="club">
+                   		<li><a class="element act-prv openn" href="Activites?clubName=${club.name }&privee=true">${club.name }</a></li>
+                   	</c:forEach>
                 </ul>
 
             </li>
@@ -76,9 +78,9 @@
                 </a>
 
                 <ul class="sub-menu">
-                    <li><a class="element my-clubs" href="#">Social</a></li>
-                    <li><a class="element my-clubs" href="#">Apps Club</a></li>
-                    <li><a class="element my-clubs" href="#">ENACTUS</a></li>
+                    <c:forEach items="${mesClubs }" var="club">
+                  		<li><a class="element my-clubs" href="">${club.name }</a></li>
+                  	</c:forEach>
                 </ul>
 
             </li>
@@ -92,8 +94,9 @@
                 </a>
 
                 <ul class="sub-menu">
-                    <li><a class="element other-clubs" href="#">BTP</a></li>
-                    <li><a class="element other-clubs" href="#">Metanoia</a></li>
+                    <c:forEach items="${autresClubs }" var="club">
+                  		<li><a class="element other-clubs" href="">${club.name }</a></li>
+                  	</c:forEach>
                 </ul>
 
             </li>
