@@ -56,7 +56,7 @@ public class CreationActivite extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		/*String chemin = request.getServletContext().getRealPath("images");
+		String chemin = (String)this.getServletContext().getAttribute("chemin");
 		ActiviteManager activiteManager = new ActiviteManager();
 		Activite activite = activiteManager.creerActivite(request, chemin);
 		if(activite == null)
@@ -66,11 +66,8 @@ public class CreationActivite extends HttpServlet {
 		}
 			
 		else
-			System.out.println("good brother");*/
-	/*	Part part = request.getPart("image");
-		FilesManager fm = new FilesManagerImpl();
-		fm.ecrireFichier(part,".\\");*/
-		System.out.println(System.getenv());
+			System.out.println("good brother");
+		
 		
 		}
 		

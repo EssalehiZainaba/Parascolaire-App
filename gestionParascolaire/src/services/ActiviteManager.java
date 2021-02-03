@@ -28,11 +28,19 @@ public class ActiviteManager {
 	final static String CHAMP_PRIVEE="privee";
 	
 	
-	
 	private Map<String,String> erreurs = new HashMap<String,String>();
+	private Activite activite;
 	
 	
 	
+	public Activite getActivite() {
+		return activite;
+	}
+
+	public void setActivite(Activite activite) {
+		this.activite = activite;
+	}
+
 	public Map<String, String> getErreurs() {
 		return erreurs;
 	}
@@ -43,7 +51,7 @@ public class ActiviteManager {
 	
 	public Activite creerActivite(HttpServletRequest request , String chemin)
 	{
-		Activite activite = null;
+		activite = null;
 		Date date = null;
 		Part image = null;
 		try {
@@ -62,7 +70,7 @@ public class ActiviteManager {
 		boolean privee = Boolean.parseBoolean(request.getParameter(CHAMP_PRIVEE));
 		
 		try {
-			date=new SimpleDateFormat("dd-MM-yyyy").parse(request.getParameter("date"));
+			date=new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy").parse(request.getParameter("date"));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,17 +118,19 @@ public class ActiviteManager {
 			erreurs.put(CHAMP_PRIVEE, e.getMessage());
 		}
 		
+		activite = new Activite();
+		activite.setNom_activite(nom);
+		activite.setDescription(description);
+		activite.setLieu_activite(lieu);
+		activite.setDate_activite(date);
+		activite.setPrivee(privee);
+		
 		if(erreurs.isEmpty())
 		{
 			
 			FilesManager filesManager = new FilesManagerImpl();
 			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
-			activite = new Activite();
-			activite.setNom_activite(nom);
-			activite.setDescription(description);
-			activite.setLieu_activite(lieu);
-			activite.setDate_activite(date);
-			activite.setPrivee(privee);
+			
 			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
 			
 			daoActivite.add(activite);
@@ -133,7 +143,7 @@ public class ActiviteManager {
 		
 		
 		
-		return activite;
+		return null;
 		
 		
 		

@@ -1,6 +1,10 @@
 package servlets;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -8,10 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.DaoActivite;
+import dao.DaoActiviteImpl;
 import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.JPAUtil;
+import entities.Activite;
 import entities.Club;
 
 /**
@@ -41,8 +49,20 @@ public class creerPresentationClub extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String date= request.getParameter("date");
+		System.out.println(date);
+		LocalDate date2=null;
+		
+		date2 = LocalDate.parse(date);
+		
+		System.out.println(date2.toString());
+		//HttpSession session = request.getSession();
+		//session.setAttribute("date",date2);
+		request.getRequestDispatcher("/test.jsp").forward(request,response);
+		DaoActivite da = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+		Activite activite=da.find(1);
+		
+		
 	}
 
 }

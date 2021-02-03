@@ -13,5 +13,10 @@
 	<a href="presentation?clubId=4">las lyndas</a><br>
 	<a href="presentation?clubId=5">appsClubtik</a><br>
 	
+	<form method="post" action="creerPresentationClub">
+		<input type="date" name="date" value="${sessionScope.date.toString() }"><br>
+		<input type="submit" value="Envoyer">
+	</form>
+	
 </body>
 </html>
