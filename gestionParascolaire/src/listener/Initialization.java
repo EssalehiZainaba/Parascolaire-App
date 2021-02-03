@@ -1,11 +1,12 @@
 package listener;
 
-<<<<<<< HEAD
+
 import java.util.List;
 
-=======
+
+
 import javax.servlet.ServletContext;
->>>>>>> b38c2bbb10654404a9a1a86f3950e5c719cd23c6
+
 import javax.servlet.ServletContextEvent;
 
 import javax.servlet.ServletContextListener;
@@ -53,10 +54,7 @@ public class Initialization implements ServletContextListener {
     	String chemin = "C:\\Users\\toshiba\\Desktop\\here\\GestionParascolaire\\gestionParascolaire\\WebContent\\images\\";
     	event.getServletContext().setAttribute("chemin",chemin);
     	
-<<<<<<< HEAD
-    	
-=======
->>>>>>> b38c2bbb10654404a9a1a86f3950e5c719cd23c6
+
     }
 	
 }
