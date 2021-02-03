@@ -51,16 +51,10 @@ public class PresentationServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("clubId"));
 		DaoClub dc = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
 		Club club = dc.find(id);
-		request.setAttribute("club",club);
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/presentation.jsp").forward(request, response);
 
 	}
 	
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-	}
 
 }

@@ -20,8 +20,7 @@ public class Accueil extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		 request.setAttribute("clubs", daoClub.lister());
+		 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/accueil.jsp").forward(request, response);
 	}
 

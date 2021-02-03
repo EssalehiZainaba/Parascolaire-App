@@ -34,8 +34,11 @@ public class creerPresentationClub extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+<<<<<<< HEAD
 		/* DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
 		 request.setAttribute("clubs", daoClub.lister());
+=======
+>>>>>>> b38c2bbb10654404a9a1a86f3950e5c719cd23c6
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Responsable/presentationClub.jsp").forward(request, response);*/
 		

@@ -9,7 +9,7 @@
 	                      <i class="fas fa-caret-down"></i>
 	                  </div>
 	                  <ul class="dropDown">
-	                    <c:forEach var="club" items="${clubs}" >
+	                   <c:forEach var="club" items="${applicationScope.clubs}" >
                         <li><a href="#">
                         <c:out value="${ club.name }" />
                         </a></li>  

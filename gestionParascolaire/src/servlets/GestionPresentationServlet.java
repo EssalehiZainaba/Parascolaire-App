@@ -56,8 +56,7 @@ public class GestionPresentationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		 request.setAttribute("clubs", daoClub.lister());
+	
 		
 		request.getRequestDispatcher("WEB-INF/Responsable/presentationClub.jsp").forward(request, response);
 	}
