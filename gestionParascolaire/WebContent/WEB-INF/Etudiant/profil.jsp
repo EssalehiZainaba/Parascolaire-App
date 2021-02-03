@@ -50,7 +50,7 @@
          	</c:choose>
          	
          	
-            <form id="formulaire" <c:if test="${!isFormEmpty }">style="height: 500px; opacity: 1; pointer-events: all;"</c:if> method="POST" action="UpdateProfil">
+            <form id="formulaire" <c:if test="${!isFormEmpty }">style="height: 500px; opacity: 1; pointer-events: all;"</c:if> method="POST" action="Profil">
                 <p id="closeButton">x</p>
                 <p>Modifier le profil:</p>
                 <div <c:if test="${!isFormEmpty }">style="opacity: 1;"</c:if>>
