@@ -1,9 +1,16 @@
 package listener;
 
+import java.util.List;
+
 import javax.servlet.ServletContextEvent;
+
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import dao.DaoClub;
+import dao.DaoClubImpl;
+import dao.JPAUtil;
+import entities.Club;
 
 /**
  * Application Lifecycle Listener implementation class Initialization
@@ -33,6 +40,8 @@ public class Initialization implements ServletContextListener {
          
     	String chemin = "C:\\Users\\toshiba\\Desktop\\here\\GestionParascolaire\\gestionParascolaire\\WebContent\\images\\";
     	event.getServletContext().setAttribute("chemin",chemin);
+    	
+    	
     }
 	
 }
