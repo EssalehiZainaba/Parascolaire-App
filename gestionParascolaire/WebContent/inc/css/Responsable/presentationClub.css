@@ -36,6 +36,10 @@ label{
     left: 20px;  
 }
 
+.imageContainer{
+	text-align:center;
+}
+
 
 .images{
     height: 40px;
