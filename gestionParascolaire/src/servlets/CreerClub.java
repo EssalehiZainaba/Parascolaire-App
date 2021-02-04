@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.sun.tools.javac.util.List;
+
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
@@ -61,20 +61,20 @@ public class CreerClub extends HttpServlet {
         	  if(club != null)
         	  {
                   request.setAttribute( "clubs", daoClub.lister());
-
-           		 this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
+                  this.getServletContext().setAttribute( "clubas", daoClub.lister());
+           		  this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
         	  }
         	  else {
                   request.setAttribute( "clubs", daoClub.lister());
-
-           		 this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
+                  
+           		  this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
         	  }
         }
         
         else {
       
             request.setAttribute( "clubs", daoClub.lister());
-
+            this.getServletContext().setAttribute("clubas", daoClub.lister());
       		 this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
 
         	

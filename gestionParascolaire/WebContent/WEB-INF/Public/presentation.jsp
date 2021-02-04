@@ -23,7 +23,7 @@
 	<div class="container">
         <div class="content">
             <div class="cover">
-                <img src='<c:url value="images/webContant/${club.getImg1Path()}"/>' class="logo">
+                <img src='<c:url value="images/${club.getLogoPath()}"/>' class="logo">
                 
                 <button> Join Us</button>
             </div>

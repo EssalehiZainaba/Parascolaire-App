@@ -48,7 +48,7 @@ public class Initialization implements ServletContextListener {
     	       
     	DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());	
 		  
-    	event.getServletContext().setAttribute( "clubs", daoClub.lister());
+    	event.getServletContext().setAttribute( "clubas", daoClub.lister());
     	
     	
     	String chemin = "C:\\Users\\toshiba\\Desktop\\here\\GestionParascolaire\\gestionParascolaire\\WebContent\\images\\";
