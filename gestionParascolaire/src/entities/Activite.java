@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Activite {
 	
 	private boolean privee;
 	private String nom;
-	private Date date;
+	private LocalDate date;
 	private String lieu;
 	private String description;
 	private String imagePath;
@@ -42,7 +43,7 @@ public class Activite {
 	
 	
 	public Activite() {}
-	public Activite(boolean privee, String nom, Date date, String lieu, String description) {
+	public Activite(boolean privee, String nom, LocalDate date, String lieu, String description) {
 		this.privee = privee;
 		this.nom = nom;
 		this.date = date;
@@ -61,7 +62,7 @@ public class Activite {
 	public String getNom() {
 		return nom;
 	}
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 	public String getLieu() {
@@ -85,7 +86,7 @@ public class Activite {
 	public void setNom_activite(String nom) {
 		this.nom = nom;
 	}
-	public void setDate_activite(Date date) {
+	public void setDate_activite(LocalDate date) {
 		this.date = date;
 	}
 	public void setLieu_activite(String lieu) {

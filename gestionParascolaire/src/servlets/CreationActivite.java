@@ -66,9 +66,7 @@ public class CreationActivite extends HttpServlet {
 		}
 			
 		else
-			System.out.println("good brother");
-		
-		
+			request.getRequestDispatcher("WEB-INF/Responsable/creationActivite.jsp").forward(request, response);	
 		}
 		
 		

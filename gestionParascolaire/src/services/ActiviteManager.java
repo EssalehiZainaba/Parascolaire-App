@@ -3,6 +3,7 @@ package services;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -52,7 +53,7 @@ public class ActiviteManager {
 	public Activite creerActivite(HttpServletRequest request , String chemin)
 	{
 		activite = null;
-		Date date = null;
+		LocalDate date = null;
 		Part image = null;
 		try {
 			image = request.getPart(CHAMP_IMAGE);
@@ -67,14 +68,13 @@ public class ActiviteManager {
 		String nom = request.getParameter(CHAMP_NOM);
 		String description = request.getParameter(CHAMP_DESCRIPTION);
 		String lieu = request.getParameter(CHAMP_LIEU);
-		boolean privee = Boolean.parseBoolean(request.getParameter(CHAMP_PRIVEE));
+		String charPrivee = request.getParameter(CHAMP_PRIVEE);
+		boolean privee = Boolean.parseBoolean(charPrivee);
 		
-		try {
-			date=new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy").parse(request.getParameter("date"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String charDate = request.getParameter(CHAMP_DATE);
+		
+			
+		
 		
 		try {
 			this.textValidation(description);
@@ -105,14 +105,15 @@ public class ActiviteManager {
 		}
 		
 		try {
-			this.dateValidation(date);
+			date= LocalDate.parse(charDate);
 		}
 		catch(Exception e){
-			erreurs.put(CHAMP_DATE, e.getMessage());
+			
+			erreurs.put(CHAMP_DATE,"Merci de saisir la date");
 		}
 		
 		try {
-			this.booleanValidation(privee);
+			this.booleanValidation(charPrivee);
 		}
 		catch(Exception e){
 			erreurs.put(CHAMP_PRIVEE, e.getMessage());
@@ -153,7 +154,7 @@ public class ActiviteManager {
 	private void textValidation(String text) throws Exception
 	{
 		if(text.trim().length()==0 || text == null)
-			throw new Exception("Merci de Remplir ce champ");
+			throw new Exception("Required");
 	}
 	
 	private void imageValidation(Part part) throws Exception
@@ -162,14 +163,8 @@ public class ActiviteManager {
 		if(!type.contains("image"))
 			throw new Exception("image required");
 	}
-	private void dateValidation(Date date) throws Exception
-	{
-		
-		if(date == null)
-			throw new Exception("merci de saisir la date");
-	}
 	
-	private void booleanValidation(Boolean privee) throws Exception
+	private void booleanValidation(String privee) throws Exception
 	{
 		
 		if(privee == null)
