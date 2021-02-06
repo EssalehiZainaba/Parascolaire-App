@@ -7,4 +7,5 @@ public interface DaoParticipation {
 
 	void participer(Etudiant etudiant, Activite activite);
 	
+	
 }

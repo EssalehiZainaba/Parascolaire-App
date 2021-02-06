@@ -82,6 +82,16 @@ public class DaoActiviteImpl implements DaoActivite{
 		return activites;
 	}
 	
+	@Override
+	public List<Activite> liste(String ClubName) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName");
+		query.setParameter("clubName", ClubName);
+		@SuppressWarnings("unchecked")
+		List<Activite> activites = query.getResultList();
+		em.close();
+		return activites;
+	}
 	
 	
 	@Override
