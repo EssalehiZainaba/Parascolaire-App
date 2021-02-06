@@ -15,7 +15,7 @@
 	
 	<form method="post" action="creerPresentationClub">
 		<input type="date" name="date" value="${sessionScope.date.toString() }"><br>
-		<input type="submit" value="Envoyer">
+		<input type="submit" value="hello" value="Envoyer">
 	</form>
 	
 </body>
