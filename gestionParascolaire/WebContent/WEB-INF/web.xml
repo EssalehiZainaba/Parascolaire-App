@@ -56,6 +56,51 @@
         <param-value>false</param-value>
     </init-param>
   </filter>
+  <filter>
+  	<filter-name>ConnexionFilter</filter-name>
+  	<filter-class>filters.ConnexionFilter</filter-class>
+  </filter>
+  <filter>
+  	<filter-name>EtudiantFilter</filter-name>
+  	<filter-class>filters.EtudiantFilter</filter-class>
+  </filter>
+  <filter>
+  	<filter-name>ResponsableFilter</filter-name>
+  	<filter-class>filters.ResponsableFilter</filter-class>
+  </filter>
+  <filter>
+  	<filter-name>AdminFilter</filter-name>
+  	<filter-class>filters.AdminFilter</filter-class>
+  </filter>
+  
+  
+  <filter-mapping>
+  	<filter-name>ConnexionFilter</filter-name>
+  	<url-pattern>/Profil</url-pattern>
+  	<url-pattern>/Activites</url-pattern>
+  	<url-pattern>/ajouterActivite</url-pattern>
+  	<url-pattern>/ajouterPresentation</url-pattern>
+  	<url-pattern>/suppClub</url-pattern>
+  	<url-pattern>/CreerClub</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>EtudiantFilter</filter-name>
+  	<url-pattern>/Profil</url-pattern>
+  	<url-pattern>/Activites</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>ResponsableFilter</filter-name>
+  	<url-pattern>/ajouterActivite</url-pattern>
+  	<url-pattern>/ajouterPresentation</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>AdminFilter</filter-name>
+  	<url-pattern>/suppClub</url-pattern>
+  	<url-pattern>/CreerClub</url-pattern>
+  	
+  </filter-mapping>
+  
   
   <filter-mapping>
     <filter-name>Set Character Encoding</filter-name>

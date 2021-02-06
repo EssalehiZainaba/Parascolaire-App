@@ -25,22 +25,22 @@
 	
 	            <div class="text">
 	                <label id="nom">Nom d'activité :</label>
-	                <input type="text" name="nom" />
+	                <input type="text" name="nom" value="${am.getActivite().getNom() }"/>
 	                <span class="erreur" style="color:red">${am.getErreurs()["nom"]}</span>
 	            </div>
 	            <div class="text">
 	                <label id="description">Description :</label>
-	                <textarea name="description"></textarea>
+	                <textarea name="description">${am.getActivite().getDescription() }</textarea>
 	                <span class="erreur" style="color:red">${am.getErreurs()["description"]}</span> 
 	            </div>
 	            <div class="text">
 	                <label id="lieu">Lieu :</label>
-	                <input type="text" name="lieu" />
+	                <input type="text" name="lieu" value="${am.getActivite().getLieu() }"/>
 	                <span class="erreur" style="color:red">${am.getErreurs()["lieu"]}</span>
 	            </div>
 	            <div class="text">
 	                <label id="date">Date :</label>
-	                <input type="date" name="date" />
+	                <input type="date" name="date" value="${am.getActivite().getDate().toString() }"/>
 	                <span class="erreur" style="color:red">${am.getErreurs()["date"]}</span>
 	            </div>
 	            <div class="radio ">
