@@ -2,6 +2,7 @@ package services;
 
 import java.util.HashMap;
 
+import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 
 import dao.DaoUtilisateur;
@@ -48,7 +49,7 @@ public class ConnexionForm {
 		  try {
 			  utilisateur=daoUtilisateur.find(daoUtilisateur.getIdByEmail(email));
 		  } 
-		  catch (Exception e) {
+		  catch (NoResultException e) {
 			  erreur.put("email", "Merci de saisir votre email correctement");
 		  }
 		
