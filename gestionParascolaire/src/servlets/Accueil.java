@@ -84,36 +84,31 @@ public class Accueil extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		DaoUtilisateur daoUtilisateur=new DaoUtilisateurImpl(JPAUtil.getEntityManagerFactory());
+			
+		ConnexionForm form=new ConnexionForm(daoUtilisateur);
+		Utilisateur utilisateur=form.creerUtilisateur(request);
+		if(form.getErreur().size()!=0) {
+			request.setAttribute("erreurs",form.getErreur());
+			this.getServletContext().getRequestDispatcher("/WEB-INF/Public/accueil.jsp").forward(request, response);
+		}
 		
-		if(request.getParameter("submit") !=null ) {
-			
-			ConnexionForm form=new ConnexionForm(daoUtilisateur);
-			
-			if(form.getErreur().size()!=0) {
-				request.setAttribute("erreurs",form.getErreur());
-				this.getServletContext().getRequestDispatcher("/WEB-INF/Public/accueil.jsp").forward(request, response);
-			}
-			
-			else {
-				Utilisateur utilisateur=form.creerUtilisateur(request);
+		else {
 				HttpSession session=request.getSession();
 				if(form.getUserType().equals("Etudiant")) {
-					session.setAttribute("etudiant", utilisateur);
-					
+					session.setAttribute("etudiant", (Etudiant)utilisateur);
+					response.sendRedirect(request.getContextPath()+"/Activites");
 				}
 				else if (form.getUserType().equals("Responsable")) {
-					session.setAttribute("responsable", utilisateur);
+					session.setAttribute("responsable", (ResponsableClub)utilisateur);
+					response.sendRedirect(request.getContextPath()+"/ajouterActivite");				
 				}
 				else  {
-					session.setAttribute("administrateur", utilisateur);
+					session.setAttribute("administrateur", (Administrateur)utilisateur);
+					response.sendRedirect(request.getContextPath()+"/CreerClub");			
 				}
-			}
-			
 		}
 		
 	}
-
 
 
 
