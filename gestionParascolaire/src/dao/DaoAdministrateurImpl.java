@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
 import entities.Administrateur;
+import entities.Etudiant;
 
 public class DaoAdministrateurImpl implements DaoAdministrateur{
 	
@@ -30,6 +31,21 @@ public class DaoAdministrateurImpl implements DaoAdministrateur{
 		return admin;
 	}
 	
+	@Override
+	public void add(Administrateur administrateur) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		try {
+			tx.begin();
+			em.persist(administrateur);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
+		}
+	}
 	
 	
 }
