@@ -70,6 +70,22 @@ public class DaoActiviteImpl implements DaoActivite{
 			em.close();
 		}
 	}
+	
+	@Override
+	public void update(Activite activite) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		try {
+			tx.begin();
+			em.merge(activite);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
+		}
+	}
 
 
 

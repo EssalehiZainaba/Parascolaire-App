@@ -142,7 +142,7 @@ public class PresentationManager {
 		/*HttpSession session = request.getSession();
 		ResponsableClub rc = (ResponsableClub)session.getAttribute("responsable");
 		int id = rc.getClub().getId();*///you gotta use sessions here !!!!!!!!!!!!!!!!!!!!!!!!
-		club = daoClub.find(2);
+		club = daoClub.find(3);
 		club.setParagraphe(paragraphe);
 		club.setDescription(description);
 		
@@ -150,6 +150,15 @@ public class PresentationManager {
 		{
 			
 			FilesManager filesManager = new FilesManagerImpl();
+			if(club.getLogoPath()!=null)
+			{
+				filesManager.delete(chemin,club.getLogoPath());
+				filesManager.delete(chemin,club.getImg1Path());
+				filesManager.delete(chemin,club.getImg2Path());
+				filesManager.delete(chemin,club.getImg3Path());
+			}
+			
+			
 			club.setLogoPath(filesManager.ecrireFichier(partLogo, chemin));
 			club.setImg1Path(filesManager.ecrireFichier(partImg1, chemin));
 			club.setImg2Path(filesManager.ecrireFichier(partImg2, chemin));
