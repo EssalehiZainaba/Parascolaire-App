@@ -1,6 +1,5 @@
-
 .side-bar {
-    width: 15%;
+    width: 18%;
     height: calc(100vh - 70px);
     position: fixed;
     top: 70px;
@@ -9,12 +8,27 @@
     background-color: rgb(26, 24, 24);
     font-weight: bold;
     box-shadow:rgba(3, 3, 3, 0.898) 2px 3px 5px 1px;
-
+    overflow-y:auto;
 }
 
+.side-bar::-webkit-scrollbar {
+    width: 6px;
+    background-color:black;
+}
+
+.side-bar::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.side-bar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    height: 100px;
+    -webkit-box-shadow: inset 0 0 6px rgb(26, 24, 24);
+   
+}
 .side-links {
     width: 100%;
-    padding-top: 50px;
+    padding-top: 15px;
     list-style: none;
    
 }
@@ -29,15 +43,12 @@
     cursor:pointer;
 }
 
-.side-links li:hover {
-     background-color: rgba(224, 205, 34, 0.2);
-}
 
 .link {
     display: flex;
     align-items: center;
     justify-content: left;
-    height: 50px;
+    height:50px;
     width: 100%;
     padding-left: 10%;
     text-decoration: none;
@@ -45,10 +56,10 @@
 }
 
 
-menu {
-    display: flex;
-    flex-direction: column;
+.menu {
+   margin-bottom:10px;
 }
+
 
 .fa-caret-right {
     transition: transform 0.4s;
@@ -87,6 +98,7 @@ menu {
     height: 0px;
     opacity: 0;
     transition: opacity 0.4s ease-out, height 0.4s ease-in;
+    font-size: 13px;
 }
 
 .ele-menu {
