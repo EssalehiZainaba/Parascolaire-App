@@ -29,8 +29,7 @@ public class Utilisateur {
 	
 	
 	public Utilisateur() {}
-	public Utilisateur(int id, String login, String password) {
-		this.id = id;
+	public Utilisateur( String login, String password) {
 		this.login = login;
 		this.password = password;
 	}
