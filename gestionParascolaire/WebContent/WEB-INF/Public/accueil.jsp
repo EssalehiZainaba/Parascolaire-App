@@ -68,7 +68,7 @@
                 <input type="password" name="password" placeholder="Mot de passe">
            
         </fieldset>
-        <button type="submit">Connexion</button>
+        <button type="submit" name="submit">Connexion</button>
         <div class="close">X</div>
     </form>
     
