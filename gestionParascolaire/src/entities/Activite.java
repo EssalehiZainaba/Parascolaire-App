@@ -41,7 +41,6 @@ public class Activite {
 	List<Etudiant> etudiants;
 	
 	
-	
 	public Activite() {}
 	public Activite(boolean privee, String nom, LocalDate date, String lieu, String description) {
 		this.privee = privee;
@@ -76,7 +75,6 @@ public class Activite {
 	}
 
 
-	
 	public void setId(int id) {
 		this.id = id;
 	}
