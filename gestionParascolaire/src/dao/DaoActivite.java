@@ -10,6 +10,7 @@ public interface DaoActivite {
 	void add(Activite activite);
 	Activite find(int id);
 	void delete(int id);
+	void update(Activite activite);
 	List<Activite> lister();
 	List<Activite> listerToutPublique();
 	List<Activite> listerTousMesClubs(boolean privee, Etudiant etd);

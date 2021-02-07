@@ -30,10 +30,19 @@ public class ActiviteManager {
 	
 	
 	private Map<String,String> erreurs = new HashMap<String,String>();
-	private Activite activite;
+	private Activite activite=null;
+	private Part image = null;
 	
 	
 	
+	public Part getImage() {
+		return image;
+	}
+
+	public void setImage(Part image) {
+		this.image = image;
+	}
+
 	public Activite getActivite() {
 		return activite;
 	}
@@ -52,9 +61,65 @@ public class ActiviteManager {
 	
 	public Activite creerActivite(HttpServletRequest request , String chemin)
 	{
-		activite = null;
+		
+		this.validerActivite(request);
+		
+		if(erreurs.isEmpty())
+		{
+			
+			FilesManager filesManager = new FilesManagerImpl();
+			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+			
+			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
+			
+			
+			daoActivite.add(activite);
+			return activite;
+			
+			
+		}
+		
+		
+		
+		
+		
+		return null;
+		
+		
+		
+	}	
+	
+	
+	public Activite modifierActivite(HttpServletRequest request , String chemin)
+	{
+		this.validerActivite(request);
+		
+		if(erreurs.isEmpty())
+		{
+			
+			FilesManager filesManager = new FilesManagerImpl();
+			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+			
+			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
+			activite.setId(8);
+			filesManager.delete(chemin,daoActivite.find(8).getImagePath());
+			daoActivite.update(activite);
+			return activite;
+			
+			
+		}
+		
+		
+		
+		
+		
+		return null;
+	}
+	
+	private void validerActivite(HttpServletRequest request)
+	{
 		LocalDate date = null;
-		Part image = null;
+		
 		try {
 			image = request.getPart(CHAMP_IMAGE);
 		} catch (IOException e) {
@@ -126,29 +191,8 @@ public class ActiviteManager {
 		activite.setDate_activite(date);
 		activite.setPrivee(privee);
 		
-		if(erreurs.isEmpty())
-		{
-			
-			FilesManager filesManager = new FilesManagerImpl();
-			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
-			
-			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
-			
-			daoActivite.add(activite);
-			return activite;
-			
-			
-		}
 		
-		
-		
-		
-		
-		return null;
-		
-		
-		
-	}	
+	}
 	
 	
 	private void textValidation(String text) throws Exception
@@ -170,5 +214,7 @@ public class ActiviteManager {
 		if(privee == null)
 			throw new Exception("merci de selectionner une option");
 	}
+	
+	
 
 }

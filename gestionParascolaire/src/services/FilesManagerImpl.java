@@ -8,6 +8,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.servlet.http.Part;
 
@@ -92,9 +95,21 @@ public class FilesManagerImpl implements FilesManager{
 		
 	}
 	
-	public void write()
+	public void delete(String chemin,String imageName)
 	{
-		
+		Path imagesPath = Paths.get(chemin+imageName);
+
+			try {
+			    Files.delete(imagesPath);
+			    System.out.println("File "
+			            + imagesPath.toAbsolutePath().toString()
+			            + " successfully removed");
+			} catch (IOException e) {
+			    System.err.println("Unable to delete "
+			            + imagesPath.toAbsolutePath().toString()
+			            + " due to...");
+			    e.printStackTrace();
+			}
 	}
 
 }
