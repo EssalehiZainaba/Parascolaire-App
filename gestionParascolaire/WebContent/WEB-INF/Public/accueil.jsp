@@ -61,7 +61,7 @@
         </div>
     
     </div>
-    <form  class="sticky" action="">
+    <form  class="sticky" action="Accueil" method="POST">
         <div>Se connecter</div>
         <fieldset>
                 <input type="email" name="email" autocomplete="off" placeholder="Email">

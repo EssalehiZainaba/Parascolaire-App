@@ -72,7 +72,7 @@ public class ConnexionForm {
 	
 	
 	public Utilisateur validationConnexion(String email,String password){
-		Utilisateur utilisateur=new Utilisateur();
+		Utilisateur utilisateur = null;
 		try {
 			utilisateur=validationEmail(email);
 		} catch (Exception e) {
@@ -86,10 +86,9 @@ public class ConnexionForm {
 				erreur.put("password", e.getMessage());
 			}
 			userType=daoUtilisateur.getUserType(utilisateur.getId());
-			return utilisateur;
 		}
 		
-		return null;
+		return utilisateur;
 	}
 	
 	public Utilisateur creerUtilisateur(HttpServletRequest request) {
