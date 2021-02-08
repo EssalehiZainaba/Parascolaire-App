@@ -98,7 +98,7 @@ public class Accueil extends HttpServlet {
 					session.setAttribute("etudiant", (Etudiant)utilisateur);
 					response.sendRedirect(request.getContextPath()+"/Activites");
 				}
-				else if (form.getUserType().equals("Responsable")) {
+				else if (form.getUserType().equals("ResponsableClub")) {
 					session.setAttribute("responsable", (ResponsableClub)utilisateur);
 					response.sendRedirect(request.getContextPath()+"/ajouterActivite");				
 				}
