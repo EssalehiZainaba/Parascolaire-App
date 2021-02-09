@@ -1,7 +1,6 @@
 package entities;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -37,7 +36,10 @@ public class Club {
 	List<Activite> activites;
 	
 	@OneToMany(mappedBy="club")
-	Set<Appartenance> appartenances;
+	List<Appartenance> appartenances;
+	
+	@OneToMany(mappedBy="club")
+	List<DemandeInscription> demandesInscription;
 	
 
 
@@ -119,11 +121,18 @@ public class Club {
 		this.activites.add(activite);
 	}
 	
-	public Set<Appartenance> getAppartenances() {
+	public List<Appartenance> getAppartenances() {
 		return appartenances;
 	}
-	public void addAppartenances(Appartenance appartenance) {
+	public void addAppartenance(Appartenance appartenance) {
 		this.appartenances.add(appartenance);
+	}
+	
+	public List<DemandeInscription> getDemandesInscription() {
+		return demandesInscription;
+	}
+	public void addDemandeInscription(DemandeInscription demandeInscription) {
+		this.demandesInscription.add(demandeInscription);
 	}
 
 }

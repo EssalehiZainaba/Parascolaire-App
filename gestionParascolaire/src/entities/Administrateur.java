@@ -8,8 +8,7 @@ import javax.persistence.Entity;
 public class Administrateur extends Utilisateur{
 	
 	public Administrateur() {}
-	public Administrateur(int id, String login, String pwd) {
-		this.id = id;
+	public Administrateur(String login, String pwd) {
 		this.login = login;
 		this.password = pwd;
 	}

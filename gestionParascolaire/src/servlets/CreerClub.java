@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,20 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
 import dao.DaoClub;
 import dao.DaoClubImpl;
-import dao.DaoResponsableClub;
-import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
 import entities.Club;
 import entities.ResponsableClub;
 import services.CreerClubForm;
 import services.UpdateProfilForm;
 
-/**
- * Servlet implementation class CreerClub
- */
+
 @WebServlet("/CreerClub")
 public class CreerClub extends HttpServlet {
 	private static final long serialVersionUID = 1L;	
@@ -41,7 +37,7 @@ public class CreerClub extends HttpServlet {
 		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());	
 		  
         request.setAttribute( "clubs", daoClub.lister());
-		
+        
  		 this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
 
 	}
@@ -61,20 +57,20 @@ public class CreerClub extends HttpServlet {
         	  if(club != null)
         	  {
                   request.setAttribute( "clubs", daoClub.lister());
-                  this.getServletContext().setAttribute( "clubas", daoClub.lister());
+                  this.getServletContext().setAttribute("club", daoClub.lister());
            		  this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
         	  }
         	  else {
                   request.setAttribute( "clubs", daoClub.lister());
-                  
-           		  this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
+
+           		 this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
         	  }
         }
         
         else {
       
             request.setAttribute( "clubs", daoClub.lister());
-            this.getServletContext().setAttribute("clubas", daoClub.lister());
+
       		 this.getServletContext().getRequestDispatcher("/WEB-INF/Administrateur/creerClub.jsp").forward(request, response);
 
         	

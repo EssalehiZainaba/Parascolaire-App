@@ -2,7 +2,6 @@ package entities;
 
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -28,7 +27,10 @@ public class Etudiant extends Utilisateur{
 	private String adresse;
 	
 	@OneToMany(mappedBy="etudiant")
-	Set<Appartenance> appartenances;
+	List<Appartenance> appartenances;
+	
+	@OneToMany(mappedBy="etudiant")
+	List<DemandeInscription> demandesInscription;
 	
 	@ManyToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -93,7 +95,7 @@ public class Etudiant extends Utilisateur{
 	
 	
 	
-	public Set<Appartenance> getAppartenances() {
+	public List<Appartenance> getAppartenances() {
 		return appartenances;
 	}
 	public void addAppartenances(Appartenance appartenance) {
@@ -105,5 +107,12 @@ public class Etudiant extends Utilisateur{
 	}
 	public void addActivites(Activite activite) {
 		this.activites.add(activite);
+	}
+	
+	public List<DemandeInscription> getDemandesInscription() {
+		return demandesInscription;
+	}
+	public void addDemandeInscription(DemandeInscription demandeInscription) {
+		this.demandesInscription.add(demandeInscription);
 	}
 }
