@@ -56,3 +56,23 @@
     border-radius: 10px;
     box-shadow: 5px 4px 10px 1px rgba(3, 3, 3, 0.897);
 }
+
+
+.participer-submit{
+	height: 60px;
+    width: 120px;
+    color: #bcb6ae;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #bcb6ae;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 20px;
+    
+}
+
+.participer-submit:hover{
+    background-color: rgb(240, 176, 92,0.2);
+}

@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.DaoActivite;
@@ -68,5 +69,19 @@ public class ShowActivites {
 		
 		
 		return activites;
+	}
+	
+	
+	public List<Boolean> listParticipe (Etudiant etd, List<Activite> activites) {
+		
+		List<Boolean> listParticipe = new ArrayList<Boolean>();
+		int i = 0;
+		for (Activite activite : activites) {
+			listParticipe.add(activite.participe(etd));
+			System.out.println(listParticipe.get(i));
+			i++;
+		}
+		
+		return listParticipe;
 	}
 }

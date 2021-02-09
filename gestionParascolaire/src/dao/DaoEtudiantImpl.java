@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
+import entities.Activite;
 import entities.Etudiant;
 
 public class DaoEtudiantImpl implements DaoEtudiant{
@@ -74,6 +75,44 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 		try {
 			Etudiant etudiant = em.find(Etudiant.class, id);
 			em.remove(etudiant);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
+		}
+	}
+	
+	
+	
+	@Override
+	public void participer(Etudiant etudiant, Activite activite) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		try {
+			tx.begin();
+			etudiant.addActivite(activite);
+			em.merge(etudiant);
+			tx.commit();
+		} catch(Exception e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
+		}
+	}
+
+
+
+	@Override
+	public void nePlusParticiper(Etudiant etudiant, Activite activite) {
+		EntityManager em = factory.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		try {
+			tx.begin();
+			etudiant.removeActivite(activite);
+			em.merge(etudiant);
 			tx.commit();
 		} catch(Exception e) {
 			e.printStackTrace();

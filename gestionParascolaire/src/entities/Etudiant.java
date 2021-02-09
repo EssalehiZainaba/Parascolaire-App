@@ -105,8 +105,11 @@ public class Etudiant extends Utilisateur{
 	public List<Activite> getActivites() {
 		return activites;
 	}
-	public void addActivites(Activite activite) {
+	public void addActivite(Activite activite) {
 		this.activites.add(activite);
+	}
+	public void removeActivite(Activite activite) {
+		this.activites.remove(activite);
 	}
 	
 	public List<DemandeInscription> getDemandesInscription() {
@@ -115,4 +118,8 @@ public class Etudiant extends Utilisateur{
 	public void addDemandeInscription(DemandeInscription demandeInscription) {
 		this.demandesInscription.add(demandeInscription);
 	}
+	
+	
+	
+	
 }
