@@ -192,10 +192,12 @@ public class Activites extends HttpServlet {
 		
 		ShowActivites showActivites = new ShowActivites(daoActivite, daoEtudiant.find(1));
 		List<Activite> activites = showActivites.listActivites(clubName, privee);
+		List<Boolean> listParticipe = showActivites.listParticipe(daoEtudiant.find(1), activites);
 		String result = showActivites.getResult();
 
 		
 		request.setAttribute("activites", activites);
+		request.setAttribute("listParticipe", listParticipe);
 		if(result != null)
 			request.setAttribute("result", result);
 

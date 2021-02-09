@@ -4,9 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Profil Étudiant</title>
-	<link rel="stylesheet" href="./inc/css/header-footer.css">
-	<link rel="stylesheet" href="./inc/css/sideBar.css">
-	<link rel="stylesheet" href="./inc/css/Etudiant/activites.css">
+	<link rel="stylesheet" href="inc/css/header-footer.css">
+	<link rel="stylesheet" href="inc/css/sideBar.css">
+	<link rel="stylesheet" href="inc/css/Etudiant/activites.css">
   	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
 </head>
 <body>
@@ -16,9 +16,11 @@
 	<%@ include file="../sideBar.jsp" %>
     
     <div id="container">
+    
+    	<form id="participer-form" action="Participer" method="POST"></form>
         
         <div class="activites">
-        	<c:forEach items="${activites }" var="activite">
+        	<c:forEach items="${activites }" var="activite" varStatus="loop">
         		<div class="activite">
 	        		<div class="row">
 	        			<span>Club :</span>
@@ -44,6 +46,15 @@
 	        			<span>Privée :</span>
 	        			<span>${activite.privee }</span>
 	        		</div>
+						
+					<c:if test="${!listParticipe[loop.index] }">
+						<button type="submit" form="participer-form" class="participer-submit" name="id-activite-add" value="${activite.id }">Je participe</button>
+		        	</c:if>
+		        	
+		        	<c:if test="${listParticipe[loop.index] }">
+						<button type="submit" form="participer-form" class="participer-submit" name="id-activite-remove" value="${activite.id }">Je ne participe plus</button>
+		        	</c:if>
+					
 	        	</div>
         	</c:forEach>
         	
