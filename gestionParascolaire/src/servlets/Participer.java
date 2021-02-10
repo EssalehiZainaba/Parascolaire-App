@@ -55,10 +55,13 @@ public class Participer extends HttpServlet {
 
 		Etudiant etd = daoEtudiant.find(1);
 		
+		String clubName = request.getParameter("clubName");
+		String privee = request.getParameter("privee");
+		
 		GestionParticipation gestionParticipation = new GestionParticipation(daoActivite, daoEtudiant, etd);
 		gestionParticipation.gererParticipation(request);
 		
-		response.sendRedirect(request.getContextPath() + "/Activites");
+		response.sendRedirect(request.getContextPath() + "/Activites?clubName=" + clubName + "&privee=" + privee);
 	}
 
 }

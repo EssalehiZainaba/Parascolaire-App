@@ -24,7 +24,6 @@ public class GestionParticipation {
 		if(request.getParameter("id-activite-add")!=null) {
 			idActivite = Integer.parseInt(request.getParameter("id-activite-add"));
 			Activite activite = daoActivite.find(idActivite);
-			//FOR MORE SECURITY NEED TO CHECK IF THE ETUDIANT CAN PARTICIPATE TO THE ACTIVITY (NOT PRIVATE OF A CLUB HE ISNT A MEMBER OF)
 			daoEtudiant.participer(etd, activite);
 		}
 		if(request.getParameter("id-activite-remove")!=null) {

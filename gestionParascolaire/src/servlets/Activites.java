@@ -188,7 +188,8 @@ public class Activites extends HttpServlet {
 		//fonction for when clubName is tout and privee is true
 
 		String clubName = request.getParameter("clubName");
-		boolean privee = Boolean.parseBoolean(request.getParameter("privee"));
+		String strPrivee = request.getParameter("privee");
+		boolean privee = Boolean.parseBoolean(strPrivee);
 		
 		ShowActivites showActivites = new ShowActivites(daoActivite, daoEtudiant.find(1));
 		List<Activite> activites = showActivites.listActivites(clubName, privee);
@@ -198,6 +199,8 @@ public class Activites extends HttpServlet {
 		
 		request.setAttribute("activites", activites);
 		request.setAttribute("listParticipe", listParticipe);
+		request.setAttribute("clubName", clubName);
+		request.setAttribute("privee", strPrivee);
 		if(result != null)
 			request.setAttribute("result", result);
 
