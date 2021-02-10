@@ -3,8 +3,11 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 import entities.Activite;
+import entities.Club;
 import entities.Etudiant;
 
 public class DaoEtudiantImpl implements DaoEtudiant{
@@ -89,6 +92,20 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 	@Override
 	public void participer(Etudiant etudiant, Activite activite) {
 		EntityManager em = factory.createEntityManager();
+		
+		//CHECK IF THE ETUDIANT CAN PARTICIPATE IN THE ACTIVITY
+		if(activite.isPrivee()) {
+			Club club = activite.getClub();
+			Query query = em.createQuery("SELECT a FROM Appartenance a WHERE a.etudiant=:etd AND a.club=:club");
+			query.setParameter("etd", etudiant);
+			query.setParameter("club", club);
+			try {
+			query.getSingleResult();
+			} catch(NoResultException e) {
+				return;
+			}
+		}
+
 		EntityTransaction tx = em.getTransaction();
 		try {
 			tx.begin();

@@ -17,7 +17,7 @@
     
     <div id="container">
     
-    	<form id="participer-form" action="Participer" method="POST"></form>
+    	<form id="participer-form" action="Participer?clubName=${clubName }&privee=${privee }" method="POST"></form>
         
         <div class="activites">
         	<c:forEach items="${activites }" var="activite" varStatus="loop">
