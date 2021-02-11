@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.DaoClub;
-import dao.DaoClubImpl;
+import dao.DaoAppartenance;
+import dao.DaoAppartenanceImpl;
 import dao.DaoEtudiant;
 import dao.DaoEtudiantImpl;
 import dao.JPAUtil;
@@ -25,15 +25,16 @@ import services.UpdateProfilForm;
 public class Profil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DaoEtudiant daoEtudiant;
-	private DaoClub daoClub;
+	private DaoAppartenance daoAppartenance;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public Profil() {
     	EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
+    	
     	daoEtudiant = new DaoEtudiantImpl(factory);
-    	daoClub = new DaoClubImpl(factory);
+    	daoAppartenance = new DaoAppartenanceImpl(factory);
     }
 
 	/**
@@ -43,24 +44,14 @@ public class Profil extends HttpServlet {
 		
 		
 
-		request.setAttribute("clubs", daoClub.lister());
-		
-		//NORMALLY THERE IS ALWAYS AN ETUDIANT IN SESSION
-		//THIS CODE IS JUST FOR TESTING PURPOSES
-		Etudiant etd = new Etudiant("login@etd.test", "etdpwd");
-		etd.setCne("D876245414");
-		etd.setNom("Essalhi");
-		etd.setPrenom("Zendaya");
-		etd.setFiliere("Génie Acting");
-		etd.setAdresse("Somewhere");
-		etd.setPays("Ait Iyaza");
-		etd.setVille("Morocco");
-		
-		daoEtudiant.add(etd);
-		etd = daoEtudiant.find(1);		
+		//ETUDIANT FROM SESSION
 		HttpSession session = request.getSession();
+		Etudiant etd = (Etudiant) session.getAttribute("etudiant");
 		
-		session.setAttribute("etd", etd);
+		
+		//SIDE BAR
+		request.setAttribute("mesClubs", daoAppartenance.listerMesClubs(etd));
+		request.setAttribute("autresClubs", daoAppartenance.listerAutresClubs(etd));
 		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Etudiant/profil.jsp").forward(request, response);
@@ -71,16 +62,20 @@ public class Profil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//ETUDIANT FROM SESSION
 		HttpSession session = request.getSession();
-		int id = ((Etudiant)session.getAttribute("etd")).getId();
+		Etudiant etd = (Etudiant) session.getAttribute("etudiant");
+		
+		
+		//SIDE BAR
+		request.setAttribute("mesClubs", daoAppartenance.listerMesClubs(etd));
+		request.setAttribute("autresClubs", daoAppartenance.listerAutresClubs(etd));
+		
 		
 		UpdateProfilForm form = new UpdateProfilForm(daoEtudiant);
-		Etudiant etd = form.updateProfil(request, id);
-		
-		if(etd!=null)
-			session.setAttribute("etd", etd);
-		else
-			request.setAttribute("form", form);
+		etd = form.updateProfil(session, request, etd);
+	
+
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Etudiant/profil.jsp").forward(request, response);
 

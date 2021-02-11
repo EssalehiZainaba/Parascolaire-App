@@ -11,9 +11,9 @@
 </head>
 <body>
 
-	<%@ include file="../header.jsp" %>
+	<%@ include file="inc/header.jsp" %>
 	
-	<%@ include file="../sideBar.jsp" %>
+	<%@ include file="inc/sideBar.jsp" %>
     
     <div id="container">
     

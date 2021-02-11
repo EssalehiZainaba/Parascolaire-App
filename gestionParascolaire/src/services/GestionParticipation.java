@@ -1,6 +1,7 @@
 package services;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import dao.DaoActivite;
 import dao.DaoEtudiant;
@@ -19,18 +20,19 @@ public class GestionParticipation {
 		this.etd = etd;
 	}
 	
-	public void gererParticipation(HttpServletRequest request) {
+	public void gererParticipation(HttpSession session, HttpServletRequest request) {
 		int idActivite;
 		if(request.getParameter("id-activite-add")!=null) {
 			idActivite = Integer.parseInt(request.getParameter("id-activite-add"));
 			Activite activite = daoActivite.find(idActivite);
-			daoEtudiant.participer(etd, activite);
+			etd = daoEtudiant.participer(etd, activite);
+			session.setAttribute("etudiant", etd);
 		}
 		if(request.getParameter("id-activite-remove")!=null) {
 			idActivite = Integer.parseInt(request.getParameter("id-activite-remove"));
-			etd.removeActivite(daoActivite.find(idActivite));
 			Activite activite = daoActivite.find(idActivite);
-			daoEtudiant.nePlusParticiper(etd, activite);
+			etd = daoEtudiant.nePlusParticiper(etd, activite);
+			session.setAttribute("etudiant", etd);
 		}
 
 			

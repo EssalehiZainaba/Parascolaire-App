@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.DaoActivite;
 import dao.DaoActiviteImpl;
@@ -53,13 +54,15 @@ public class Participer extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		Etudiant etd = daoEtudiant.find(1);
+		HttpSession session = request.getSession();
+		
+		Etudiant etd = (Etudiant) session.getAttribute("etudiant");
 		
 		String clubName = request.getParameter("clubName");
 		String privee = request.getParameter("privee");
 		
 		GestionParticipation gestionParticipation = new GestionParticipation(daoActivite, daoEtudiant, etd);
-		gestionParticipation.gererParticipation(request);
+		gestionParticipation.gererParticipation(session, request);
 		
 		response.sendRedirect(request.getContextPath() + "/Activites?clubName=" + clubName + "&privee=" + privee);
 	}
