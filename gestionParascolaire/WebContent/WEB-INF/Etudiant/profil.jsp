@@ -11,29 +11,29 @@
 </head>
 <body>
 
-	<%@ include file="../header.jsp" %>
+	<%@ include file="inc/header.jsp" %>
 	
-	<%@ include file="../sideBar.jsp" %>
+	<%@ include file="inc/sideBar.jsp" %>
     
     <div id="container">
         
         <div id="Infos">
             <div id="profil">
-                <h1>${sessionScope.etd.prenom } ${sessionScope.etd.nom }</h1>
+                <h1>${sessionScope.etudiant.prenom } ${sessionScope.etudiant.nom }</h1>
                 <div class="row">
                     <div>                 
-                        <span>CNE:</span> ${sessionScope.etd.cne }
+                        <span>CNE:</span> ${sessionScope.etudiant.cne }
                     </div>
                     <div>
-                       <span>Filiere:</span> ${sessionScope.etd.filiere }
+                       <span>Filiere:</span> ${sessionScope.etudiant.filiere }
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                       <span> Pays:</span> ${sessionScope.etd.pays }
+                       <span> Pays:</span> ${sessionScope.etudiant.pays }
                     </div>
                     <div>
-                       <span>Ville:</span> ${sessionScope.etd.ville }
+                       <span>Ville:</span> ${sessionScope.etudiant.ville }
                     </div>
                 </div>
                 <button id="modifier">Modifier</button>
@@ -55,27 +55,27 @@
                 <p>Modifier le profil:</p>
                 <div <c:if test="${!isFormEmpty }">style="opacity: 1;"</c:if>>
                     <label>Nom:</label>
-                    <input type="text" name="nom" autocomplete="off" value="${sessionScope.etd.nom }">
+                    <input type="text" name="nom" autocomplete="off" value="${sessionScope.etudiant.nom }">
                 </div>
                 <div <c:if test="${!isFormEmpty }">style="opacity: 1;"</c:if>>
                     <label>Prenom:</label>
-                    <input type="text" name="prenom" autocomplete="off" value="${sessionScope.etd.prenom }">
+                    <input type="text" name="prenom" autocomplete="off" value="${sessionScope.etudiant.prenom }">
                 </div>
                 <div <c:if test="${!isFormEmpty }">style="opacity: 1;"</c:if>>
                     <label>CNE:</label>
-                    <input type="text" name="cne" autocomplete="off" value="${sessionScope.etd.cne }">
+                    <input type="text" name="cne" autocomplete="off" value="${sessionScope.etudiant.cne }">
                 </div>
                 <div <c:if test="${!isFormEmpty }">style="opacity: 1;"</c:if>>
                     <label>Filiere:</label>
-                    <input type="text" name="filiere" autocomplete="off" value="${sessionScope.etd.filiere }">
+                    <input type="text" name="filiere" autocomplete="off" value="${sessionScope.etudiant.filiere }">
                 </div>
                 <div <c:if test="${!isFormEmpty }">style="opacity: 1;"</c:if>>
                     <label>Pays:</label>
-                    <input type="text" name="pays" autocomplete="off" value="${sessionScope.etd.pays }">
+                    <input type="text" name="pays" autocomplete="off" value="${sessionScope.etudiant.pays }">
                 </div>
                 <div <c:if test="${!isFormEmpty }">style="opacity: 1;"</c:if>>
                     <label>Ville:</label>
-                    <input type="text" name="ville" autocomplete="off" value="${sessionScope.etd.ville }">
+                    <input type="text" name="ville" autocomplete="off" value="${sessionScope.etudiant.ville }">
                 </div>
                 <button id="formSubmit">Confirmer</button>
                 <c:if test="${!isFormEmpty }">

@@ -55,18 +55,19 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 	
 	
 	@Override
-	public void update(Etudiant etd) {
+	public Etudiant update(Etudiant etd) {
 		EntityManager em = factory.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		try {
 			tx.begin();
-			em.merge(etd);
+			etd = em.merge(etd);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
 		} finally {
 			em.close();
 		}
+		return etd;
 	}
 
 
@@ -90,7 +91,7 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 	
 	
 	@Override
-	public void participer(Etudiant etudiant, Activite activite) {
+	public Etudiant participer(Etudiant etudiant, Activite activite) {
 		EntityManager em = factory.createEntityManager();
 		
 		//CHECK IF THE ETUDIANT CAN PARTICIPATE IN THE ACTIVITY
@@ -102,7 +103,7 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 			try {
 			query.getSingleResult();
 			} catch(NoResultException e) {
-				return;
+				return etudiant;
 			}
 		}
 
@@ -110,7 +111,7 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 		try {
 			tx.begin();
 			etudiant.addActivite(activite);
-			em.merge(etudiant);
+			etudiant = em.merge(etudiant);
 			tx.commit();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -118,18 +119,20 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 		} finally {
 			em.close();
 		}
+		
+		return etudiant;
 	}
 
 
 
 	@Override
-	public void nePlusParticiper(Etudiant etudiant, Activite activite) {
+	public Etudiant nePlusParticiper(Etudiant etudiant, Activite activite) {
 		EntityManager em = factory.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		try {
 			tx.begin();
 			etudiant.removeActivite(activite);
-			em.merge(etudiant);
+			etudiant = em.merge(etudiant);
 			tx.commit();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -137,7 +140,10 @@ public class DaoEtudiantImpl implements DaoEtudiant{
 		} finally {
 			em.close();
 		}
+		return etudiant;
 	}
+	
+
 	
 	
 

@@ -7,9 +7,9 @@ public interface DaoEtudiant {
 	
 	void add(Etudiant etd);
 	Etudiant find(int id);
-	void update(Etudiant etd);
+	Etudiant update(Etudiant etd);
 	void delete(int id);
-	void participer(Etudiant etudiant, Activite activite);
-	void nePlusParticiper(Etudiant etudiant, Activite activite);
+	Etudiant participer(Etudiant etudiant, Activite activite);
+	Etudiant nePlusParticiper(Etudiant etudiant, Activite activite);
 	
 }

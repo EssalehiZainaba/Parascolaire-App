@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import dao.DaoEtudiant;
 import entities.Etudiant;
@@ -31,7 +32,7 @@ public class UpdateProfilForm {
 
 	
 
-	public Etudiant updateProfil(HttpServletRequest request, int id) {
+	public Etudiant updateProfil(HttpSession session, HttpServletRequest request, Etudiant etd) {
 		
 		String prenom = request.getParameter("prenom");
 		String nom = request.getParameter("nom");
@@ -39,8 +40,7 @@ public class UpdateProfilForm {
 		String filiere = request.getParameter("filiere");
 		String pays = request.getParameter("pays");
 		String ville = request.getParameter("ville");
-		
-		Etudiant etd;		
+				
 		validateNotEmpty(prenom, "prenom");
 		validateNotEmpty(nom, "nom");
 		validateNotEmpty(cne, "cne");
@@ -50,7 +50,6 @@ public class UpdateProfilForm {
 
 		
 		if(errors.isEmpty()) {
-			etd = daoEtudiant.find(id);
 			etd.setPrenom(prenom);
 			etd.setNom(nom);
 			etd.setCne(cne);
@@ -58,14 +57,13 @@ public class UpdateProfilForm {
 			etd.setPays(pays);
 			etd.setVille(ville);
 			
-			daoEtudiant.update(etd);
-			etd = daoEtudiant.find(id);
+			etd = daoEtudiant.update(etd);
+			session.setAttribute("etudiant", etd);
 			
 		} 
 		else {
-			etd = null;
-			
 			result = "Veuiller remplir tous les champs.";
+			request.setAttribute("form", this);
 		}
 		
 		
