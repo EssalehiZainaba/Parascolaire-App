@@ -48,7 +48,7 @@ public class PresentationManager {
 		this.erreurs = erreurs;
 	}
 
-	public Club managePresentation(HttpServletRequest request,String chemin)
+	public Club managePresentation(HttpServletRequest request,String chemin,int id)
 	{
 		
 		club = null;
@@ -139,10 +139,8 @@ public class PresentationManager {
 		}
 		
 		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		/*HttpSession session = request.getSession();
-		ResponsableClub rc = (ResponsableClub)session.getAttribute("responsable");
-		int id = rc.getClub().getId();*///you gotta use sessions here !!!!!!!!!!!!!!!!!!!!!!!!
-		club = daoClub.find(3);
+		
+		club = daoClub.find(id);
 		club.setParagraphe(paragraphe);
 		club.setDescription(description);
 		

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.DaoActivite;
 import dao.DaoActiviteImpl;
@@ -15,6 +16,7 @@ import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Activite;
 import entities.Club;
+import entities.ResponsableClub;
 import services.ActiviteManager;
 
 /**
@@ -38,8 +40,10 @@ public class ModificationActivite extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int id = Integer.parseInt(request.getParameter("id"));
 		DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
-		Activite activite = daoActivite.find(8);
+		Activite activite = daoActivite.find(id);
 		request.setAttribute("activite",activite);
 		
 		request.getRequestDispatcher("WEB-INF/Responsable/modificationActivite.jsp").forward(request, response);
@@ -49,10 +53,12 @@ public class ModificationActivite extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		int id = Integer.parseInt(request.getParameter("id"));
 		ActiviteManager activiteManager = new ActiviteManager();
+		
 		String chemin = (String) this.getServletContext().getAttribute("chemin");
-		Activite activite = activiteManager.modifierActivite(request, chemin);
+		
+		Activite activite = activiteManager.modifierActivite(request, chemin,id);
 		if(activite == null)
 		{
 			request.setAttribute("am",activiteManager);
@@ -62,7 +68,11 @@ public class ModificationActivite extends HttpServlet {
 		}
 			
 		else
-			request.getRequestDispatcher("WEB-INF/Responsable/modificationActivite.jsp").forward(request, response);	
+		{
+			
+			request.getRequestDispatcher("WEB-INF/Responsable/modificationActivite.jsp").forward(request, response);
+		}
+				
 		
 		
 		}

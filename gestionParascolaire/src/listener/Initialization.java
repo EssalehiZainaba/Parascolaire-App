@@ -16,12 +16,15 @@ import javax.websocket.Session;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
+import dao.DaoResponsableClub;
+import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Club;
+import entities.ResponsableClub;
 
 /**
  * Application Lifecycle Listener implementation class Initialization
@@ -51,8 +54,14 @@ public class Initialization implements ServletContextListener {
     	event.getServletContext().setAttribute( "club", daoClub.lister());
     	
     	
-    	String chemin = "C:\\Users\\toshiba\\Desktop\\here\\GestionParascolaire\\gestionParascolaire\\WebContent\\images\\";
+    	String chemin = event.getServletContext().getRealPath("images")+"\\";
+    	System.out.println(chemin);
     	event.getServletContext().setAttribute("chemin",chemin);
+    	//
+    	DaoResponsableClub daoResponsableClub = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
+    	ResponsableClub responsableClub = daoResponsableClub.find(5);
+    	
+    	
     	
 
     }

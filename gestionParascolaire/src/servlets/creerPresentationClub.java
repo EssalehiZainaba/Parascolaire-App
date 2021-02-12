@@ -49,16 +49,7 @@ public class creerPresentationClub extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String date= request.getParameter("date");
-		LocalDate date2 = null;
-		System.out.println(date);
 		
-		date2 = LocalDate.parse(date);
-		
-		System.out.println(date2.toString());
-		HttpSession session = request.getSession();
-		session.setAttribute("date",date2);
-		request.getRequestDispatcher("/test.jsp").forward(request, response);
 		
 		
 	}

@@ -14,12 +14,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Activite;
+import entities.Club;
+import entities.ResponsableClub;
 import services.ActiviteManager;
 import services.FilesManager;
 import services.FilesManagerImpl;
@@ -58,7 +61,10 @@ public class CreationActivite extends HttpServlet {
 
 		String chemin = (String)this.getServletContext().getAttribute("chemin");
 		ActiviteManager activiteManager = new ActiviteManager();
-		Activite activite = activiteManager.creerActivite(request, chemin);
+		HttpSession session = request.getSession();
+		ResponsableClub responsableClub = (ResponsableClub) session.getAttribute("responsable");
+		Club club = responsableClub.getClub();
+		Activite activite = activiteManager.creerActivite(request, chemin,club);
 		if(activite == null)
 		{
 			request.setAttribute("am",activiteManager);

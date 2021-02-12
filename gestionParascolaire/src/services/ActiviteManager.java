@@ -19,6 +19,7 @@ import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Activite;
+import entities.Club;
 
 public class ActiviteManager {
 	final static String CHAMP_NOM="nom";
@@ -59,7 +60,7 @@ public class ActiviteManager {
 		this.erreurs = erreurs;
 	}
 	
-	public Activite creerActivite(HttpServletRequest request , String chemin)
+	public Activite creerActivite(HttpServletRequest request , String chemin ,Club club)
 	{
 		
 		this.validerActivite(request);
@@ -71,7 +72,7 @@ public class ActiviteManager {
 			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
 			
 			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
-			
+			activite.setClub(club);
 			
 			daoActivite.add(activite);
 			return activite;
@@ -90,7 +91,7 @@ public class ActiviteManager {
 	}	
 	
 	
-	public Activite modifierActivite(HttpServletRequest request , String chemin)
+	public Activite modifierActivite(HttpServletRequest request , String chemin ,int id)
 	{
 		this.validerActivite(request);
 		
@@ -99,10 +100,10 @@ public class ActiviteManager {
 			
 			FilesManager filesManager = new FilesManagerImpl();
 			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
-			
+			activite.setClub(daoActivite.find(id).getClub());
 			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
-			activite.setId(8);
-			filesManager.delete(chemin,daoActivite.find(8).getImagePath());
+			activite.setId(id);
+			filesManager.delete(chemin,daoActivite.find(id).getImagePath());
 			daoActivite.update(activite);
 			return activite;
 			
@@ -190,6 +191,17 @@ public class ActiviteManager {
 		activite.setLieu_activite(lieu);
 		activite.setDate_activite(date);
 		activite.setPrivee(privee);
+		
+		
+	}
+	
+	public void delete(String chemin ,int id)
+	{
+		DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+		FilesManager filesManager = new FilesManagerImpl();
+		activite = daoActivite.find(id);
+		filesManager.delete(chemin, activite.getImagePath());
+		daoActivite.delete(id);
 		
 		
 	}
