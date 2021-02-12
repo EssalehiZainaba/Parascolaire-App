@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="presentation?clubId=1">Club Sociale</a><br>
-	<a href="presentation?clubId=2">Club sportif</a><br>
-	<a href="presentation?clubId=3">Enactus</a><br>
-	<a href="presentation?clubId=4">las lyndas</a><br>
-	<a href="presentation?clubId=5">appsClubtik</a><br>
+	<a href="supprimerActivite?id=1">Activité 1</a><br>
+	<a href="supprimerActivite?id=2">Activité 2</a><br>
+	<a href="supprimerActivite?id=3">Activité 3</a><br>
+	<a href="supprimerActivite?id=4">Activité 4</a><br>
+	<a href="supprimerActivite?id=5">Activité 5</a><br>
 	
 	<form method="post" action="creerPresentationClub">
 		<input type="date" name="date" value="${sessionScope.date.toString() }"><br>

@@ -26,7 +26,10 @@
    <div id="container">
    
  		  <form id="activiteForm" method="post" action="modifierActivite" enctype="multipart/form-data">
-	
+				<div class="text">
+	                <label >ID d'activité :</label>
+	                <input type="text" name="id" value="${activite.getId()}" />
+	            </div>
 	            <div class="text">
 	                <label id="nom">Nom d'activité :</label>
 	                <input type="text" name="nom" value="${activite.getNom() }"/>
@@ -34,7 +37,7 @@
 	            </div>
 	            <div class="text">
 	                <label id="description">Description :</label>
-	                <textarea name="description">${activite.getDescription() }</textarea>
+	                <textarea name="description"> ${activite.getDescription() }</textarea>
 	                <span class="erreur" style="color:red">${am.getErreurs()["description"]}</span> 
 	            </div>
 	            <div class="text">
@@ -61,8 +64,11 @@
 	                <input type="file" id="image" name="image" accept="image/*">
 	                <span class="erreur" style="color:red">${am.getErreurs()["image"]} </span>
 	            </div>
-	
-	            <button type="submit">Créer</button> 
+				<div class="buttons">
+					<button type="submit">Modifier</button>
+					<a class="delete" href="supprimerActivite?id="${activite.getId()}>Delete</a>
+				</div>
+	             
         </form>
         
    </div>  

@@ -113,7 +113,7 @@ label{
 
 
 
-button{
+button,.buttons a {
     width: 120px;
     height: 50px;
     background-color: rgb(223, 217, 217,0.6);
@@ -126,6 +126,31 @@ button{
     margin-top: 20px;
 }
 
-button:hover{
+button:hover {
     background-color:rgb(234, 237, 238,0.8);
 }
+
+.buttons{
+	display:flex;
+	justify-content:space-evenly;
+	width:100%;
+}
+
+.buttons a{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background-color:red;
+	
+}
+.buttons a:hover{
+	background-color:#ff0000ed;
+}
+
+
+
+
+
+
+
+

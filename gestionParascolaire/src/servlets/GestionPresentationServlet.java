@@ -22,12 +22,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
+import dao.DaoResponsableClub;
+import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
 import entities.Club;
+import entities.ResponsableClub;
 import services.FilesManager;
 import services.FilesManagerImpl;
 import services.PresentationManager;
@@ -48,8 +52,7 @@ public class GestionPresentationServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public GestionPresentationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+    	
     }
 
 	/**
@@ -65,9 +68,15 @@ public class GestionPresentationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		
+		ResponsableClub responsableClub = (ResponsableClub) session.getAttribute("responsable");
+		int id = responsableClub.getClub().getId();
+		
+		
 		PresentationManager presentationManager = new PresentationManager();
 		String chemin = (String)this.getServletContext().getAttribute("chemin");
-		Club club = presentationManager.managePresentation(request,chemin);
+		Club club = presentationManager.managePresentation(request,chemin,id);
 		if(club==null)
 		{
 			request.setAttribute("pm",presentationManager);
@@ -75,7 +84,7 @@ public class GestionPresentationServlet extends HttpServlet {
 		}
 			
 		else
-			request.getRequestDispatcher("WEB-INF/Responsable/presentationClub.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath()+"/presentation?clubId="+id);
 		
 	}
 	
