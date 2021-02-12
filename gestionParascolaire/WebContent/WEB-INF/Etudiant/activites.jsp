@@ -22,29 +22,35 @@
         <div class="activites">
         	<c:forEach items="${activites }" var="activite" varStatus="loop">
         		<div class="activite">
+    			 	<div class="imageContainer">
+	                 	<img src="images/image3.jpeg" alt="">
+	             	</div>
 	        		<div class="row">
-	        			<span>Club :</span>
+	        			<span class="title">Club :</span>
 	        			<span>${activite.club.name }</span>
 	        		</div>
 	        		<div class="row">
-	        			<span>Nom :</span>
+	        			<span class="title">Nom :</span>
 	        			<span>${activite.nom }</span>
 	        		</div>
+	        		<!-- Had description je pense blach ha deranjat styling o safi  -->
+        			<!--<div class="row">
+	        				<span>Description :</span>
+	        				<span class="description">
+	        					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta ullam, error cumque recusandae, architecto, perferendis 
+	        					officiis non fuga fugit ad provident ipsam? Velit consequatur deserunt aliquid cupiditate quam eum exercitationem.Lorem ipsum, 	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta ullam, error cumque recusandae, architecto, perferendis 
+	        					officiis non fuga fugit ad provident ipsam? Velit consequatur deserunt aliquid cupiditate quam eum exercitationem.
+	        				</span>
+	       					<span>${activite.description }</span>
+	        			</div> 
+	        		-->
 	        		<div class="row">
-	        			<span>Description :</span>
-	        			<span>${activite.description }</span>
-	        		</div>
-	        		<div class="row">
-	        			<span>Date :</span>
+	        			<span class="title">Date :</span>
 	        			<span>${activite.date }</span>
 	        		</div>
 	        		<div class="row">
-	        			<span>Lieu :</span>
+	        			<span class="title">Lieu :</span>
 	        			<span>${activite.lieu }</span>
-	        		</div>
-	        		<div class="row">
-	        			<span>Privée :</span>
-	        			<span>${activite.privee }</span>
 	        		</div>
 						
 					<c:if test="${!listParticipe[loop.index] }">
