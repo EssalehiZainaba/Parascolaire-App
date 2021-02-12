@@ -74,12 +74,16 @@ public class ShowActivites {
 	
 	public List<Boolean> listParticipe (Etudiant etd, List<Activite> activites) {
 		
-		List<Boolean> listParticipe = new ArrayList<Boolean>();
-		int i = 0;
-		for (Activite activite : activites) {
-			listParticipe.add(activite.participe(etd));
-			System.out.println(listParticipe.get(i));
-			i++;
+		List<Boolean> listParticipe = null;
+		
+		if(activites != null) {
+			listParticipe = new ArrayList<Boolean>();
+			int i = 0;
+			for (Activite activite : activites) {
+				listParticipe.add(activite.participe(etd));
+				System.out.println(listParticipe.get(i));
+				i++;
+			}
 		}
 		
 		return listParticipe;
