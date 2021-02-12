@@ -11,6 +11,7 @@
 
 
 <link rel="stylesheet" href="./inc/css/header-footer.css">
+<link rel="stylesheet" href="./inc/css/connexionForm.css">
 <link rel="stylesheet" href="./inc/css/presentation/presentation.css">
 <script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
 
@@ -19,7 +20,7 @@
 	
 	
 	
-	<%@ include file="../header.jsp" %>
+	<%@ include file="inc/header.jsp" %>
 	<div class="container">
         <div class="content">
             <div class="cover">
@@ -64,7 +65,9 @@
         </div>
     </div>
 	<%@ include file="../footer.jsp" %>
+	<%@ include file="../connexionForm.jsp" %>
 </body>
 <script src="./inc/js/presentation/presentation.js"></script>
 <script type="text/javascript" src="./inc/js/header.js"></script>
+<script type="text/javascript" src="./inc/js/connexionForm.js"></script>
 </html>
