@@ -17,6 +17,7 @@ public interface DaoActivite {
 	List<Activite> listerTousAutresClubs(Etudiant etd);
 	List<Activite> listerPublique(String clubName);
 	List<Activite> listerPrivee(String clubName, Etudiant etd);
+	List<Activite> listerActivite(int idClub, String year);
 	
 	
 }

@@ -8,6 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import entities.Activite;
+import entities.Appartenance;
 import entities.Etudiant;
 
 public class DaoActiviteImpl implements DaoActivite{
@@ -164,6 +165,20 @@ public class DaoActiviteImpl implements DaoActivite{
 		}
 		em.close();
 		return null;
+	}
+
+
+
+	@Override
+	public List<Activite> listerActivite(int idClub, String year) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE SUBSTRING(a.date, 1, 4)=:year AND a.club.id= :idClub");
+		query.setParameter("year", year);
+		query.setParameter("idClub", idClub);
+		@SuppressWarnings("unchecked")
+		List<Activite> activite = query.getResultList();
+		em.close();
+		return activite;
 	}
 
 
