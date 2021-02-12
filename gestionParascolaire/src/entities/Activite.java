@@ -30,6 +30,7 @@ public class Activite {
 	private String lieu;
 	private String description;
 	private String imagePath;
+	private String size;
 	
 	@ManyToOne
 	@JoinColumn(name="id_club")
@@ -51,6 +52,7 @@ public class Activite {
 
 
 	
+
 	public int getId() {
 		return id;
 	}
@@ -71,6 +73,9 @@ public class Activite {
 	}
 	public Club getClub() {
 		return club;
+	}
+	public int getSize() {
+		return etudiants.size();
 	}
 
 
@@ -137,6 +142,7 @@ public class Activite {
 	}
 	
 	
-	
+
+
 
 }
