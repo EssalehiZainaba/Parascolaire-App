@@ -5,7 +5,7 @@
 	<meta charset="ISO-8859-1">
 	<title>creer Presentation de Club</title>
 	<link rel="stylesheet" href="./inc/css/header-footer.css">
-	<link rel="stylesheet" href="./inc/css/sideBar.css">
+	<link rel="stylesheet" href="./inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="./inc/css/Responsable/presentationClub.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
  	
@@ -15,9 +15,9 @@
 
 	<jsp:setProperty name="pm" property="*" />
 
-    <%@ include file="../header.jsp" %>
+    <%@ include file="inc/header.jsp" %>
 	
-	<%@ include file="../sideBar.jsp" %>
+	<%@ include file="inc/sideBar.jsp" %>
 	
    <div id="container">
    
@@ -74,5 +74,4 @@
      <%@ include file="../footer.jsp" %>
 </body>
 	<script type="text/javascript" src="./inc/js/header.js"></script>
-	<script type="text/javascript" src="./inc/js/sideBar.js"></script>
 </html>
