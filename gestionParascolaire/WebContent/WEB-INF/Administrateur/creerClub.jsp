@@ -5,7 +5,6 @@
 	 <meta charset="utf-8" />
 	<title>Creer club</title>
 	<link rel="stylesheet" href="./inc/css/header-footer.css">
-	<link rel="stylesheet" href="./inc/css/sideBar.css">
 	<link rel="stylesheet" href="./inc/css/Administrateur/creerClub.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	
  	 <script type="text/javascript">     
@@ -23,9 +22,8 @@
 </head>
 <body>
 
-    <%@ include file="../header.jsp" %>
+    <%@ include file="inc/header.jsp" %>
 	
-	<%@ include file="../sideBar.jsp" %>
 	
    <div id="container">
            <span class="erreur" style="color: red;">${Erreur['name']}</span>
@@ -36,7 +34,7 @@
                <p class="close">x</p>
                <input type="text" name="name" placeholder="Nom du Club" autocomplete="off">
                <input type="email" name="email" placeholder="Email responsable" autocomplete="off">
-               <button type="submit" id="submitButton" name="submit">créer</button>
+               <button type="submit" id="submitButton" name="submit">Créer</button>
            </form>
            
             <div id="clubsContainer">
@@ -57,6 +55,5 @@
      <%@ include file="../footer.jsp" %>
 </body>
 	<script type="text/javascript" src="./inc/js/header.js"></script>
-	<script type="text/javascript" src="./inc/js/sideBar.js"></script>
 	<script type="text/javascript" src="./inc/js/Administrateur/creerClub.js"></script>
 </html>

@@ -4,33 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clubs Ensa</title>
+    <link rel="stylesheet" href="./inc/css/header-footer.css">
+    <link rel="stylesheet" href="./inc/css/connexionForm.css">
     <link rel="stylesheet" href="./inc/css/Public/ListeClubs.css">
     <script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>
 </head>
 <body>
-    <header>
-        <ul class="links">
-            <li><a href="#">Acceuil</a></li>
-            <li><a href="#">Notre Ecole</a></li>
-            <li class="clubs" >
-                    <a  href="#">Clubs</a>
-                    <div>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <ul class="dropDown">
-                     <c:forEach var="club" items="${clubs}" >
-                        <li><a href="#">
-                        <c:out value="${ club.name }" />
-                        </a></li>  
-                      </c:forEach>           
-                    </ul>
-            </li>
-            <li><a href="#">Contact US</a></li>
-        </ul>
-        <div class="LogIn">
-            <a href="#">Se connecter</a>
-        </div>
-    </header>
+
+
+	<%@ include file="inc/header.jsp" %>
+	
+	
     <div class="container">
         
         <img class="image-ensa" src="images/imageensaa1.jpeg">
@@ -51,15 +35,13 @@
 
     
     </div>
-    <footer>
-        <div>
-            <i class="fab fa-facebook-square"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-github"></i>
-            <i class="fab fa-twitter"></i>
-        </div>
- 
-    </footer>
+    
+    <%@ include file="../footer.jsp" %>
+    <%@ include file="../connexionForm.jsp" %>
+    
+    
 </body>
+<script type="text/javascript" src="./inc/js/header.js"></script>
+<script type="text/javascript" src="./inc/js/connexionForm.js"></script>
 <script type="text/javascript" src="./inc/js/Public/ListeClubs.js"></script>
 </html>

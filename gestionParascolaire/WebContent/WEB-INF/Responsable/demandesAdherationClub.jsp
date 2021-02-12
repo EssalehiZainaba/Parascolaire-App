@@ -5,16 +5,16 @@
 	 <meta charset="utf-8" />
 	<title>Creer club</title>
 	<link rel="stylesheet" href="inc/css/header-footer.css">
-	<link rel="stylesheet" href="inc/css/sideBar.css">
+	<link rel="stylesheet" href="inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="inc/css/Responsable/demandesAdherationClub.css">
 	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	
 </head>
 
 <body>
 
-    <%@ include file="../header.jsp" %>
+    <%@ include file="inc/header.jsp" %>
 	
-	<%@ include file="../sideBar.jsp" %>
+	<%@ include file="inc/sideBar.jsp" %>
 	
 	<div id="container">
         <div id="demandes">
@@ -169,5 +169,4 @@
      <%@ include file="../footer.jsp" %>
 </body>
 	<script type="text/javascript" src="./inc/js/header.js"></script>
-	<script type="text/javascript" src="./inc/js/sideBar.js"></script>
 </html>
