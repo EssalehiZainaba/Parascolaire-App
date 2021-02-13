@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -60,7 +62,7 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 		EntityTransaction tx=em.getTransaction();
 		try {
 			tx.begin();
-			Query query=em.createQuery("DELETE from DemandeInscription d WHERE d.Etudiant=:etudiant AND d.club=:club");
+			Query query=em.createQuery("DELETE from DemandeInscription d WHERE d.etudiant=:etudiant AND d.club=:club");
 			query.setParameter("etudiant", etudiant);
 			query.setParameter("club", club);
 			tx.commit();
@@ -73,6 +75,20 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 			em.close();
 		}
 		
+	}
+
+
+
+	@Override
+	public List<DemandeInscription> lister(Club club) {
+		// TODO Auto-generated method stub
+		EntityManager em=factory.createEntityManager();
+		Query query=em.createQuery("SELECT d FROM DemandeInscription WHERE d.club=:club");
+		query.setParameter("club", club);
+		@SuppressWarnings("unchecked")
+		List<DemandeInscription> demandeInscriptions=query.getResultList();
+		em.close();
+		return demandeInscriptions;
 	}
 	
 
