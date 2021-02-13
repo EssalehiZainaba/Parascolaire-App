@@ -20,11 +20,12 @@
 	
 	<%@ include file="inc/sideBar.jsp" %> 	
 	
-
-	<canvas id="myLineChart" class="myLineChart" width="930" height="250" ></canvas>
-	<div class="charts">
-    <canvas id="myChart" class="myBarChart" width="500" height="200" ></canvas>
-    <canvas id="myPieChart" class="myPieChart" width="800" height="200" ></canvas>
+	<div id="container">
+		<canvas id="myLineChart" class="myLineChart" width="930" height="250" ></canvas>
+		<div class="charts">
+		    <canvas id="myChart" class="myBarChart" width="500" height="200" ></canvas>
+		    <canvas id="myPieChart" class="myPieChart" width="800" height="200" ></canvas>
+	    </div>
     </div>
 	    
     
