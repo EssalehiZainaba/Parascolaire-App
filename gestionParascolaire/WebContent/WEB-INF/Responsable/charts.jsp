@@ -7,7 +7,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
 	<link rel="stylesheet" href="inc/css/common/header-footer.css">
-	<link rel="stylesheet" href="inc/css/sideBar.css">
+	<link rel="stylesheet" href="inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="inc/css/Responsable/charts.css">
   	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
  
