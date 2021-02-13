@@ -2,19 +2,30 @@
 <!DOCTYPE html>
 <html>
  <head>
- 
+     	<title>Statistiques</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+	<link rel="stylesheet" href="inc/css/header-footer.css">
+	<link rel="stylesheet" href="inc/css/sideBar.css">
+	<link rel="stylesheet" href="inc/css/Responsable/charts.css">
+  	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
  
 	
 </head>
 
 <body> 
- 	
 
-    <canvas id="myChart" width="900" height="130" ></canvas>
-    <canvas id="myLineChart" width="900" height="130" ></canvas>
-    <canvas id="myPieChart" width="800" height="200" ></canvas>
+	<%@ include file="inc/header.jsp" %>
+	
+	<%@ include file="inc/sideBar.jsp" %> 	
+	
+
+	<canvas id="myLineChart" class="myLineChart" width="930" height="250" ></canvas>
+	<div class="charts">
+    <canvas id="myChart" class="myBarChart" width="500" height="200" ></canvas>
+    <canvas id="myPieChart" class="myPieChart" width="800" height="200" ></canvas>
+    </div>
 	    
     
      <script>
@@ -24,7 +35,8 @@
     let ctx = document.getElementById('myChart').getContext('2d');  
      
    // Chart.defaults.global.defaultFontFamily='Lato'; 
-    Chart.defaults.global.defaultFontSize=10; 
+    Chart.defaults.global.defaultFontSize=10;
+    Chart.defaults.global.defaultFontColor='#B0B0B0';
 
     let myChart = new Chart(ctx, {
         type: 'bar',
@@ -66,8 +78,9 @@
             maintainAspectRatio: false,
             title:{
             	display:true,
-            	text:'Nombre des Activitées club par années',
+            	text:'Total Activitées ',
             	fontSize:15	
+            	
             },
         	legend:{
             	display: false
@@ -100,12 +113,12 @@
           	           ${numberAct},
                   	</c:forEach>],
                   backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
+                	   'rgba(255, 99, 132, 0.7)',
+                       'rgba(54, 162, 235, 0.8)',                     
+                       'rgba(75, 192, 192, 0.8)',
+                       'rgba(153, 102, 255, 0.8)',                     
+                       'rgba(255, 206, 86, 0.8)',
+                       'rgba(255, 159, 64, 0.8)'
                   ],
                   borderColor: [
                       'rgba(255, 99, 132, 1)',
@@ -124,7 +137,7 @@
               maintainAspectRatio: false,
               title:{
               	display:true,
-              	text:'Nombre des adhérants par années',
+              	text:'Total Adhérants',
               	fontSize:15	
               },
           	legend:{
@@ -179,14 +192,17 @@
           options: {
               responsive: false,
               maintainAspectRatio: false,
-              title:{
+           title:{
               	display:true,
-              	text:'Nombre des participants aux activitées années',
+              	text:'Total participants aux activitées',
               	fontSize:15	
               },
           	legend:{
-              	display: true	
-              }
+              	display: true,
+              	position: 'bottom',
+              },
+              
+              
           }
          
       });            
@@ -194,9 +210,10 @@
     
     
     </script>
-    
-    
-</body>
 
+</body>
+	<script type="text/javascript" src="./inc/js/header.js"></script>
+	<script type="text/javascript" src="./inc/js/sideBar.js"></script>
+	
 
 </html>
