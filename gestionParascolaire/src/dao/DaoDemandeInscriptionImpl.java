@@ -28,7 +28,7 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 		EntityTransaction tx = em.getTransaction();
 		try {
 			tx.begin();
-			em.persist(demande);
+			em.merge(demande);
 			tx.commit();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -81,7 +81,7 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 	public List<DemandeInscription> lister(Club club) {
 		// TODO Auto-generated method stub
 		EntityManager em=factory.createEntityManager();
-		Query query=em.createQuery("SELECT d FROM DemandeInscription WHERE d.club=:club");
+		Query query=em.createQuery("SELECT d FROM DemandeInscription d WHERE d.club=:club");
 		query.setParameter("club", club);
 		@SuppressWarnings("unchecked")
 		List<DemandeInscription> demandeInscriptions=query.getResultList();
