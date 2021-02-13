@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-	<link rel="stylesheet" href="inc/css/header-footer.css">
+	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBar.css">
 	<link rel="stylesheet" href="inc/css/Responsable/charts.css">
   	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
@@ -211,9 +211,11 @@
     
     </script>
 
+
+	     <%@ include file="../common/footer.jsp" %>
+	     
 </body>
-	<script type="text/javascript" src="./inc/js/header.js"></script>
-	<script type="text/javascript" src="./inc/js/sideBar.js"></script>
+	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 	
 
 </html>

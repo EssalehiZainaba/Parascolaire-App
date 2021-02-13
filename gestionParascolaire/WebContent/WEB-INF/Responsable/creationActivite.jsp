@@ -4,7 +4,7 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>creation d'activité</title>
-	<link rel="stylesheet" href="./inc/css/header-footer.css">
+	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="./inc/css/Responsable/creationActivite.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
@@ -63,7 +63,7 @@
         
    </div>  
         
-     <%@ include file="../footer.jsp" %>
+     <%@ include file="../common/footer.jsp" %>
 </body>
-	<script type="text/javascript" src="./inc/js/header.js"></script>
+	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 </html>
