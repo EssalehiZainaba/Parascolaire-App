@@ -51,7 +51,8 @@ public class DemandesAdherationClub extends HttpServlet {
 		HttpSession session=request.getSession();
 		ResponsableClub responsableClub=(ResponsableClub)session.getAttribute("responsable");
 		List<DemandeInscription> demandes=daoDemandeInscription.lister(responsableClub.getClub());
-		request.setAttribute("damandes", demandes);
+		request.setAttribute("demandes", demandes);
+		request.setAttribute("size", demandes.size());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Responsable/demandesAdherationClub.jsp").forward(request, response);
 	}
 

@@ -19,15 +19,15 @@
 	<div id="container">
         <div id="demandes">
 			
-			<c:if test="${demandes.size()>0}">
+			<c:if test="${size>0}">
 		      
 		       <c:forEach items="${demandes}" var="demande">
 		            
 		            <div class="demande">
 		                
-		                <p>${demande.getEtudiant.getNom()} ${demande.getEtudiant.getPrenom()}</p>
-		                <p>${demande.getEtudiant.getFiliere()}</p>
-		                <p>${demande.getDateDemande()}</p>
+		                <p>${demande.etudiant.nom} ${demande.etudiant.prenom}</p>
+		                <p>${demande.etudiant.filiere}</p>
+		                <p>${demande.dateDemande}</p>
 		                
 		                <div class="buttons">
 		                    <button class="add">
@@ -44,7 +44,7 @@
 			
 			</c:if> 
 			
-			<c:if test="${demandes.size()==0}">
+			<c:if test="${size==0}">
 				<div class="noDemandes">
 					<h1>Le Club n'a pas de demandes d'adheration !</h1>
 				</div>
