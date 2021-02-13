@@ -1,33 +1,21 @@
 package servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DaoActivite;
-import dao.DaoActiviteImpl;
-import dao.DaoAppartenance;
-import dao.DaoAppartenanceImpl;
+
 import dao.DaoClub;
 import dao.DaoClubImpl;
-import dao.DaoDemandeInscription;
-import dao.DaoDemandeInscriptionImpl;
-import dao.DaoEtudiant;
-import dao.DaoEtudiantImpl;
-import dao.DaoParticipation;
-import dao.DaoParticipationImpl;
-import dao.DaoResponsableClub;
-import dao.DaoResponsableClubImpl;
+
 import dao.JPAUtil;
-import entities.Activite;
-import entities.Appartenance;
+
 import entities.Club;
-import entities.DemandeInscription;
-import entities.Etudiant;
-import entities.ResponsableClub;
+
 
 /**
  * Servlet implementation class PresentationServlet

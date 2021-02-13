@@ -33,7 +33,7 @@
 	        			<span class="title">Nom :</span>
 	        			<span>${activite.nom }</span>
 	        		</div>
-	        		<!-- Had description je pense blach ha deranjat styling o safi  -->
+	        		<!-- Had description je pense blach ha deranjat styling o safi ==> I AGREE //Z -->
         			<!--<div class="row">
 	        				<span>Description :</span>
 	        				<span class="description">
