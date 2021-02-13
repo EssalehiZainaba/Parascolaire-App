@@ -13,5 +13,8 @@ public interface DaoAppartenance {
 	Appartenance find(AppartenanceKey id);
 	List<Club> listerMesClubs(Etudiant etd);
 	List<Club> listerAutresClubs(Etudiant etd);
+	List<Appartenance> listerAppartenances(String year, int idClub);
+	List<Appartenance> listerAppartenancesClub( int idClub);
+	//String minDateAppartenance( int idClub);
 	
 }

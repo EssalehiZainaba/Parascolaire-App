@@ -12,10 +12,13 @@ public interface DaoActivite {
 	void delete(int id);
 	void update(Activite activite);
 	List<Activite> lister();
+	List<Activite> liste(String ClubName);
 	List<Activite> listerToutPublique();
 	List<Activite> listerTousMesClubs(boolean privee, Etudiant etd);
 	List<Activite> listerTousAutresClubs(Etudiant etd);
 	List<Activite> listerPublique(String clubName);
 	List<Activite> listerPrivee(String clubName, Etudiant etd);
+	List<Activite> listerActivite(int idClub, String year);
+	
 	
 }

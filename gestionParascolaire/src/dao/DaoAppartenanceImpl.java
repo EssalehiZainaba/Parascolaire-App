@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+import entities.Activite;
 import entities.Appartenance;
 import entities.AppartenanceKey;
 import entities.Club;
@@ -79,6 +80,45 @@ public class DaoAppartenanceImpl implements DaoAppartenance{
 		em.close();
 		return mesClubs;
 	}
+
+
+
+	@Override
+	public List<Appartenance> listerAppartenances(String year, int idClub) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Appartenance a WHERE SUBSTRING(a.dateAppartenance, 1, 4)=:year AND a.club.id= :idClub");
+		query.setParameter("year", year);
+		query.setParameter("idClub", idClub);
+		@SuppressWarnings("unchecked")
+		List<Appartenance> appartenance = query.getResultList();
+		em.close();
+		return appartenance;
+	}
+	
+	@Override
+	public List<Appartenance> listerAppartenancesClub( int idClub) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Appartenance a WHERE a.club.id= :idClub");
+		query.setParameter("idClub", idClub);
+		@SuppressWarnings("unchecked")
+		List<Appartenance> appartenance = query.getResultList();
+		em.close();
+		return appartenance;
+	}
+
+
+//not finished !
+
+	/*public String minDateAppartenance(int idClub) {
+		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Appartenance a WHERE SUBSTRING(a.dateAppartenance, 1, 4)< AND a.club.id= :idClub");
+		query.setParameter("idClub", idClub);
+		@SuppressWarnings("unchecked")
+		List<Appartenance> appartenance = query.getResultList();
+		em.close();
+		return null;
+	}*/
+
 
 
 }
