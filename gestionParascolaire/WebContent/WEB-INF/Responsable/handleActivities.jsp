@@ -6,7 +6,7 @@
     
     <title>Handle Activities</title>
     
-	<link rel="stylesheet" href="inc/css/header-footer.css">
+	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="inc/css/Responsable/Activities.css">
     
@@ -100,7 +100,7 @@
 	 </div>
 	 
 	             
-     <%@ include file="../footer.jsp" %>
+     <%@ include file="../common/footer.jsp" %>
 </body>
-	<script type="text/javascript" src="./inc/js/header.js"></script>
+	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 </html>

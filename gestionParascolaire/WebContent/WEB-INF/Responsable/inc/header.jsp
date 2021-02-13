@@ -1,10 +1,10 @@
 
 	<header>
 	      <ul class="links">
-	          <li><a href="">Acceuil</a></li>
-	          <li><a href="#">Notre Ecole</a></li>
+	          <li><a href="charts">Acceuil</a></li>
+	          <li><a href="">Notre Ecole</a></li>
 	          <li class="clubs" >
-	                  <a  href="#">Clubs</a>
+	                  <a  href="ListeClubs">Clubs</a>
 	                  <div>
 	                      <i class="fas fa-caret-down"></i>
 	                  </div>

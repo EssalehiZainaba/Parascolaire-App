@@ -4,7 +4,7 @@
 <head>
 	 <meta charset="utf-8" />
 	<title>Creer club</title>
-	<link rel="stylesheet" href="./inc/css/header-footer.css">
+	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/Administrateur/creerClub.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	
  	 <script type="text/javascript">     
@@ -52,8 +52,8 @@
    
    </div>  
         
-     <%@ include file="../footer.jsp" %>
+     <%@ include file="../common/footer.jsp" %>
 </body>
-	<script type="text/javascript" src="./inc/js/header.js"></script>
+	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 	<script type="text/javascript" src="./inc/js/Administrateur/creerClub.js"></script>
 </html>
