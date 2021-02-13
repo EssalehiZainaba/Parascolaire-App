@@ -2,7 +2,7 @@
 	<header>
 	      <ul class="links">
 	          <li><a href="charts">Acceuil</a></li>
-	          <li><a href="">Notre Ecole</a></li>
+	          <li><a href="NotreEcole">Notre Ecole</a></li>
 	          <li class="clubs" >
 	                  <a  href="ListeClubs">Clubs</a>
 	                  <div>
@@ -19,6 +19,6 @@
 	          <li><a href="#">Contact US</a></li>
 	      </ul>
 	      <div class="LogIn">
-	          <a href="#">Se deconnecter</a>  
+	          <a href="Deconnexion">Se deconnecter</a>  
 	      </div>
 	</header>

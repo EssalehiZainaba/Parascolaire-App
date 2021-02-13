@@ -2,7 +2,7 @@
 	<header>
 	      <ul class="links">
 	          <li><a href="Accueil">Acceuil</a></li>
-	          <li><a href="#">Notre Ecole</a></li>
+	          <li><a href="NotreEcole">Notre Ecole</a></li>
 	          <li class="clubs" >
 	                  <a  href="ListeClubs">Clubs</a>
 	                  <div>
