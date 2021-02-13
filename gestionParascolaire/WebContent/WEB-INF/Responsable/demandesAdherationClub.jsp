@@ -15,158 +15,47 @@
     <%@ include file="inc/header.jsp" %>
 	
 	<%@ include file="inc/sideBar.jsp" %>
-	
+
 	<div id="container">
         <div id="demandes">
-            <div class="demande">
-                <p>Younes Kellouch</p>
-                <p>G Info</p>
-                <p>2/2/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Younes Iharchine</p>
-                <p>G Info</p>
-                <p>2/2/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Zainaba Essalihi</p>
-                <p>G Info</p>
-                <p>5/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Harka Amine</p>
-                <p>G Indus</p>
-                <p>1/10/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Jamal Sakta</p>
-                <p>G Mecanique</p>
-                <p>27/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Jamal Sakta</p>
-                <p>G Mecanique</p>
-                <p>27/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Jamal Sakta</p>
-                <p>G Mecanique</p>
-                <p>27/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Jamal Sakta</p>
-                <p>G Mecanique</p>
-                <p>27/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Jamal Sakta</p>
-                <p>G Mecanique</p>
-                <p>27/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Jamal Sakta</p>
-                <p>G Mecanique</p>
-                <p>27/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="demande">
-                <p>Jamal Sakta</p>
-                <p>G Mecanique</p>
-                <p>27/9/2020</p>
-                <div class="buttons">
-                    <button class="add">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button class="remove">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
-            </div>
-
-
+			
+			<c:if test="${demandes.size()>0}">
+		      
+		       <c:forEach items="${demandes}" var="demande">
+		            
+		            <div class="demande">
+		                
+		                <p>${demande.getEtudiant.getNom()} ${demande.getEtudiant.getPrenom()}</p>
+		                <p>${demande.getEtudiant.getFiliere()}</p>
+		                <p>${demande.getDateDemande()}</p>
+		                
+		                <div class="buttons">
+		                    <button class="add">
+		                        <i class="fas fa-check"></i>
+		                    </button>
+		                    <button class="remove">
+		                        <i class="fas fa-trash-alt"></i>
+		                    </button>
+		                </div>
+		            
+		            </div>
+	            
+	            </c:forEach>
+			
+			</c:if> 
+			
+			<c:if test="${demandes.size()==0}">
+				<div class="noDemandes">
+					<h1>Le Club n'a pas de demandes d'adheration !</h1>
+				</div>
+			</c:if>         	
+     
         </div>
     </div>
             
      <%@ include file="../footer.jsp" %>
 </body>
+
 	<script type="text/javascript" src="./inc/js/header.js"></script>
+
 </html>

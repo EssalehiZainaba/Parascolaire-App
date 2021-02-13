@@ -77,8 +77,6 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 		
 	}
 
-
-
 	@Override
 	public List<DemandeInscription> lister(Club club) {
 		// TODO Auto-generated method stub
