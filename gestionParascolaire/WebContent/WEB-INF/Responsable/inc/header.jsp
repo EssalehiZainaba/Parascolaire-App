@@ -10,7 +10,7 @@
 	                  </div>
 	                  <ul class="dropDown">
 	                   <c:forEach var="club" items="${applicationScope.club}" >
-                        <li><a href="#">
+                        <li><a href="presentation?clubId=${club.id }">
                         <c:out value="${ club.name }" />
                         </a></li>  
                       </c:forEach> 
