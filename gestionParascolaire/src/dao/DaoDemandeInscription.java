@@ -10,8 +10,12 @@ import entities.Etudiant;
 public interface DaoDemandeInscription {
 
 	void add(DemandeInscription demande);
+<<<<<<< HEAD
 	void delete(Etudiant etudiant,Club club);
 	List<DemandeInscription> lister(Club club);
 	DemandeInscription find(AppartenanceKey key);
+=======
+	List<DemandeInscription> find(Club club ,Etudiant etudiant);
+>>>>>>> branche1
 	
 }

@@ -18,9 +18,15 @@ import dao.DaoActivite;
 import dao.DaoActiviteImpl;
 import dao.DaoClub;
 import dao.DaoClubImpl;
+import dao.DaoDemandeInscription;
+import dao.DaoDemandeInscriptionImpl;
+import dao.DaoEtudiant;
+import dao.DaoEtudiantImpl;
 import dao.JPAUtil;
 import entities.Activite;
 import entities.Club;
+import entities.DemandeInscription;
+import entities.Etudiant;
 
 /**
  * Servlet implementation class creerPresentationClub
@@ -41,6 +47,26 @@ public class creerPresentationClub extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		DaoDemandeInscription daoDemandeInscription = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
+		
+		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		DaoEtudiant daoEtudiant = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
+		
+		Club club = daoClub.find(1);
+		Etudiant etudiant = daoEtudiant.find(1);
+		
+		List<DemandeInscription> demandeInscription = daoDemandeInscription.find(club,etudiant);
+		System.out.println(demandeInscription.size());
+		if(demandeInscription.get(0)==null)
+			System.out.println("not working");
+		else
+			System.out.println(demandeInscription.get(0).getDateDemande());
+		
+	/*	Date date = new Date();
+		DemandeInscription demandeInscription = new DemandeInscription(etudiant,club,date);*/
+		
+		
+		
 		
 		
 	}

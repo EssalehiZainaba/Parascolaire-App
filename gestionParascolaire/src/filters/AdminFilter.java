@@ -10,6 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet Filter implementation class AdminFilter
@@ -38,16 +39,19 @@ public class AdminFilter implements Filter {
 		/* Cast des objets request et response */
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
+        HttpSession session = req.getSession();
 
-        /* Récupération de la session depuis la requête */
-       // HttpSession session = request.getSession();
-
-        /**
-         * Si l'objet utilisateur n'existe pas dans la session en cours, alors
-         * l'utilisateur n'est pas connecté.
-         */
-        	System.out.println("you are in Admin");
-		chain.doFilter(request, response);
+        if(session.getAttribute("administrateur")==null)
+        {
+        	if(session.getAttribute("responsable")!=null)
+        		res.sendRedirect(req.getContextPath()+"/ajouterActivite");
+        	else
+        		res.sendRedirect(req.getContextPath()+"/Activities");
+        		
+        }
+        else
+        	chain.doFilter(request, response);
+		
 	}
 
 	/**
