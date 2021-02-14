@@ -3,7 +3,7 @@
 <html>
 <head>
 	 <meta charset="utf-8" />
-	<title>Creer club</title>
+	<title>Créer un club</title>
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/Administrateur/creerClub.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	

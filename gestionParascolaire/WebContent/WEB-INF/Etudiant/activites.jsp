@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Profil Étudiant</title>
+	<title>Activités</title>
 	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBar.css">
 	<link rel="stylesheet" href="inc/css/Etudiant/activites.css">
