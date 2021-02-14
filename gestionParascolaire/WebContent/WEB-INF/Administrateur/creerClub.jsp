@@ -30,14 +30,16 @@
            <br>
            <span class="erreur" style="color: red;">${Erreur['email']}</span>
    
-           <form id="addClub" method="post" action="CreerClub" >
+           <form id="addClub" method="post" action="CreerClub"  style=${ !empty erreurs ? "transform:translateX(0px)":"" }>
                <p class="close">x</p>
                <input type="text" name="name" placeholder="Nom du Club" autocomplete="off">
+               <span>${erreurs.name}</span>
                <input type="email" name="email" placeholder="Email responsable" autocomplete="off">
+               <span>${erreurs.email}</span>
                <button type="submit" id="submitButton" name="submit">Créer</button>
            </form>
            
-            <div id="clubsContainer">
+            <div id="clubsContainer"  style=${ !empty erreurs ? "filter:blur(15px)" : "" }>
             <c:forEach  items="${clubs }" var="club" >
                 <div class="club">
                     <p><c:out value="${ club.name }" /></p>

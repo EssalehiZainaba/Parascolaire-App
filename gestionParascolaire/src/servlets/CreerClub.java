@@ -52,7 +52,7 @@ public class CreerClub extends HttpServlet {
         	
            	  CreerClubForm form = new CreerClubForm(daoClub);
         	  Club club = form.creerClub(request);
-        	  request.setAttribute( "Erreur", form.Erreur );
+        	  request.setAttribute( "erreurs", form.Erreur );
         	  
         	  if(club != null)
         	  {
