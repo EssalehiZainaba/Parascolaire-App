@@ -94,7 +94,7 @@ li a,.LogIn a{
 }
 
 .dropDown{
-    height: 300px;
+    height: 0;
     width: 150%;
     background-color: rgb(26, 24, 24);
     display: flex;
@@ -108,7 +108,7 @@ li a,.LogIn a{
     opacity: 0;
     pointer-events: none;
     z-index: 10;
-    transition:  opacity 1.5s ease-out , height 0.5s ease-in;
+    transition:  opacity 1s , height 1s ease-out, background-color 0.5s ease-in;
 }
 
 .dropDown li{
@@ -117,24 +117,13 @@ li a,.LogIn a{
 }
 
 .dropDownHover{
+	height: 300px;
     opacity: 1;
     pointer-events: auto;
 }
 
 .dropDown li{  
     width: 100%;
-}
-
-.fixedDropDown{
-    z-index: 10;
-    background-color: rgb(48, 45, 45,0.6);
-}
-
-.fixedHeader{
-    position: fixed;
-    top:0;
-    z-index: 10;
-    background-color: rgb(48, 45, 45,0.6);
 }
 
 

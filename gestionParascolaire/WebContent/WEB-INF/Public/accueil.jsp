@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/common/connexionForm.css">
 	<link rel="stylesheet" href="./inc/css/Accueil/accueil.css">
+	<link rel="stylesheet" href="./inc/css/Accueil/header.css">
   	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
 </head>
 
@@ -71,4 +72,5 @@
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 	<script type="text/javascript" src="./inc/js/common/connexionForm.js"></script>
 	<script type="text/javascript" src="./inc/js/Accueil/accueil.js"></script>
+	<script type="text/javascript" src="./inc/js/Accueil/header.js"></script>
 </html>
