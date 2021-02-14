@@ -66,7 +66,7 @@
 	            </div>
 				<div class="buttons">
 					<button type="submit">Modifier</button>
-					<a class="delete" href="supprimerActivite?id="${activite.getId()}>Delete</a>
+					<a class="delete" href="supprimerActivite?id=${activite.getId()}">Delete</a>
 				</div>
 	             
         </form>

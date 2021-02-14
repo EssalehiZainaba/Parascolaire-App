@@ -11,7 +11,17 @@ import javax.servlet.http.HttpSession;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
+<<<<<<< HEAD
 
+=======
+import dao.DaoDemandeInscription;
+import dao.DaoDemandeInscriptionImpl;
+import dao.DaoEtudiant;
+import dao.DaoEtudiantImpl;
+
+import dao.DaoResponsableClub;
+import dao.DaoResponsableClubImpl;
+>>>>>>> branche1
 import dao.JPAUtil;
 
 import entities.Club;
@@ -37,8 +47,11 @@ public class PresentationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("clubId"));
-		DaoClub dc = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+		
+		//
+		/*DaoClub dc = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
 		Club club = dc.find(id);
+<<<<<<< HEAD
 		request.setAttribute("club",club);
 		
 		HttpSession session = request.getSession();
@@ -50,6 +63,10 @@ public class PresentationServlet extends HttpServlet {
 			 this.getServletContext().getRequestDispatcher( "/WEB-INF/Administrateur/presentation.jsp" ).forward( request, response );
 		 else
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/Public/presentation.jsp").forward(request, response);
+=======
+		request.setAttribute("club",club);*/
+		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/test.jsp").forward(request, response);
+>>>>>>> branche1
 
 	}
 	

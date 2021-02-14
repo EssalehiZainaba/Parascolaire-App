@@ -30,9 +30,21 @@ public class DemandeInscription {
 	
 	@Column(name="date_demande_inscription")
 	Date dateDemande;
+	
+	
 
 	
 	
+	public DemandeInscription() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public DemandeInscription(Etudiant etudiant, Club club, Date dateDemande) {
+		super();
+		this.etudiant = etudiant;
+		this.club = club;
+		this.dateDemande = dateDemande;
+	}
 	public AppartenanceKey getId() {
 		return id;
 	}
