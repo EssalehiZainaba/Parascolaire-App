@@ -16,7 +16,7 @@
 
    	<%@ include file="inc/header.jsp" %>
    	
-    <div class="container">
+    <div class="container ${!empty erreurs ? 'blur' :''}">
 
         <div class="Slider-images ">
                 
