@@ -113,18 +113,15 @@ li a,.LogIn a{
 
 .dropDown li{
     opacity:0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s , height 1s ease-out;
+    width: 100%;
 }
 
 .dropDownHover{
-	height: 300px;
     opacity: 1;
     pointer-events: auto;
 }
 
-.dropDown li{  
-    width: 100%;
-}
 
 
 footer {
