@@ -51,7 +51,7 @@ public class Accueil extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
-		EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
+	/*	EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
 		
 		daoUtilisateur = new DaoUtilisateurImpl(factory);
         daoEtudiant = new DaoEtudiantImpl(factory);
@@ -72,7 +72,7 @@ public class Accueil extends HttpServlet {
         etd.setNom("Nom");
         etd.setPrenom("Prenom");
         etd.setCne("D139872516");
-        etd.setFiliere("Génie Informatique");
+        etd.setFiliere("Gï¿½nie Informatique");
         etd.setPays("Maroc");
         etd.setVille("Agadir");
         daoEtudiant.add(etd);
@@ -138,28 +138,28 @@ public class Accueil extends HttpServlet {
         daoActivite.add(activite2);
         
         Activite activite3 = new Activite();
-        activite3.setNom_activite("Conférence Harka");
+        activite3.setNom_activite("Confï¿½rence Harka");
         activite3.setClub(club2);
         activite3.setLieu_activite("Amphi Younes Kellouch");
         activite3.setPrivee(false);
         daoActivite.add(activite3);
         
         Activite activite4 = new Activite();
-        activite4.setNom_activite("Introduction à Spring");
+        activite4.setNom_activite("Introduction ï¿½ Spring");
         activite4.setClub(club3);
         activite4.setLieu_activite("Salle H10");
         activite4.setPrivee(false);
         daoActivite.add(activite4);
         
         Activite activite5 = new Activite();
-        activite5.setNom_activite("Introduction au Koréan");
+        activite5.setNom_activite("Introduction au Korï¿½an");
         activite5.setClub(club4);
         activite5.setLieu_activite("Salle H11");
         activite5.setPrivee(false);
         daoActivite.add(activite5);
         
         Activite activite6 = new Activite();
-        activite6.setNom_activite("Introduction à l'Allemand");
+        activite6.setNom_activite("Introduction ï¿½ l'Allemand");
         activite6.setClub(club4);
         activite6.setLieu_activite("Salle H10");
         activite6.setPrivee(false);
@@ -181,7 +181,7 @@ public class Accueil extends HttpServlet {
         daoAppartenance.add(appartenance2);
         
         Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4));
-        daoAppartenance.add(appartenance3);
+        daoAppartenance.add(appartenance3);*/
 		
 	
 		
@@ -191,9 +191,14 @@ public class Accueil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//System.out.println(daoUtilisateur.getIdByEmail("admin12@gmail.com"));
-		System.out.println(daoUtilisateur.getUserType(1));
+		/*System.out.println(daoUtilisateur.getUserType(1));
 		System.out.println(daoUtilisateur.getUserType(2));
-		System.out.println(daoUtilisateur.getUserType(7));
+		System.out.println(daoUtilisateur.getUserType(7));*/
+		HttpSession session = request.getSession();
+		DaoEtudiant daoEtudiant = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
+		Etudiant etudiant = daoEtudiant.find(1);
+		session.setAttribute("etudiant", etudiant);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/accueil.jsp").forward(request, response);
 	
 	}

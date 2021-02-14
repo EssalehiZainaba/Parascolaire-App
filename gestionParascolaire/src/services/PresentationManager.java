@@ -14,6 +14,7 @@ import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Club;
+import entities.Etudiant;
 import entities.ResponsableClub;
 
 public class PresentationManager {
@@ -173,6 +174,26 @@ public class PresentationManager {
 		
 		
 	}
+	
+	
+	
+	
+	
+	public Boolean isShown(HttpServletRequest request)
+	{
+		int idClub = Integer.parseInt(request.getParameter("idClub"));
+		HttpSession session = request.getSession();
+		Etudiant etudiant = (Etudiant)session.getAttribute("etudiant");
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	private void textValidation(String text) throws Exception
 	{

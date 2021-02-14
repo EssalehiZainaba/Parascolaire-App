@@ -1,45 +1,35 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import dao.DaoActivite;
-import dao.DaoActiviteImpl;
-import dao.DaoAppartenance;
-import dao.DaoAppartenanceImpl;
 import dao.DaoClub;
 import dao.DaoClubImpl;
 import dao.DaoDemandeInscription;
 import dao.DaoDemandeInscriptionImpl;
-import dao.DaoEtudiant;
-import dao.DaoEtudiantImpl;
-
-import dao.DaoResponsableClub;
-import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
-import entities.Activite;
-import entities.Appartenance;
 import entities.Club;
 import entities.DemandeInscription;
 import entities.Etudiant;
-import entities.ResponsableClub;
 
 /**
- * Servlet implementation class PresentationServlet
+ * Servlet implementation class ajouterDemandeInscription
  */
-@WebServlet("/presentation")
-public class PresentationServlet extends HttpServlet {
+@WebServlet("/ajouterDemandeInscription")
+public class AjouterDemandeInscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PresentationServlet() {
+    public AjouterDemandeInscription() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,15 +38,20 @@ public class PresentationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("clubId"));
+		DaoDemandeInscription daoDemandeInscription = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
+		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
 		
-		//
-		/*DaoClub dc = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		Club club = dc.find(id);
-		request.setAttribute("club",club);*/
-		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/test.jsp").forward(request, response);
-
+		
+		int idClub =Integer.parseInt(request.getParameter("id"));
+		Club club = daoClub.find(idClub);
+		HttpSession session = request.getSession();
+		Etudiant etudiant = (Etudiant) session.getAttribute("etudiant");
+		
+		DemandeInscription demandeInscription = new DemandeInscription(etudiant,club,new Date());
+		daoDemandeInscription.add(demandeInscription);
+		response.sendRedirect(request.getContextPath()+"/Activites");
+		
+		
 	}
-	
 
 }

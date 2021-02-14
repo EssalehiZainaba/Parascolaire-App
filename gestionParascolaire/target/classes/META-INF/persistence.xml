@@ -6,7 +6,7 @@
     <persistence-unit name="GestionParascolaire">
     
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hollo" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hahaha" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="harka" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
