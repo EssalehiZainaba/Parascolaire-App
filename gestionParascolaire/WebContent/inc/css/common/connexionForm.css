@@ -92,3 +92,12 @@ form.sticky{
     top: 10px;
     cursor: pointer;
 }
+
+
+input {
+  -webkit-background-clip: text !important;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(240, 176, 92);
+}
