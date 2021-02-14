@@ -1,9 +1,7 @@
 package dao;
 
-<<<<<<< HEAD
-=======
+
 import java.util.ArrayList;
->>>>>>> branche1
 import java.util.List;
 
 import javax.persistence.EntityManager;
