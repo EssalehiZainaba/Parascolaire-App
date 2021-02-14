@@ -12,8 +12,8 @@ form{
     flex-direction: column;
     transition: transform 1.5s ease-in-out;
     position: absolute;
-    top: 300px;
-    left: 600px;
+   	top: 210px;
+    left: 540px;
 }
 
 form div{
@@ -52,9 +52,15 @@ fieldset input::placeholder{
     font-weight: bold;
     color: rgb(240, 176, 92);
 }
+
 fieldset input:focus::placeholder {
     color: transparent;
-  }
+}
+
+fieldset span{
+	color:red;
+	font-size:12px;
+}
 
 button{
     width: 150px;
