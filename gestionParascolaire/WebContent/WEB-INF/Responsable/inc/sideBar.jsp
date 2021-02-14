@@ -3,9 +3,9 @@
 
             <li><a class="link" href="charts">Statistiques</a></li>
 			<li><a class="link" href="HandleActivities">Activités</a></li>
-            <li><a class="link" href="ajouterActivite">Créer Activité</a></li>
-            <li><a class="link" href="Demandes">Gérer Demandes d'Adhérations</a></li>
-            <li><a class="link" href="creerPresentationClub">Gérer Présentation de Club</a></li>
+            <li><a class="link" href="ajouterActivite">Créer une activité</a></li>
+            <li><a class="link" href="Demandes">Gérer les demandes d'adhérations</a></li>
+            <li><a class="link" href="creerPresentationClub">Gérer la présentation de club</a></li>
 
         </ul>
     </nav>

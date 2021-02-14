@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>creation d'activité</title>
+	<title>Créer une activité</title>
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="./inc/css/Responsable/creationActivite.css">
