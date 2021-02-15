@@ -6,6 +6,7 @@
     
     <title>Activités</title>
     
+    <link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="inc/css/Responsable/Activities.css">

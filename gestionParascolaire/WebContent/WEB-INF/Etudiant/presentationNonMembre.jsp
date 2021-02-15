@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Presentation de ${club.getName()}</title>
 
-
+<link rel="icon" href="./images/logo.png">
 <link rel="stylesheet" href="./inc/css/common/header-footer.css">
 <link rel="stylesheet" href="./inc/css/common/connexionForm.css">
 <link rel="stylesheet" href="./inc/css/presentation/presentation.css">

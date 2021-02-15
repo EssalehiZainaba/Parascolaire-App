@@ -4,6 +4,7 @@
 <head>
 	 <meta charset="utf-8" />
 	<title>Gérer les demandes d'adhération</title>
+	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="inc/css/Responsable/demandesAdherationClub.css">

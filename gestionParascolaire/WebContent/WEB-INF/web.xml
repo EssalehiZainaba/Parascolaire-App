@@ -15,8 +15,7 @@
             <include-prelude>/WEB-INF/jstlLib.jsp</include-prelude>
         </jsp-property-group>
     </jsp-config>
-  
-  
+    
   <servlet>
   	<servlet-name>respoClub</servlet-name>
   	<servlet-class>servlets.respoClub</servlet-class>

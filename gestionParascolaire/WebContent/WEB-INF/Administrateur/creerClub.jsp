@@ -4,6 +4,7 @@
 <head>
 	 <meta charset="utf-8" />
 	<title>Créer un club</title>
+	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/Administrateur/creerClub.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	

@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
  <head>
-     	<title>Statistiques</title>
+    <title>Statistiques</title>
+    <link rel="icon" href="./images/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     

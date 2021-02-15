@@ -4,6 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Notre École</title>
+	<link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" href="./inc/css/common/header-footer.css">
     <link rel="stylesheet" href="./inc/css/common/connexionForm.css">
 	<link rel="stylesheet" href="./inc/css/common/NotreEcole.css">
