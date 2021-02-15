@@ -25,7 +25,8 @@ import entities.Etudiant;
 @WebServlet("/ajouterDemandeInscription")
 public class AjouterDemandeInscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	DaoDemandeInscription daoDemandeInscription;
+	DaoClub daoClub;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,14 +34,20 @@ public class AjouterDemandeInscription extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+
+	@Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		daoDemandeInscription = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
+		daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+	}
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DaoDemandeInscription daoDemandeInscription = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
-		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		
 		
 		int idClub =Integer.parseInt(request.getParameter("id"));
 		Club club = daoClub.find(idClub);

@@ -12,7 +12,7 @@ public interface DaoDemandeInscription {
 	void add(DemandeInscription demande);
 	void delete(Etudiant etudiant,Club club);
 	List<DemandeInscription> lister(Club club);
-	List<DemandeInscription> find(Club club ,Etudiant etudiant);
+	DemandeInscription find(Club club ,Etudiant etudiant);
 
 	
 }

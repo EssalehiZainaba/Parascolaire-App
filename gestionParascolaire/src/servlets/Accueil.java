@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
@@ -55,7 +56,7 @@ public class Accueil extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
-	/*	EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
+		EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
 		
 		daoUtilisateur = new DaoUtilisateurImpl(factory);
         daoEtudiant = new DaoEtudiantImpl(factory);
@@ -250,13 +251,13 @@ public class Accueil extends HttpServlet {
         daoActivite.add(activite7);
         
       
-        Appartenance appartenance1 = new Appartenance(daoEtudiant.find(2), daoClub.find(1));
+        Appartenance appartenance1 = new Appartenance(daoEtudiant.find(2), daoClub.find(1),new Date());
         daoAppartenance.add(appartenance1);
         
-        Appartenance appartenance2 = new Appartenance(daoEtudiant.find(2), daoClub.find(3));
+        Appartenance appartenance2 = new Appartenance(daoEtudiant.find(2), daoClub.find(3),new Date());
         daoAppartenance.add(appartenance2);
         
-        Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4));
+        Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4),new Date());
 
         daoAppartenance.add(appartenance3);
         
@@ -287,6 +288,8 @@ public class Accueil extends HttpServlet {
         DaoDemandeInscription.add(demande3);
         DaoDemandeInscription.add(demande4);
         DaoDemandeInscription.add(demande5);
+       // DaoDemandeInscription.delete(daoEtudiant.find(5),daoClub.find(1));
+        
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
