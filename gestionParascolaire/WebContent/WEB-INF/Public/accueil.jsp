@@ -20,15 +20,15 @@
 
         <div class="Slider-images ">
                 
-                <img src="images/image1.jpeg">
+                <img src="images/enactusAccueil.jpg">
            
-                <img src="images/image2.jpeg">
+                <img src="images/SocialAccueil.jpeg">
                      
-                <img src="images/image3.jpeg">
+                <img src="images/BTPAccueil.jpeg">
             
-                <img src="images/image4.jpeg">
+                <img src="images/SmoAccueil.jpeg">
               
-                <img src="images/image5.jpeg">
+                <img src="images/UltraAccueil.jpeg">
 
              
         </div>

@@ -18,7 +18,7 @@
 					</c:forEach> 
 				</ul>
 			</li>
-			<li><a href="#">Contact US</a></li>
+			<li><a href="#Footer">Contact US</a></li>
 		</ul>
 		<div class="LogIn">
 			<a href="#">Se Connecter</a>  
