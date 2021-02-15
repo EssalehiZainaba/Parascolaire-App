@@ -60,16 +60,6 @@ public class GestionDemandes extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session=request.getSession();
-		
-		ResponsableClub responsableClub=(ResponsableClub)session.getAttribute("responsable");
-		
-		int idEtudiant=Integer.parseInt(request.getParameter("id_etudiant"));
-		
-		GestionDemandeInscription gestionDemandes=new GestionDemandeInscription(daoClub ,daoEtudiant, daoDemandeInscription);
-		
-		gestionDemandes.confirmerDemande(idEtudiant, responsableClub, daoAppartenance);
-		
 		response.sendRedirect(request.getContextPath() + "/Demandes");
 	}
 
