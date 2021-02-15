@@ -7,7 +7,7 @@
 	<jsp:setProperty name="club" property="*" />
 <head>
 <meta charset="UTF-8">
-<title>Presentation de ${club.getName()}</title>
+<title>Club ${club.getName()} | Parascolaire Ensa Agadir</title>
 
 <link rel="icon" href="./images/logo.png">
 <link rel="stylesheet" href="./inc/css/common/header-footer.css">

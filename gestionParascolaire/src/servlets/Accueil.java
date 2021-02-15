@@ -63,7 +63,7 @@ public class Accueil extends HttpServlet {
 		  SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 		  String strDate= formatter.format(date);
 		
-		/*daoUtilisateur = new DaoUtilisateurImpl(factory);
+		daoUtilisateur = new DaoUtilisateurImpl(factory);
         daoEtudiant = new DaoEtudiantImpl(factory);
         daoRespo = new DaoResponsableClubImpl(factory);
         daoAdministrateur = new DaoAdministrateurImpl(factory);
@@ -80,7 +80,7 @@ public class Accueil extends HttpServlet {
         
 		
 
-        Etudiant etd1 = new Etudiant("test1@login.etd", "testpwd");
+       /* Etudiant etd1 = new Etudiant("test1@login.etd", "testpwd");
         etd1.setNom("Nom");
         etd1.setPrenom("Prenom");
         etd1.setCne("D139872516");

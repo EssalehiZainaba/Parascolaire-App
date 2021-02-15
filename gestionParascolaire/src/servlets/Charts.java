@@ -61,14 +61,7 @@ public class Charts extends HttpServlet {
 		DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());		
 		request.setAttribute( "activites", daoActivite.liste("social"));
 
-		/*DaoAppartenance daoappartenance = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());		
-		List<Appartenance> app = (List<Appartenance>) daoappartenance.listerAppartenances("2021",41);
-		
-		System.out.println(1900+app.get(1).getDateAppartenance().getYear());*/
-		
-		//java.util.List<Activite> ac = daoActivite.liste("social");
-        //System.out.println(ac.get(1).getEtudiants().size());
-       // System.out.println(ac.get(1).getId());
+	
 		
 		DaoAppartenance daoappartenance = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());		
 		
@@ -83,8 +76,6 @@ public class Charts extends HttpServlet {
     	    app = (List<Appartenance>) daoappartenance.listerAppartenances(String.valueOf(2016+i), 41);
     	    tabNumberEtd[i] = app.size();
     	    tabYear[i] = 2016+i;
-    	    System.out.println(tabNumberEtd[i]+"\t"+tabYear[i]);
-    	    System.out.println("\n");
     	  
     	}
     	
@@ -100,8 +91,6 @@ public class Charts extends HttpServlet {
      	    act = (List<Activite>) daoActivite.listerActivite(41, String.valueOf(2016+i));
      	    tabNumberAct[i] = act.size();
      	    tabYears[i] = 2016+i;
-     	    System.out.println(tabNumberAct[i]+"\t"+tabYears[i]);
-     	    System.out.println("\n");
      	  
      	}
     	

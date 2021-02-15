@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Accueil</title>
+	<title>Parascolaire Ensa Agadir</title>
 	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/common/connexionForm.css">

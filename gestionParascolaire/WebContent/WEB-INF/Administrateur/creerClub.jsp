@@ -3,7 +3,7 @@
 <html>
 <head>
 	 <meta charset="utf-8" />
-	<title>Créer un club</title>
+	<title>Gestion des Clubs | Parascolaire Ensa Agadir</title>
 	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/Administrateur/creerClub.css">

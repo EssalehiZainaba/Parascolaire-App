@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Activités</title>
+	<title>Parascolaire Ensa Agadir | Accueil</title>
 	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBar.css">

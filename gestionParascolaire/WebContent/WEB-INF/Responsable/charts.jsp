@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-    <title>Statistiques</title>
+    <title>Parascolaire Ensa Agadir | Statistiques</title>
     <link rel="icon" href="./images/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -56,12 +56,12 @@
         	           ${numberEtd},
                 	</c:forEach>],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(255, 99, 132,0.8)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)',
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)',
+                    'rgba(255, 159, 64, 0.8)'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -115,7 +115,7 @@
           	           ${numberAct},
                   	</c:forEach>],
                   backgroundColor: [
-                	   'rgba(255, 99, 132, 0.7)',
+                	   'rgba(255, 99, 132, 0.8)',
                        'rgba(54, 162, 235, 0.8)',                     
                        'rgba(75, 192, 192, 0.8)',
                        'rgba(153, 102, 255, 0.8)',                     
@@ -172,12 +172,12 @@
             	  </c:forEach> 
             	      ],
                   backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
+                      'rgba(255, 99, 132, 0.8)',
+                      'rgba(54, 162, 235, 0.8)',
+                      'rgba(255, 206, 86, 0.8)',
+                      'rgba(75, 192, 192, 0.8)',
+                      'rgba(153, 102, 255, 0.8)',
+                      'rgba(255, 159, 64, 0.8)'
                   ],
                   borderColor: [
                       'rgba(255, 99, 132, 1)',

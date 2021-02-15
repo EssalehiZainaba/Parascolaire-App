@@ -20,10 +20,11 @@
 .charts {
 	height: 500px;
 	display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 	background-color: rgba(40, 38, 34, 0.95);
     border-radius: 15px;
+    flex: 1 0 10px;
 }
 

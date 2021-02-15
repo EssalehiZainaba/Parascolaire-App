@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Créer une activité</title>
+	<title>Activitées | Parascolaire Ensa Agadir</title>
 	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/sideBarRespo.css">
