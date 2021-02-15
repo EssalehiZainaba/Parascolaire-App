@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,17 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
-<<<<<<< HEAD
 
-=======
-import dao.DaoDemandeInscription;
-import dao.DaoDemandeInscriptionImpl;
-import dao.DaoEtudiant;
-import dao.DaoEtudiantImpl;
-
-import dao.DaoResponsableClub;
-import dao.DaoResponsableClubImpl;
->>>>>>> branche1
 import dao.JPAUtil;
 
 import entities.Club;

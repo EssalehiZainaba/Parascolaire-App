@@ -63,7 +63,7 @@ public class Accueil extends HttpServlet {
 		  SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 		  String strDate= formatter.format(date);
 		
-		daoUtilisateur = new DaoUtilisateurImpl(factory);
+		/*daoUtilisateur = new DaoUtilisateurImpl(factory);
         daoEtudiant = new DaoEtudiantImpl(factory);
         daoRespo = new DaoResponsableClubImpl(factory);
         daoAdministrateur = new DaoAdministrateurImpl(factory);
@@ -87,12 +87,12 @@ public class Accueil extends HttpServlet {
         etd1.setFiliere("Génie Informatique");
         etd1.setPays("Maroc");
         etd1.setVille("Agadir");
-        daoEtudiant.add(etd1);
+        daoEtudiant.add(etd1);*/
 
         
         /*****************************Autres Etudiants pour tester l'adheration au club*******************************************/
 		
-        Etudiant etd2 = new Etudiant("test2@login.etd", "testpwd");
+       /* Etudiant etd2 = new Etudiant("test2@login.etd", "testpwd");
         etd2.setNom("Nom");
         etd2.setPrenom("Prenom");
         etd2.setCne("D225487965");
@@ -149,12 +149,12 @@ public class Accueil extends HttpServlet {
         etd7.setFiliere("Génie Informatique");
         etd7.setPays("Maroc");
         etd7.setVille("Tiznit");
-        daoEtudiant.add(etd7);
+        daoEtudiant.add(etd7);*/
         
         /**********************************************************************************************************************/
 
         
-        ResponsableClub respo1 = new ResponsableClub("respo1@club.test", "pwd");
+        /*ResponsableClub respo1 = new ResponsableClub("respo1@club.test", "pwd");
         ResponsableClub respo2 = new ResponsableClub("respo2@club.test", "pwd");
         ResponsableClub respo3 = new ResponsableClub("respo3@club.test", "pwd");
         ResponsableClub respo4 = new ResponsableClub("respo4@club.test", "pwd");
@@ -264,10 +264,10 @@ public class Accueil extends HttpServlet {
         
         Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4),strDate);
 
-        daoAppartenance.add(appartenance3);
+        daoAppartenance.add(appartenance3);*/
         
         /**********************************************************************************/
-        DemandeInscription demande1=new DemandeInscription();
+        /*DemandeInscription demande1=new DemandeInscription();
         demande1.setClub(daoClub.find(1));
         demande1.setEtudiant(daoEtudiant.find(3));
         demande1.setDateDemande(strDate);
@@ -296,7 +296,7 @@ public class Accueil extends HttpServlet {
         DaoDemandeInscription.add(demande2);
         DaoDemandeInscription.add(demande3);
         DaoDemandeInscription.add(demande4);
-        DaoDemandeInscription.add(demande5);
+        DaoDemandeInscription.add(demande5);*/
         
 	}
 	

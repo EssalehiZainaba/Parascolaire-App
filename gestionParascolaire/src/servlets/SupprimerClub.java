@@ -50,7 +50,8 @@ public class SupprimerClub extends HttpServlet {
 		
 		request.setAttribute( "clubs", daoClub.lister());
 		
-		request.setAttribute( "clubs", daoClub.lister());
+        this.getServletContext().setAttribute("club", daoClub.lister());
+
 		response.sendRedirect( request.getContextPath() + "/CreerClub" );
 		 }
 
