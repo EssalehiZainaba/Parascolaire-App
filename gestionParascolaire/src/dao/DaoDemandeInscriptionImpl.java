@@ -63,12 +63,12 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 
 
 	@Override
-	public void delete(Etudiant etudiant, Club club) {
+	public void delete(AppartenanceKey id) {
 		EntityManager em=factory.createEntityManager();
 		EntityTransaction tx=em.getTransaction();
 		try {
 			tx.begin();
-			DemandeInscription demandeInscription=find(club, etudiant);
+			DemandeInscription demandeInscription=em.find(DemandeInscription.class,id);
 			System.out.println("club "+demandeInscription.getClub().getName()+"etudiant"+demandeInscription.getEtudiant().getNom());
 			em.remove(demandeInscription);
 			/*

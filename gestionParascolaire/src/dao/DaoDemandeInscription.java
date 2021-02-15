@@ -10,7 +10,7 @@ import entities.Etudiant;
 public interface DaoDemandeInscription {
 
 	void add(DemandeInscription demande);
-	void delete(Etudiant etudiant,Club club);
+	void delete(AppartenanceKey key);
 	List<DemandeInscription> lister(Club club);
 	DemandeInscription find(Club club ,Etudiant etudiant);
 
