@@ -7,6 +7,7 @@ import dao.DaoClub;
 import dao.DaoDemandeInscription;
 import dao.DaoEtudiant;
 import entities.Appartenance;
+import entities.AppartenanceKey;
 import entities.Club;
 import entities.Etudiant;
 import entities.ResponsableClub;
@@ -28,12 +29,14 @@ public class GestionDemandeInscription {
 		Etudiant etudiant=daoEtudiant.find(idEtudiant);
 		Appartenance appartenance=new Appartenance(etudiant, club,new Date());
 		daoAppartenance.add(appartenance);
-		daoDemandeInscription.delete(etudiant, club);
+		AppartenanceKey appartenanceKey=new AppartenanceKey(idEtudiant, club.getId());
+		daoDemandeInscription.delete(appartenanceKey);
 	}
 	
 	public void supprimerDemande(int idEtudiant , ResponsableClub responsableClub ) {
 		Etudiant etudiant=daoEtudiant.find(idEtudiant);
 		Club club=daoClub.find(responsableClub.getClub().getId());
-		daoDemandeInscription.delete(etudiant, club);
+		AppartenanceKey appartenanceKey=new AppartenanceKey(idEtudiant, club.getId());
+		daoDemandeInscription.delete(appartenanceKey);
 	}
 }

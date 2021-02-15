@@ -288,7 +288,6 @@ public class Accueil extends HttpServlet {
         DaoDemandeInscription.add(demande3);
         DaoDemandeInscription.add(demande4);
         DaoDemandeInscription.add(demande5);
-       // DaoDemandeInscription.delete(daoEtudiant.find(5),daoClub.find(1));
         
 	}
 	
