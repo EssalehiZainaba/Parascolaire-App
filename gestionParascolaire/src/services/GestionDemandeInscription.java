@@ -1,5 +1,6 @@
 package services;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import dao.DaoAppartenance;
@@ -16,6 +17,9 @@ public class GestionDemandeInscription {
 	private DaoClub daoClub;
 	private DaoEtudiant daoEtudiant;
 	private DaoDemandeInscription daoDemandeInscription;
+	Date date = new Date();  
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+	String strDate= formatter.format(date);  
 	
 	public GestionDemandeInscription(DaoClub daoClub , DaoEtudiant daoEtudiant,DaoDemandeInscription daoDemandeInscription) {
 		super();
@@ -27,7 +31,7 @@ public class GestionDemandeInscription {
 	public void confirmerDemande(int idEtudiant , ResponsableClub responsableClub , DaoAppartenance daoAppartenance) {
 		Club club =daoClub.find(responsableClub.getClub().getId());
 		Etudiant etudiant=daoEtudiant.find(idEtudiant);
-		Appartenance appartenance=new Appartenance(etudiant, club,new Date());
+		Appartenance appartenance=new Appartenance(etudiant, club,strDate);
 		daoAppartenance.add(appartenance);
 		AppartenanceKey appartenanceKey=new AppartenanceKey(idEtudiant, club.getId());
 		daoDemandeInscription.delete(appartenanceKey);
