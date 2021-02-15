@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -27,6 +28,9 @@ public class AjouterDemandeInscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DaoDemandeInscription daoDemandeInscription;
 	DaoClub daoClub;
+	Date date = new Date();  
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+    String strDate= formatter.format(date);  
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -54,7 +58,7 @@ public class AjouterDemandeInscription extends HttpServlet {
 		HttpSession session = request.getSession();
 		Etudiant etudiant = (Etudiant) session.getAttribute("etudiant");
 		
-		DemandeInscription demandeInscription = new DemandeInscription(etudiant,club,new Date());
+		DemandeInscription demandeInscription = new DemandeInscription(etudiant,club,strDate);
 		daoDemandeInscription.add(demandeInscription);
 		response.sendRedirect(request.getContextPath()+"/Activites");
 		

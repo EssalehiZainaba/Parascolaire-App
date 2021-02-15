@@ -29,12 +29,12 @@ public class Appartenance {
 	Club club;
 	
 	@Column(name="date_appartenance")
-	Date dateAppartenance;
+	String dateAppartenance;
 
 
 	
 	public Appartenance() {}
-	public Appartenance(Etudiant etd, Club club,Date dateAppartenance) {
+	public Appartenance(Etudiant etd, Club club,String dateAppartenance) {
 		this.etudiant = etd;
 		this.club = club;
 		this.dateAppartenance=dateAppartenance;
@@ -51,7 +51,7 @@ public class Appartenance {
 	public Club getClub() {
 		return club;
 	}
-	public Date getDateAppartenance() {
+	public String getDateAppartenance() {
 		return dateAppartenance;
 	}
 
@@ -66,7 +66,7 @@ public class Appartenance {
 	public void setClub(Club club) {
 		this.club = club;
 	}
-	public void setDateAppartenance(Date dateAppartenance) {
+	public void setDateAppartenance(String dateAppartenance) {
 		this.dateAppartenance = dateAppartenance;
 	}
 

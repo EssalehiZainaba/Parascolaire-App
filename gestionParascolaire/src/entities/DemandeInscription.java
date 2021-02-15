@@ -29,7 +29,7 @@ public class DemandeInscription {
 	Club club;
 	
 	@Column(name="date_demande_inscription")
-	Date dateDemande;
+	String dateDemande;
 	
 	
 
@@ -39,7 +39,7 @@ public class DemandeInscription {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public DemandeInscription(Etudiant etudiant, Club club, Date dateDemande) {
+	public DemandeInscription(Etudiant etudiant, Club club, String dateDemande) {
 		super();
 		this.etudiant = etudiant;
 		this.club = club;
@@ -54,7 +54,7 @@ public class DemandeInscription {
 	public Club getClub() {
 		return club;
 	}
-	public Date getDateDemande() {
+	public String getDateDemande() {
 		return dateDemande;
 	}
 
@@ -69,7 +69,7 @@ public class DemandeInscription {
 	public void setClub(Club club) {
 		this.club = club;
 	}
-	public void setDateDemande(Date dateDemande) {
+	public void setDateDemande(String dateDemande) {
 		this.dateDemande = dateDemande;
 	}
 	

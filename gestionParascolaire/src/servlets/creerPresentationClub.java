@@ -55,7 +55,7 @@ public class creerPresentationClub extends HttpServlet {
 		Club club = daoClub.find(1);
 		Etudiant etudiant = daoEtudiant.find(1);
 		
-		List<DemandeInscription> demandeInscription = daoDemandeInscription.find(club,etudiant);
+		List<DemandeInscription> demandeInscription = (List<DemandeInscription>) daoDemandeInscription.find(club,etudiant);
 		System.out.println(demandeInscription.size());
 		if(demandeInscription.get(0)==null)
 			System.out.println("not working");

@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.EntityManagerFactory;
@@ -57,6 +58,10 @@ public class Accueil extends HttpServlet {
 	public void init() throws ServletException {
 		
 		EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
+		
+		  Date date = new Date();  
+		  SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+		  String strDate= formatter.format(date);
 		
 		daoUtilisateur = new DaoUtilisateurImpl(factory);
         daoEtudiant = new DaoEtudiantImpl(factory);
@@ -251,13 +256,13 @@ public class Accueil extends HttpServlet {
         daoActivite.add(activite7);
         
       
-        Appartenance appartenance1 = new Appartenance(daoEtudiant.find(2), daoClub.find(1),new Date());
+        Appartenance appartenance1 = new Appartenance(daoEtudiant.find(2), daoClub.find(1),strDate);
         daoAppartenance.add(appartenance1);
         
-        Appartenance appartenance2 = new Appartenance(daoEtudiant.find(2), daoClub.find(3),new Date());
+        Appartenance appartenance2 = new Appartenance(daoEtudiant.find(2), daoClub.find(3),strDate);
         daoAppartenance.add(appartenance2);
         
-        Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4),new Date());
+        Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4),strDate);
 
         daoAppartenance.add(appartenance3);
         
@@ -265,23 +270,27 @@ public class Accueil extends HttpServlet {
         DemandeInscription demande1=new DemandeInscription();
         demande1.setClub(daoClub.find(1));
         demande1.setEtudiant(daoEtudiant.find(3));
+        demande1.setDateDemande(strDate);
         
         DemandeInscription demande2=new DemandeInscription();
         demande2.setClub(daoClub.find(1));
         demande2.setEtudiant(daoEtudiant.find(4));
+        demande2.setDateDemande(strDate);
         
         DemandeInscription demande3=new DemandeInscription();
         demande3.setClub(daoClub.find(1));
         demande3.setEtudiant(daoEtudiant.find(5));
+        demande3.setDateDemande(strDate);
         
         DemandeInscription demande4=new DemandeInscription();
         demande4.setClub(daoClub.find(1));
         demande4.setEtudiant(daoEtudiant.find(6));
+        demande4.setDateDemande(strDate);
         
         DemandeInscription demande5=new DemandeInscription();
         demande5.setClub(daoClub.find(1));
         demande5.setEtudiant(daoEtudiant.find(7));
-
+        demande5.setDateDemande(strDate);
 	
         DaoDemandeInscription.add(demande1);
         DaoDemandeInscription.add(demande2);
