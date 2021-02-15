@@ -18,6 +18,8 @@
 
 	<div id="container">
         <div id="demandes">
+        <form id="accepterDemandes" action="GestionDemandes?confirmer=confirmer" method="POST"></form>
+        <form id="supprimerDemandes" action="GestionDemandes?supprimer=supprimer" method="POST"></form>
 			
 			<c:if test="${size>0}">
 		      
@@ -30,10 +32,10 @@
 		                <p>${demande.dateDemande}</p>
 		                
 		                <div class="buttons">
-		                    <button class="add">
+		                    <button name="id_etudiant" type="submit" form="accepterDemandes" value="${demande.etudiant.id}" class="add">
 		                        <i class="fas fa-check"></i>
 		                    </button>
-		                    <button class="remove">
+		                    <button name="id_etudiant" type="submit" form="supprimerDemandes" value="${demande.etudiant.id}" class="remove">
 		                        <i class="fas fa-trash-alt"></i>
 		                    </button>
 		                </div>
