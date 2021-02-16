@@ -72,7 +72,7 @@ public class CreationActivite extends HttpServlet {
 		}
 			
 		else
-			request.getRequestDispatcher("WEB-INF/Responsable/creationActivite.jsp").forward(request, response);	
+			response.sendRedirect(request.getContextPath()+"/HandleActivities");	
 		}
 		
 		

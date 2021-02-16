@@ -47,23 +47,9 @@ public class creerPresentationClub extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DaoDemandeInscription daoDemandeInscription = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
 		
-		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		DaoEtudiant daoEtudiant = new DaoEtudiantImpl(JPAUtil.getEntityManagerFactory());
 		
-		Club club = daoClub.find(1);
-		Etudiant etudiant = daoEtudiant.find(1);
-		
-		List<DemandeInscription> demandeInscription = (List<DemandeInscription>) daoDemandeInscription.find(club,etudiant);
-		System.out.println(demandeInscription.size());
-		if(demandeInscription.get(0)==null)
-			System.out.println("not working");
-		else
-			System.out.println(demandeInscription.get(0).getDateDemande());
-		
-	/*	Date date = new Date();
-		DemandeInscription demandeInscription = new DemandeInscription(etudiant,club,date);*/
+	
 		
 		
 		

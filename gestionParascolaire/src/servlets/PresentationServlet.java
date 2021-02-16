@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,9 +14,21 @@ import javax.servlet.http.HttpSession;
 import dao.DaoClub;
 import dao.DaoClubImpl;
 
+
+import dao.DaoDemandeInscription;
+import dao.DaoDemandeInscriptionImpl;
+import dao.DaoEtudiant;
+import dao.DaoEtudiantImpl;
+
+import dao.DaoResponsableClub;
+import dao.DaoResponsableClubImpl;
+
+
 import dao.JPAUtil;
 
 import entities.Club;
+import entities.Etudiant;
+import services.PresentationManager;
 
 
 /**
@@ -37,12 +50,19 @@ public class PresentationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		int id = Integer.parseInt(request.getParameter("clubId"));
+		PresentationManager pm = new PresentationManager();
 		
 		DaoClub dc = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
 		Club club = dc.find(id);
-
+		
+		Boolean status = pm.isShown(request);
+		request.setAttribute("status",status);
 		request.setAttribute("club",club);
+		
+		
 		
 		HttpSession session = request.getSession();
 		 if(session.getAttribute("etudiant")!=null)

@@ -22,81 +22,29 @@
 	
 	<div id="container">
 	     <div id="activities">
-	         <div class="activite">
-	             <p>Activite 1</p>
+	     <c:forEach items="${activites}" var="activite">
+	     	<div class="activite">
+	             <p>${activite.nom}</p>
 	             <div class="imageContainer">
-	                 <img src="images/image1.jpeg" alt="">
+	                 <img src="images/${activite.imagePath}" alt="">
 	             </div>
-	             <p>1320 participants</p>
+	             <p>${ activite.etudiants.size()} participants</p>
 	             <div class="buttons">
-	                 <button class="edit">
+	                 <button class="edit" onclick="location.href='./modifierActivite?id=${activite.id}'">
 	                     <i class="fas fa-pen"></i>
 	                 </button>
-	                 <button class="remove">
+	                 <button class="remove" onclick="location.href='./supprimerActivite?id=${activite.id}'">
 	                     <i class="fas fa-trash-alt"></i>
 	                 </button>
 	             </div>
 	         </div>
-	         <div class="activite">
-	             <p>Activite 2</p>
-	             <div class="imageContainer">
-	                 <img src="images/image2.jpeg" alt="">
-	             </div>
-	             <p>1320 participants</p>
-	             <div class="buttons">
-	                 <button class="edit">
-	                     <i class="fas fa-pen"></i>
-	                 </button>
-	                 <button class="remove">
-	                     <i class="fas fa-trash-alt"></i>
-	                 </button>
-	             </div>
-	         </div>
-	         <div class="activite">
-	             <p>Activite 3</p>
-	             <div class="imageContainer">
-	                 <img src="images/image3.jpeg" alt="">
-	             </div>
-	             <p>1320 participants</p>
-	             <div class="buttons">
-	                 <button class="edit">
-	                     <i class="fas fa-pen"></i>
-	                 </button>
-	                 <button class="remove">
-	                     <i class="fas fa-trash-alt"></i>
-	                 </button>
-	             </div>
-	         </div>
-	         <div class="activite">
-	             <p>Activite 4</p>
-	             <div class="imageContainer">
-	                 <img src="images/image4.jpeg" alt="">
-	             </div>
-	             <p>1320 participants</p>
-	             <div class="buttons">
-	                 <button class="edit">
-	                     <i class="fas fa-pen"></i>
-	                 </button>
-	                 <button class="remove">
-	                     <i class="fas fa-trash-alt"></i>
-	                 </button>
-	             </div>
-	         </div>
-	         <div class="activite">
-	             <p>Activite 5</p>
-	             <div class="imageContainer">
-	                 <img src="images/image4.jpeg" alt="">
-	             </div>
-	             <p>1320 participants</p>
-	             <div class="buttons">
-	                 <button class="edit">
-	                     <i class="fas fa-pen"></i>
-	                 </button>
-	                 <button class="remove">
-	                     <i class="fas fa-trash-alt"></i>
-	                 </button>
-	             </div>
-	         </div>
+	     	
+	     </c:forEach>
+	         
+	         
+	         
+	         
+	         
 	     </div>
 	 </div>
 	 

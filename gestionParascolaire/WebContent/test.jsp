@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="${sessionScope.etudiant}">	
+<c:if test="${status}">	
 	<p> your test is working</p>
 </c:if>	
 </body>

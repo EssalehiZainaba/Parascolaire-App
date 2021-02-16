@@ -80,7 +80,11 @@ public class Accueil extends HttpServlet {
         
 		
 
+<<<<<<< HEAD
        /* Etudiant etd1 = new Etudiant("test1@login.etd", "testpwd");
+=======
+     /*   Etudiant etd1 = new Etudiant("test1@login.etd", "testpwd");
+>>>>>>> branche1
         etd1.setNom("Nom");
         etd1.setPrenom("Prenom");
         etd1.setCne("D139872516");
@@ -92,7 +96,11 @@ public class Accueil extends HttpServlet {
         
         /*****************************Autres Etudiants pour tester l'adheration au club*******************************************/
 		
+<<<<<<< HEAD
        /* Etudiant etd2 = new Etudiant("test2@login.etd", "testpwd");
+=======
+     /*   Etudiant etd2 = new Etudiant("test2@login.etd", "testpwd");
+>>>>>>> branche1
         etd2.setNom("Nom");
         etd2.setPrenom("Prenom");
         etd2.setCne("D225487965");
@@ -154,7 +162,11 @@ public class Accueil extends HttpServlet {
         /**********************************************************************************************************************/
 
         
+<<<<<<< HEAD
         /*ResponsableClub respo1 = new ResponsableClub("respo1@club.test", "pwd");
+=======
+       /* ResponsableClub respo1 = new ResponsableClub("respo1@club.test", "pwd");
+>>>>>>> branche1
         ResponsableClub respo2 = new ResponsableClub("respo2@club.test", "pwd");
         ResponsableClub respo3 = new ResponsableClub("respo3@club.test", "pwd");
         ResponsableClub respo4 = new ResponsableClub("respo4@club.test", "pwd");
@@ -267,7 +279,11 @@ public class Accueil extends HttpServlet {
         daoAppartenance.add(appartenance3);*/
         
         /**********************************************************************************/
+<<<<<<< HEAD
         /*DemandeInscription demande1=new DemandeInscription();
+=======
+     /*   DemandeInscription demande1=new DemandeInscription();
+>>>>>>> branche1
         demande1.setClub(daoClub.find(1));
         demande1.setEtudiant(daoEtudiant.find(3));
         demande1.setDateDemande(strDate);
@@ -296,7 +312,12 @@ public class Accueil extends HttpServlet {
         DaoDemandeInscription.add(demande2);
         DaoDemandeInscription.add(demande3);
         DaoDemandeInscription.add(demande4);
+<<<<<<< HEAD
         DaoDemandeInscription.add(demande5);*/
+=======
+        DaoDemandeInscription.add(demande5);
+       // DaoDemandeInscription.delete(daoEtudiant.find(5),daoClub.find(1));*/
+>>>>>>> branche1
         
 	}
 	

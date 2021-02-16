@@ -53,7 +53,7 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 			query.setParameter("etudiant", etudiant);
 			demandeInscription=(DemandeInscription)query.getSingleResult();
 		} catch(Exception e) {
-			e.printStackTrace();
+			demandeInscription=null;
 		} finally {
 			em.close();
 		}
