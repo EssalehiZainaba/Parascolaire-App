@@ -1,12 +1,9 @@
 package services;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -15,8 +12,6 @@ import javax.servlet.http.Part;
 
 import dao.DaoActivite;
 import dao.DaoActiviteImpl;
-import dao.DaoClub;
-import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Activite;
 import entities.Club;
@@ -121,6 +116,7 @@ public class ActiviteManager {
 	private void validerActivite(HttpServletRequest request)
 	{
 		LocalDate date = null;
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 		
 		try {
 			image = request.getPart(CHAMP_IMAGE);
@@ -187,10 +183,9 @@ public class ActiviteManager {
 		}
 		
 		activite = new Activite();
-		activite.setNom_activite(nom);
-		activite.setDescription(description);
-		activite.setLieu_activite(lieu);
-		activite.setDate_activite(date);
+		activite.setNom(nom);
+		activite.setLieu(lieu);
+		activite.setDate(formatter.format(date));
 		activite.setPrivee(privee);
 		
 		
