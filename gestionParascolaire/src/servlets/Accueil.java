@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
@@ -55,7 +56,7 @@ public class Accueil extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
-	/*	EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
+		EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
 		
 		daoUtilisateur = new DaoUtilisateurImpl(factory);
         daoEtudiant = new DaoEtudiantImpl(factory);
@@ -73,33 +74,24 @@ public class Accueil extends HttpServlet {
         
         
 		
-<<<<<<< HEAD
-        Etudiant etd1 = new Etudiant("test1@login.etd", "testpwd");
+
+     /*   Etudiant etd1 = new Etudiant("test1@login.etd", "testpwd");
         etd1.setNom("Nom");
         etd1.setPrenom("Prenom");
         etd1.setCne("D139872516");
-        etd1.setFiliere("Génie Informatique");
+        etd1.setFiliere("GÃ©nie Informatique");
         etd1.setPays("Maroc");
         etd1.setVille("Agadir");
         daoEtudiant.add(etd1);
-=======
-        Etudiant etd = new Etudiant("test@login.etd", "testpwd");
-        etd.setNom("Nom");
-        etd.setPrenom("Prenom");
-        etd.setCne("D139872516");
-        etd.setFiliere("Gï¿½nie Informatique");
-        etd.setPays("Maroc");
-        etd.setVille("Agadir");
-        daoEtudiant.add(etd);
->>>>>>> branche1
+
         
         /*****************************Autres Etudiants pour tester l'adheration au club*******************************************/
 		
-        Etudiant etd2 = new Etudiant("test2@login.etd", "testpwd");
+     /*   Etudiant etd2 = new Etudiant("test2@login.etd", "testpwd");
         etd2.setNom("Nom");
         etd2.setPrenom("Prenom");
         etd2.setCne("D225487965");
-        etd2.setFiliere("Génie Industriel");
+        etd2.setFiliere("GÃ©nie Industriel");
         etd2.setPays("Maroc");
         etd2.setVille("Agadir");
         daoEtudiant.add(etd2);
@@ -109,7 +101,7 @@ public class Accueil extends HttpServlet {
         etd3.setNom("Nom");
         etd3.setPrenom("Prenom");
         etd3.setCne("D885478965");
-        etd3.setFiliere("Génie Finance");
+        etd3.setFiliere("GÃ©nie Finance");
         etd3.setPays("Maroc");
         etd3.setVille("Casa");
         daoEtudiant.add(etd3);
@@ -119,7 +111,7 @@ public class Accueil extends HttpServlet {
         etd4.setNom("Nom");
         etd4.setPrenom("Prenom");
         etd4.setCne("D542189654");
-        etd4.setFiliere("Génie Electrique");
+        etd4.setFiliere("GÃ©nie Electrique");
         etd4.setPays("Maroc");
         etd4.setVille("Marrakesh");
         daoEtudiant.add(etd4);
@@ -129,7 +121,7 @@ public class Accueil extends HttpServlet {
         etd5.setNom("Nom");
         etd5.setPrenom("Prenom");
         etd5.setCne("D236547896");
-        etd5.setFiliere("Génie Mecanique");
+        etd5.setFiliere("GÃ©nie Mecanique");
         etd5.setPays("Maroc");
         etd5.setVille("Asfi");
         daoEtudiant.add(etd5);
@@ -139,7 +131,7 @@ public class Accueil extends HttpServlet {
         etd6.setNom("Nom");
         etd6.setPrenom("Prenom");
         etd6.setCne("D542365896");
-        etd6.setFiliere("Génie Informatique");
+        etd6.setFiliere("GÃ©nie Informatique");
         etd6.setPays("Maroc");
         etd6.setVille("Taroudant");
         daoEtudiant.add(etd6);
@@ -149,7 +141,7 @@ public class Accueil extends HttpServlet {
         etd7.setNom("Nom");
         etd7.setPrenom("Prenom");
         etd7.setCne("D210589601");
-        etd7.setFiliere("Génie Informatique");
+        etd7.setFiliere("GÃ©nie Informatique");
         etd7.setPays("Maroc");
         etd7.setVille("Tiznit");
         daoEtudiant.add(etd7);
@@ -157,7 +149,7 @@ public class Accueil extends HttpServlet {
         /**********************************************************************************************************************/
 
         
-        ResponsableClub respo1 = new ResponsableClub("respo1@club.test", "pwd");
+       /* ResponsableClub respo1 = new ResponsableClub("respo1@club.test", "pwd");
         ResponsableClub respo2 = new ResponsableClub("respo2@club.test", "pwd");
         ResponsableClub respo3 = new ResponsableClub("respo3@club.test", "pwd");
         ResponsableClub respo4 = new ResponsableClub("respo4@club.test", "pwd");
@@ -216,49 +208,37 @@ public class Accueil extends HttpServlet {
         daoActivite.add(activite2);
         
         Activite activite3 = new Activite();
-<<<<<<< HEAD
-        activite3.setNom_activite("Conférence Harka");
+
+        activite3.setNom_activite("ConfÃ©rence Harka");
         activite3.setClub(daoClub.find(2));
-=======
-        activite3.setNom_activite("Confï¿½rence Harka");
-        activite3.setClub(club2);
->>>>>>> branche1
+
         activite3.setLieu_activite("Amphi Younes Kellouch");
         activite3.setPrivee(false);
         daoActivite.add(activite3);
         
         Activite activite4 = new Activite();
-<<<<<<< HEAD
-        activite4.setNom_activite("Introduction à Spring");
+
+        activite4.setNom_activite("Introduction Ã  Spring");
         activite4.setClub(daoClub.find(3));
-=======
-        activite4.setNom_activite("Introduction ï¿½ Spring");
-        activite4.setClub(club3);
->>>>>>> branche1
+
         activite4.setLieu_activite("Salle H10");
         activite4.setPrivee(false);
         daoActivite.add(activite4);
         
         Activite activite5 = new Activite();
-<<<<<<< HEAD
-        activite5.setNom_activite("Introduction au Koréan");
+
+        activite5.setNom_activite("Introduction au KorÃ©an");
         activite5.setClub(daoClub.find(4));
-=======
-        activite5.setNom_activite("Introduction au Korï¿½an");
-        activite5.setClub(club4);
->>>>>>> branche1
+
         activite5.setLieu_activite("Salle H11");
         activite5.setPrivee(false);
         daoActivite.add(activite5);
         
         Activite activite6 = new Activite();
-<<<<<<< HEAD
-        activite6.setNom_activite("Introduction à l'Allemand");
+
+        activite6.setNom_activite("Introduction Ã  l'Allemand");
         activite6.setClub(daoClub.find(4));
-=======
-        activite6.setNom_activite("Introduction ï¿½ l'Allemand");
-        activite6.setClub(club4);
->>>>>>> branche1
+
         activite6.setLieu_activite("Salle H10");
         activite6.setPrivee(false);
         daoActivite.add(activite6);
@@ -271,18 +251,18 @@ public class Accueil extends HttpServlet {
         daoActivite.add(activite7);
         
       
-        Appartenance appartenance1 = new Appartenance(daoEtudiant.find(2), daoClub.find(1));
+        Appartenance appartenance1 = new Appartenance(daoEtudiant.find(2), daoClub.find(1),new Date());
         daoAppartenance.add(appartenance1);
         
-        Appartenance appartenance2 = new Appartenance(daoEtudiant.find(2), daoClub.find(3));
+        Appartenance appartenance2 = new Appartenance(daoEtudiant.find(2), daoClub.find(3),new Date());
         daoAppartenance.add(appartenance2);
         
-        Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4));
-<<<<<<< HEAD
+        Appartenance appartenance3 = new Appartenance(daoEtudiant.find(2), daoClub.find(4),new Date());
+
         daoAppartenance.add(appartenance3);
         
         /**********************************************************************************/
-        DemandeInscription demande1=new DemandeInscription();
+     /*   DemandeInscription demande1=new DemandeInscription();
         demande1.setClub(daoClub.find(1));
         demande1.setEtudiant(daoEtudiant.find(3));
         
@@ -301,22 +281,20 @@ public class Accueil extends HttpServlet {
         DemandeInscription demande5=new DemandeInscription();
         demande5.setClub(daoClub.find(1));
         demande5.setEtudiant(daoEtudiant.find(7));
-=======
-        daoAppartenance.add(appartenance3);*/
-		
->>>>>>> branche1
+
 	
         DaoDemandeInscription.add(demande1);
         DaoDemandeInscription.add(demande2);
         DaoDemandeInscription.add(demande3);
         DaoDemandeInscription.add(demande4);
         DaoDemandeInscription.add(demande5);
+       // DaoDemandeInscription.delete(daoEtudiant.find(5),daoClub.find(1));*/
+        
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-<<<<<<< HEAD
-=======
+
 		//System.out.println(daoUtilisateur.getIdByEmail("admin12@gmail.com"));
 		/*System.out.println(daoUtilisateur.getUserType(1));
 		System.out.println(daoUtilisateur.getUserType(2));
@@ -326,7 +304,7 @@ public class Accueil extends HttpServlet {
 		Etudiant etudiant = daoEtudiant.find(1);
 		session.setAttribute("etudiant", etudiant);
 		
->>>>>>> branche1
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/Public/accueil.jsp").forward(request, response);
 	
 	}

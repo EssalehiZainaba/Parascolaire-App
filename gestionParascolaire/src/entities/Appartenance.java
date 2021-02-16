@@ -34,9 +34,10 @@ public class Appartenance {
 
 	
 	public Appartenance() {}
-	public Appartenance(Etudiant etd, Club club) {
+	public Appartenance(Etudiant etd, Club club,Date dateAppartenance) {
 		this.etudiant = etd;
 		this.club = club;
+		this.dateAppartenance=dateAppartenance;
 	}
 	
 	

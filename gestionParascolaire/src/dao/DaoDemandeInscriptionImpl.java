@@ -1,9 +1,7 @@
 package dao;
 
-<<<<<<< HEAD
-=======
+
 import java.util.ArrayList;
->>>>>>> branche1
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -46,18 +44,20 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 	
 	
 	@Override
-	public List<DemandeInscription> find(Club club , Etudiant etudiant) {
-		List<DemandeInscription> demande = new ArrayList<DemandeInscription>();
+	public DemandeInscription find(Club club , Etudiant etudiant) {
+		DemandeInscription demandeInscription=new DemandeInscription();
 		EntityManager em = factory.createEntityManager();
 		try {
-			Query query = em.createQuery("SELECT d from DemandeInscription d WHERE d.club==club AND d.etudiant==etudiant");
-			demande = (List<DemandeInscription>) query.getResultList();
+			Query query = em.createQuery("SELECT d from DemandeInscription d WHERE d.club=:club AND d.etudiant=:etudiant");
+			query.setParameter("club", club);
+			query.setParameter("etudiant", etudiant);
+			demandeInscription=(DemandeInscription)query.getSingleResult();
 		} catch(Exception e) {
-			e.printStackTrace();
+			demandeInscription=null;
 		} finally {
 			em.close();
 		}
-		return demande;
+		return demandeInscription;
 	}
 
 
@@ -68,9 +68,15 @@ public class DaoDemandeInscriptionImpl implements DaoDemandeInscription{
 		EntityTransaction tx=em.getTransaction();
 		try {
 			tx.begin();
+			DemandeInscription demandeInscription=find(club, etudiant);
+			System.out.println("club "+demandeInscription.getClub().getName()+"etudiant"+demandeInscription.getEtudiant().getNom());
+			em.remove(demandeInscription);
+			/*
 			Query query=em.createQuery("DELETE from DemandeInscription d WHERE d.etudiant=:etudiant AND d.club=:club");
 			query.setParameter("etudiant", etudiant);
 			query.setParameter("club", club);
+			*/
+			System.out.println("execution of query");
 			tx.commit();
 		} 
 		catch (Exception e) {

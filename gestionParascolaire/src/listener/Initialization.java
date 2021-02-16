@@ -58,8 +58,7 @@ public class Initialization implements ServletContextListener {
     	System.out.println(chemin);
     	event.getServletContext().setAttribute("chemin",chemin);
     	//
-    	DaoResponsableClub daoResponsableClub = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
-    	ResponsableClub responsableClub = daoResponsableClub.find(5);
+    	
     	
     	
     	

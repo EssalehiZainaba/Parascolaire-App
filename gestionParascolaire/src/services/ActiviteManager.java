@@ -100,10 +100,11 @@ public class ActiviteManager {
 			
 			FilesManager filesManager = new FilesManagerImpl();
 			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+			filesManager.delete(chemin,daoActivite.find(id).getImagePath());
 			activite.setClub(daoActivite.find(id).getClub());
 			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
 			activite.setId(id);
-			filesManager.delete(chemin,daoActivite.find(id).getImagePath());
+			
 			daoActivite.update(activite);
 			return activite;
 			

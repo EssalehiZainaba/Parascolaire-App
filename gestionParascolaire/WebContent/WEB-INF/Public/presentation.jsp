@@ -25,8 +25,9 @@
         <div class="content">
             <div class="cover">
                 <img src='<c:url value="images/${club.getLogoPath()}"/>' class="logo">
-                
-                <button> Join Us</button>
+                <c:if test="${status}">	
+                	<button onclick="location.href='./ajouterDemandeInscription?id=${club.id}'"> Join Us</button>
+                </c:if>	
             </div>
             <div class="presentation">
                 <h1>Presentation</h1>
