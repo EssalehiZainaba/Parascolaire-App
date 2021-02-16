@@ -73,7 +73,7 @@ public class Charts extends HttpServlet {
     	
     	for(int i=0; i<taille; i++)
     	{   		
-    	    app = (List<Appartenance>) daoappartenance.listerAppartenances(String.valueOf(2016+i), 41);
+    	    app = (List<Appartenance>) daoappartenance.listerAppartenances(String.valueOf(2016+i), 1);
     	    tabNumberEtd[i] = app.size();
     	    tabYear[i] = 2016+i;
     	  
@@ -88,7 +88,7 @@ public class Charts extends HttpServlet {
      	
      	for(int i=0; i<taillee; i++)
      	{   		
-     	    act = (List<Activite>) daoActivite.listerActivite(41, String.valueOf(2016+i));
+     	    act = (List<Activite>) daoActivite.listerActivite(1, String.valueOf(2016+i));
      	    tabNumberAct[i] = act.size();
      	    tabYears[i] = 2016+i;
      	  
