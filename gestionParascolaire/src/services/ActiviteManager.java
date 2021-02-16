@@ -18,7 +18,6 @@ import entities.Club;
 
 public class ActiviteManager {
 	final static String CHAMP_NOM="nom";
-	final static String CHAMP_DESCRIPTION="description";
 	final static String CHAMP_DATE="date";
 	final static String CHAMP_LIEU="lieu";
 	final static String CHAMP_IMAGE="image";
@@ -59,7 +58,6 @@ public class ActiviteManager {
 	{
 		
 		this.validerActivite(request);
-		
 		if(erreurs.isEmpty())
 		{
 			
@@ -129,7 +127,6 @@ public class ActiviteManager {
 		}
 		
 		String nom = request.getParameter(CHAMP_NOM);
-		String description = request.getParameter(CHAMP_DESCRIPTION);
 		String lieu = request.getParameter(CHAMP_LIEU);
 		String charPrivee = request.getParameter(CHAMP_PRIVEE);
 		boolean privee = Boolean.parseBoolean(charPrivee);
@@ -138,13 +135,6 @@ public class ActiviteManager {
 		
 			
 		
-		
-		try {
-			this.textValidation(description);
-		}
-		catch(Exception e){
-			erreurs.put(CHAMP_DESCRIPTION, e.getMessage());
-		}
 		
 		try {
 			this.textValidation(lieu);
