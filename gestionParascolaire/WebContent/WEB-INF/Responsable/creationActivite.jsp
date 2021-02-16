@@ -30,11 +30,6 @@
 	                <span class="erreur" style="color:red">${am.getErreurs()["nom"]}</span>
 	            </div>
 	            <div class="text">
-	                <label id="description">Description :</label>
-	                <textarea name="description">${am.getActivite().getDescription() }</textarea>
-	                <span class="erreur" style="color:red">${am.getErreurs()["description"]}</span> 
-	            </div>
-	            <div class="text">
 	                <label id="lieu">Lieu :</label>
 	                <input type="text" name="lieu" value="${am.getActivite().getLieu() }"/>
 	                <span class="erreur" style="color:red">${am.getErreurs()["lieu"]}</span>

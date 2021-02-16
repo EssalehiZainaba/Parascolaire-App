@@ -1,8 +1,8 @@
 package services;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,7 +116,7 @@ public class ActiviteManager {
 	private void validerActivite(HttpServletRequest request)
 	{
 		LocalDate date = null;
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
 		
 		try {
 			image = request.getPart(CHAMP_IMAGE);
@@ -185,7 +185,8 @@ public class ActiviteManager {
 		activite = new Activite();
 		activite.setNom(nom);
 		activite.setLieu(lieu);
-		activite.setDate(formatter.format(date));
+		if(date != null)
+			activite.setDate(date.format(formatter));
 		activite.setPrivee(privee);
 		
 		
