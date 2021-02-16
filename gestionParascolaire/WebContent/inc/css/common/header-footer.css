@@ -141,6 +141,10 @@ footer div {
     align-items: center;
 }
 
+footer div i {
+	color: rgb(230, 166, 82);
+}
+
 footer div i:hover {
     cursor: pointer;
     color: whitesmoke;
