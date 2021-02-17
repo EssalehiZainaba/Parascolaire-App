@@ -1,19 +1,45 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <div class="container">
 
 <div class="desc">
 <p>
- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis maxime, eos, incidunt iste maiores ipsum ad soluta inventore eius veritatis voluptas. Dolorem, quidem saepe rerum labore temporibus quaerat libero voluptatum!
-                Aliquam architecto tenetur, debitis doloremque unde facere harum! Ducimus veniam asperiores aspernatur placeat, nam voluptas commodi, debitis, eum quaerat ipsum velit iure expedita dolor non ipsa ratione! Quam, odio culpa?
-                Qui perspiciatis earum nobis, provident rem laudantium amet harum dolor eos possimus architecto quo omnis minima corrupti magnam, culpa id numquam. Pariatur sit deleniti veniam. Quod facilis alias totam iusto?
-                Officia nisi neque, eveniet ut repellat sed minima saepe sapiente veritatis repudiandae aspernatur veniam voluptas perferendis, facilis quae reiciendis nam quo beatae assumenda libero unde magni excepturi? Earum, quo non?
-                Ex nemo itaque neque repudiandae quo sint minima voluptatum, optio labore mollitia, amet reiciendis consequatur minus natus. Molestias perspiciatis nulla deleniti cupiditate, quae fugit totam aperiam culpa, voluptatem quia vero.
-                Ipsum dolor cumque dolorem perspiciatis, illo id cum fugit dicta reiciendis debitis vero architecto illum adipisci non, nostrum inventore fuga est consectetur facilis laudantium. Ipsum esse quos voluptatem quis officia.
-                Quis officiis commodi impedit iusto, quasi nisi facilis ipsa accusamus inventore cumque temporibus repellat. Voluptatum, voluptate suscipit beatae harum quae assumenda ea sed, fugiat vel accusamus numquam tempora ipsum dignissimos?
-                Blanditiis ratione incidunt, quis dolores impedit ducimus iure nam. Iste similique nostrum suscipit veritatis explicabo rerum tenetur non cum? Obcaecati dolores possimus dolorum nam similique sit numquam dicta iusto deleniti?
-                Quam in harum quasi fugit voluptatum maxime, quibusdam maiores quae ullam praesentium officia? Blanditiis iure dignissimos, aut adipisci nostrum placeat? Sed exercitationem officia ullam vel quaerat. Adipisci nostrum incidunt atque!
-                Ducimus corrupti maiores perferendis recusandae labore et? Harum non at laudantium beatae quidem qui incidunt nisi ab reprehenderit, consequuntur praesentium sint repellat id veritatis assumenda eaque maiores reiciendis laborum earum.
-                Inventore animi, cupiditate nulla nobis consectetur itaque unde et adipisci. Facilis, minima! Aperiam tempora nisi, obcaecati facilis dolores minima fugit possimus repudiandae omnis suscipit ab nesciunt quia? Dolor, quas laborum.
-                Voluptas, necessitatibus ut magnam, aspernatur quasi suscipit tempore assumenda nisi debit
+ CARTE D’IDENTITÉ
+ <br><br>
+En 1999, l’Université IBN ZOHR innove en ouvrant la première école d’ingénieurs de la région :l’ENSA-AGADIR. C’est un établissement de formation d’ingénieur qui offre, en cinq ans, aux jeunes bacheliers scrupuleusement sélectionnés, une formation professionnelle, diversifiée, complète et relativement polyvalente.
+
+L’ENSA-AGADIR, qui est en principe l’une des principales composantes du réseau des ENSA marocaines, forme des ingénieurs capables d’assumer les responsabilités qui leur sont confiées et de concurrencer les lauréats des grandes écoles d’ingénieurs internationales.
+
+Les bacheliers scientifiques et techniques peuvent accéder à l’ENSA-AGADIR après avoir satisfait les conditions de sélection et réussir le concours commun à toutes les ENSA-MAROC (pour plus de détail consultez ensa-concours.ma)
+
+L’ENSA-AGADIR recrute aussi, en sa troisième année, et sur concours les étudiants issus de formations universitaires ayant satisfait avec excellence les quatre premiers semestres, ou un DUT, ainsi que les élèves des classes préparatoires. Les étudiants ayant obtenu une licence ou une maîtrise scientifique peuvent présenter leur dossier de candidature pour accéder à la quatrième année de l’école.
+
+L’ENSA-AGADIR est aussi habilitée à assurer des formations du cycle Master, et d’abriter des structures de recherche et des formations doctorales.</p>
+<br><br>
+<p>
+Formation:
+<br>
+L’ENSA-AGADIR propose un cycle préparatoire intégré en deux années et un cycle ingénieur dans des spécialités qui couvrent l’ensemble des grands domaines d’ingénierie :
+
+Génie de Procédés de l’Energie et de l’Environnement.
+Génie Civil (BTP).
+Génie Industriel.
+Génie Informatique.
+Génie Electrique.
+Génie Mécanique.
+Génie Finance et Ingénierie Décisionnelle. 
+En plus du cycle ingénieur, l’ENSA-Agadir dispense deux filières Masters, à savoir :
+
+* Master spécialisé : Efficacité Énergétique et Contrôle des Bâtiments (EECB)
+* Master spécialisé : Ingénierie Financière (IF)
+
+</p>
+<br><br>
+<p>
+Langues:
+<br>
+L’enseignement des langues étrangères est très développé. En plus de l’anglais qui est obligatoire, l’enseignement de l’espagnol est optionnel. D’autres langues (Japonais, chinois…) sont programmées et encadrées dans les activités du bureau des étudiants de l’ENSA.
+
+L’université Ibn Zohr a signé une convention avec le British Council dont l’objectif est de dispenser une formation en ligne de la langue anglaise avec certification.
 </p>
 
 </div>
