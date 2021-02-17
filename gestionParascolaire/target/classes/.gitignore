@@ -1,6 +1,3 @@
-/dao/
-/entities/
-/services/
-/servlets/
 /META-INF/
-/filters/
+/servlets/
+/services/

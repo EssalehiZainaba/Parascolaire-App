@@ -103,6 +103,7 @@
   
   <filter-mapping>
   	<filter-name>ResponsableFilter</filter-name>
+  	<url-pattern>/charts</url-pattern>
   	<url-pattern>/ajouterActivite</url-pattern>
   	<url-pattern>/ajouterPresentation</url-pattern>
   	<url-pattern>/Demandes</url-pattern>

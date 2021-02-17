@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import dao.DaoActivite;
 import dao.DaoActiviteImpl;
@@ -21,6 +21,9 @@ import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Activite;
 import entities.Appartenance;
+import entities.Club;
+import entities.ResponsableClub;
+import services.ChartsForm;
 
 /**
  * Servlet implementation class Charts
@@ -35,64 +38,26 @@ public class Charts extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
-     @SuppressWarnings("null")
-	public void chartYears(String year, int idClub)
-    {
-    	int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-    	List<Appartenance> app ;
-    	int tabNumberEtd[] = null;
-    	int tabYear[] = null;
-    	
-    	for(int i=0; i<currentYear-Integer.parseInt(year) ;i++)
-    	{
-    		DaoAppartenance daoappartenance = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());		
-    		app = (List<Appartenance>) daoappartenance.listerAppartenances(String.valueOf(2020+i), idClub);
-    	    tabNumberEtd[i] = app.size();
-    	    tabYear[i] = 2020+i;
-    	}
-    }
-
 	
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		ResponsableClub responsableClub = (ResponsableClub) session.getAttribute("responsable");
+		Club club = responsableClub.getClub();
+		int idClub = club.getId();
+		
 		DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());		
-		request.setAttribute( "activites", daoActivite.liste("social"));
+		request.setAttribute( "activites", daoActivite.liste(club.getName()));
 
-	
-		
-		DaoAppartenance daoappartenance = new DaoAppartenanceImpl(JPAUtil.getEntityManagerFactory());		
-		
-		int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-    	List<Appartenance> app ;
-    	int taille = currentYear-2016+1;
-    	Integer tabNumberEtd[] = new Integer[taille];
-    	Integer tabYear[] = new Integer[taille];
-    	
-    	for(int i=0; i<taille; i++)
-    	{   		
-    	    app = (List<Appartenance>) daoappartenance.listerAppartenances(String.valueOf(2016+i), 1);
-    	    tabNumberEtd[i] = app.size();
-    	    tabYear[i] = 2016+i;
-    	  
-    	}
-    	
-    	
-    	
-    	List<Activite> act ;
-     	int taillee = currentYear-2016+1;
-     	Integer tabNumberAct[] = new Integer[taillee];
-     	Integer tabYears[] = new Integer[taillee];
-     	
-     	for(int i=0; i<taillee; i++)
-     	{   		
-     	    act = (List<Activite>) daoActivite.listerActivite(1, String.valueOf(2016+i));
-     	    tabNumberAct[i] = act.size();
-     	    tabYears[i] = 2016+i;
-     	  
-     	}
+		ChartsForm chart = new ChartsForm();
+		Integer[] tabNumberAct = chart.tabAct(idClub);
+		Integer[] tabYears = chart.Year();
+		Integer[] tabYear = chart.Year();
+		Integer[] tabNumberEtd = chart.tabEtd(idClub);
+
+
     	
 		request.setAttribute( "tabNumberAct",tabNumberAct);
 	    request.setAttribute( "tabYears", tabYears);
