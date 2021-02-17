@@ -40,7 +40,6 @@
 	                <span class="erreur" style="color:red">${am.getErreurs()["date"]}</span>
 	            </div>
 	            <div class="radio ">
-	            	<label>privé/public</label>
 	            	<div><label>Privé</label><input type="radio" name="privee" value="true"></div>
 	            	<div><label>Public</label><input type="radio" name="privee" value="false"></div>
 	            	<span class="erreur" style="color:red">${am.getErreurs()["privee"]}</span>
