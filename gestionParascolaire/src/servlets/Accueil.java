@@ -74,7 +74,7 @@ public class Accueil extends HttpServlet {
 				}
 				else if (form.getUserType().equals("ResponsableClub")) {
 					session.setAttribute("responsable", (ResponsableClub)utilisateur);
-					response.sendRedirect(request.getContextPath()+"/ajouterActivite");				
+					response.sendRedirect(request.getContextPath()+"/charts");				
 				}
 				else  {
 					session.setAttribute("administrateur", (Administrateur)utilisateur);
