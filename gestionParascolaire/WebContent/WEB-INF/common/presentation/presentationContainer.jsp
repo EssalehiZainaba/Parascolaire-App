@@ -7,7 +7,7 @@
             </div>
             <div class="presentation">
                 <h1>Presentation</h1>
-                <p>${club.getParagraphe()}</p>
+                <p>${club.getDescription()}</p>
             </div>
             <!-- Slideshow container -->
             <div class="slide" >

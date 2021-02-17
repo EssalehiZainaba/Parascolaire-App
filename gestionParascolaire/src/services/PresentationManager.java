@@ -99,7 +99,9 @@ public class PresentationManager {
 		}
 		
 		String paragraphe = request.getParameter(CHAMP_PARAGRAPHE);
+		paragraphe = paragraphe.replaceAll("\n","<br />");
 		String description = request.getParameter(CHAMP_DESCRIPTION);
+		description = description.replaceAll("\n","<br />");
 		
 		try {
 			this.textValidation(paragraphe);

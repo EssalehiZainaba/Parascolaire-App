@@ -5,14 +5,16 @@
         <c:forEach var="club" items="${clubs}" >
             <section class="features">
                 <figure>
-                    <a href="presentation?clubId=${club.id }"><img src="images/enactus1.jpg"></a>
+                    <a href="presentation?clubId=${club.id }"><img src="images/${club.logoPath}"></a>
                     <figcaption>
                         <c:out value="${ club.name }" />
                     </figcaption>
-                    <div class="description">
-                       <c:out value="${ club.description }" />
-                     </div>
                 </figure>
+                <div class="description">
+                	<p>
+                  	${ club.paragraphe }
+                  	</p>
+                </div>
                 </section>
          </c:forEach>
 
