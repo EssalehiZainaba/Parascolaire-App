@@ -8,7 +8,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import entities.Activite;
-import entities.Appartenance;
 import entities.Etudiant;
 
 public class DaoActiviteImpl implements DaoActivite{
@@ -62,6 +61,7 @@ public class DaoActiviteImpl implements DaoActivite{
 		try {
 			tx.begin();
 			Activite activite = em.find(Activite.class, id );
+			activite.clearEtudiants();
 			em.remove(activite);
 			tx.commit();
 		} catch(Exception e) {

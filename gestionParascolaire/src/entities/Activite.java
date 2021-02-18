@@ -112,6 +112,14 @@ public class Activite {
 			return true;
 		return false;
 	}
+	
+	
+	public void clearEtudiants() {
+		for(Etudiant etudiant : etudiants) {
+			etudiant.removeActivite(this);
+		}
+		etudiants.clear();
+	}
 
 
 	
