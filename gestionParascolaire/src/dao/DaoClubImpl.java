@@ -1,14 +1,14 @@
 package dao;
 
 
-import java.util.ArrayList;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.TypedQuery;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 
 import entities.Club;
@@ -58,6 +58,24 @@ public class DaoClubImpl implements DaoClub{
 	
 	
 	@Override
+	public Club find(String name) {
+		Club club = null;
+		EntityManager em = factory.createEntityManager();
+		try {
+			Query query = em.createQuery("SELECT c FROM Club c WHERE c.name=:name");
+			query.setParameter("name", name);
+			club = (Club) query.getSingleResult();
+		} catch(NoResultException e) {
+			club = null;
+		} finally {
+			em.close();
+		}
+		return club;
+	}
+	
+	
+	
+	@Override
 	public void update(Club club) {
 		EntityManager em = factory.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -92,6 +110,8 @@ public class DaoClubImpl implements DaoClub{
 		}	
 	}
 
+	
+	
     @Override
     @SuppressWarnings("unchecked")
 	public List<Club> lister() {
@@ -103,4 +123,7 @@ public class DaoClubImpl implements DaoClub{
 	     return clubs;
     	
 	}
+
+
+
 }

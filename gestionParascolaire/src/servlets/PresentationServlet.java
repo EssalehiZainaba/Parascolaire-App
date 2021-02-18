@@ -15,19 +15,10 @@ import dao.DaoClub;
 import dao.DaoClubImpl;
 
 
-import dao.DaoDemandeInscription;
-import dao.DaoDemandeInscriptionImpl;
-import dao.DaoEtudiant;
-import dao.DaoEtudiantImpl;
-
-import dao.DaoResponsableClub;
-import dao.DaoResponsableClubImpl;
-
 
 import dao.JPAUtil;
 
 import entities.Club;
-import entities.Etudiant;
 import services.PresentationManager;
 
 
@@ -37,14 +28,20 @@ import services.PresentationManager;
 @WebServlet("/presentation")
 public class PresentationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	DaoClub daoClub;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public PresentationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+    	super();
     }
+    
+	@Override
+	public void init() throws ServletException {
+        daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,11 +49,11 @@ public class PresentationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		int id = Integer.parseInt(request.getParameter("clubId"));
+		Club club = daoClub.find(request.getParameter("clubName"));
+			
+			
 		PresentationManager pm = new PresentationManager();
 		
-		DaoClub dc = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		Club club = dc.find(id);
 		
 		Boolean status = pm.isShown(request);
 		request.setAttribute("status",status);

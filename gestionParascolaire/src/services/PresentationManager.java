@@ -18,7 +18,6 @@ import dao.JPAUtil;
 import entities.Club;
 import entities.DemandeInscription;
 import entities.Etudiant;
-import entities.ResponsableClub;
 
 public class PresentationManager {
 	
@@ -188,8 +187,7 @@ public class PresentationManager {
 	{
 		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
 		DaoDemandeInscription daoDemandeInscription = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
-		int idClub = Integer.parseInt(request.getParameter("clubId"));
-		Club club = daoClub.find(idClub);
+		Club club = daoClub.find(request.getParameter("clubName"));
 		HttpSession session = request.getSession();
 		DemandeInscription demandeInscription;
 		if(session.getAttribute("responsable") == null && session.getAttribute("etudiant") == null && session.getAttribute("administrateur") == null )
