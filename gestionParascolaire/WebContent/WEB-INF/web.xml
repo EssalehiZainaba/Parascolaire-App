@@ -81,6 +81,10 @@
   	<filter-class>filters.AdminFilter</filter-class>
   </filter>
   
+  <filter-mapping>
+    <filter-name>Set Character Encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   
   <filter-mapping>
   	<filter-name>ConnexionFilter</filter-name>
@@ -91,6 +95,7 @@
   	<url-pattern>/Demandes</url-pattern>
   	<url-pattern>/modifierActivite</url-pattern>
   	<url-pattern>/modifierPresentation</url-pattern>
+  	<url-pattern>/HandleActivities</url-pattern>
   	<url-pattern>/CreerClub</url-pattern>
   </filter-mapping>
   
@@ -98,6 +103,7 @@
   	<filter-name>EtudiantFilter</filter-name>
   	<url-pattern>/Activites</url-pattern>
   	<url-pattern>/Profil</url-pattern>
+  	<url-pattern>/Accueil</url-pattern>
   </filter-mapping>
   
   
@@ -109,18 +115,17 @@
   	<url-pattern>/Demandes</url-pattern>
   	<url-pattern>/modifierActivite</url-pattern>
   	<url-pattern>/modifierPresentation</url-pattern>
+  	<url-pattern>/HandleActivities</url-pattern>
+  	<url-pattern>/Accueil</url-pattern>
   </filter-mapping>
   
   
   <filter-mapping>
   	<filter-name>AdminFilter</filter-name>
-  	<url-pattern>/CreerClub</url-pattern> 	
+  	<url-pattern>/CreerClub</url-pattern>
+  	<url-pattern>/Accueil</url-pattern>
   </filter-mapping>
   
   
-  <filter-mapping>
-    <filter-name>Set Character Encoding</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
   
 </web-app>
