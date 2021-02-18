@@ -52,7 +52,7 @@
             datasets: [{
                 label: 'Activitées',               
                 data: [
-                	<c:forEach var="numberEtd" items="${tabNumberEtd}" >
+                	<c:forEach var="numberEtd" items="${tabNumberAct}" >
         	           ${numberEtd},
                 	</c:forEach>],
                 backgroundColor: [
@@ -111,7 +111,7 @@
               datasets: [{
                   label: 'adhérants',               
                   data: [
-                  	<c:forEach var="numberAct" items="${tabNumberAct}" >
+                  	<c:forEach var="numberAct" items="${tabNumberEtd}" >
           	           ${numberAct},
                   	</c:forEach>],
                   backgroundColor: [

@@ -115,7 +115,7 @@ public class DaoActiviteImpl implements DaoActivite{
 	public List<Activite> listerToutPublique() {
 		EntityManager em = factory.createEntityManager();
 		@SuppressWarnings("unchecked")
-		List<Activite> activites = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false").getResultList();
+		List<Activite> activites = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')").getResultList();
 		em.close();
 		return activites;
 	}
@@ -125,7 +125,7 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerTousMesClubs(boolean privee, Etudiant etd) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=:privee AND a.club IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd)");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=:privee AND a.club IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd) ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 		query.setParameter("privee", privee);
 		query.setParameter("etd", etd);
 		@SuppressWarnings("unchecked")
@@ -139,7 +139,7 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerTousAutresClubs(Etudiant etd) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false AND a.club IN (SELECT c FROM Club c WHERE c NOT IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd))");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false AND a.club IN (SELECT c FROM Club c WHERE c NOT IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd)) ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 		query.setParameter("etd", etd);
 		@SuppressWarnings("unchecked")
 		List<Activite> activites = query.getResultList();
@@ -152,7 +152,7 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerPublique(String clubName) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=false");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=false ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 		query.setParameter("clubName", clubName);
 		@SuppressWarnings("unchecked")
 		List<Activite> activites = query.getResultList();
@@ -172,7 +172,7 @@ public class DaoActiviteImpl implements DaoActivite{
 		List<Activite> club = quer.getResultList();
 		
 		if (!club.isEmpty()) {
-			Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=true");
+			Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=true ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 			query.setParameter("clubName", clubName);
 			@SuppressWarnings("unchecked")
 			List<Activite> activites = query.getResultList();
@@ -188,7 +188,7 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerActivite(int idClub, String year) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE SUBSTRING(a.date, 1, 4)=:year AND a.club.id= :idClub");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE SUBSTRING(a.date, 7, 10)=:year AND a.club.id= :idClub");
 		query.setParameter("year", year);
 		query.setParameter("idClub", idClub);
 		@SuppressWarnings("unchecked")
