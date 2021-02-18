@@ -1,20 +1,8 @@
 package servlets;
 
-import java.io.File
-;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -23,17 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
-import dao.DaoClub;
-import dao.DaoClubImpl;
-import dao.DaoResponsableClub;
-import dao.DaoResponsableClubImpl;
-import dao.JPAUtil;
+
 import entities.Club;
 import entities.ResponsableClub;
-import services.FilesManager;
-import services.FilesManagerImpl;
 import services.PresentationManager;
 
 /**
@@ -72,6 +53,7 @@ public class GestionPresentationServlet extends HttpServlet {
 		
 		ResponsableClub responsableClub = (ResponsableClub) session.getAttribute("responsable");
 		int id = responsableClub.getClub().getId();
+		String name = responsableClub.getClub().getName();
 		
 		
 		PresentationManager presentationManager = new PresentationManager();
@@ -84,7 +66,7 @@ public class GestionPresentationServlet extends HttpServlet {
 		}
 			
 		else
-			response.sendRedirect(request.getContextPath()+"/presentation?clubId="+id);
+			response.sendRedirect(request.getContextPath()+"/presentation?clubName="+name);
 		
 	}
 	
