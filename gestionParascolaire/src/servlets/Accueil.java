@@ -36,14 +36,6 @@ public class Accueil extends HttpServlet {
 		EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
 		daoUtilisateur = new DaoUtilisateurImpl(factory);
 
-        
-        
-        
-        
-		
-
-
-        
  
 	}
 	
