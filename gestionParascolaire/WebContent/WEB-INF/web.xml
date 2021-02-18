@@ -90,6 +90,7 @@
   	<filter-name>ConnexionFilter</filter-name>
   	<url-pattern>/Activites</url-pattern>
   	<url-pattern>/Profil</url-pattern>
+  	<url-pattern>/charts</url-pattern>
   	<url-pattern>/ajouterActivite</url-pattern>
   	<url-pattern>/ajouterPresentation</url-pattern>
   	<url-pattern>/Demandes</url-pattern>
