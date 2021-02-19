@@ -37,7 +37,7 @@ clubsTrach.forEach(club=>{
         popUpDelete.classList.add("showConfirm");
         popUpDelete.classList.remove("hideConfirm");
         clubsContainer.classList.add("blur");
-        link.setAttribute("href","/SupprimerClub?clubName='"+clubId+"'");
+        link.setAttribute("href","SupprimerClub?clubName="+clubId+"");
     })
 })
 
