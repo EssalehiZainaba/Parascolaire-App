@@ -13,7 +13,7 @@ form{
     transition: transform 1.5s ease-in-out;
     position: absolute;
    	top: 210px;
-    left: 540px;
+    left: 35%;
 }
 
 form div{

@@ -14,15 +14,77 @@
 
 .Slider-images{
     display: flex;
-    width:100%;
+    width:500%;
     height: 700px;
     align-items: center;
-    transition: transform 2s ease-in-out;  
+    transition: transform 2s ease-in-out;
+    cursor: pointer;  
+}
+/*
+    In flex the sum of the width of child elements 
+    of the container equal the width of the container.
+    Here for example i gave the container the width 
+    of 500% (means 5 time the width of his container)
+    after that i gave every child a width of 100%
+*/
+
+img,.description,.wrapper{
+    height:700px;
+    width: 100%;
 }
 
- img{
-    width: 100%;
-    height: 100%;
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.description{
+    position: absolute;
+    background-color: rgba(58, 57, 57, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(176, 181, 181);
+    transition: opacity 0.5s ease-in-out;
+
+}
+
+.description h1{
+    font-size: 40px;
+}
+
+.description p{
+    width: 70%;
+    font-size: 16px;
+}
+
+.hideDescription{
+    opacity:0;
+    pointer-events: none;
+}
+
+.showDescription{
+    opacity:1;
+    pointer-events: all;
+}
+
+.readMore{
+    position: relative;
+    height: 80px;
+    width: 150px;
+    border-radius: 10px;
+    bottom: 30px;
+    background-color:rgb(176, 181, 181,0.8) ;
+    color: rgb(28, 26, 26) ;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.readMore:hover{
+    background-color:rgb(176, 181, 181,0.6);
 }
 
 
@@ -57,21 +119,22 @@
 }
 
 #circles{
-    width: 30%;
+    width: 20%;
     height: 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    left:35%;
+    left:40%;
     top: 610px;
     
 }
 #circles div{
-    width: 20px;
-    height: 20px;
-    border:solid  rgb(226, 159, 71,0.5) 2px;
-    border-radius: 10px;
+    width: 12px;
+    height: 12px;
+    border:solid  rgb(109, 106, 106) 1px;
+    border-radius: 50%;
+    background-color: rgb(109, 106, 106);
 }
 #circles div:hover{
     background-color: rgb(226, 159, 71);
