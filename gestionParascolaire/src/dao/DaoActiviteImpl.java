@@ -1,5 +1,7 @@
 package dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,9 +15,11 @@ import entities.Etudiant;
 public class DaoActiviteImpl implements DaoActivite{
 	
 	private EntityManagerFactory factory;
+	private SimpleDateFormat sdf;
 	
 	public DaoActiviteImpl(EntityManagerFactory factory) {
 		this.factory = factory;
+		this.sdf = new SimpleDateFormat("dd/MM/yyyy");
 	}
 
 	
@@ -102,7 +106,7 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> liste(String ClubName) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y') DESC");
 		query.setParameter("clubName", ClubName);
 		@SuppressWarnings("unchecked")
 		List<Activite> activites = query.getResultList();
@@ -114,8 +118,10 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerToutPublique() {
 		EntityManager em = factory.createEntityManager();
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false AND STR_TO_DATE(a.date, '%d/%m/%Y') >= STR_TO_DATE(:todayDate, '%d/%m/%Y') ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
+		query.setParameter("todayDate", sdf.format(Calendar.getInstance().getTime()));
 		@SuppressWarnings("unchecked")
-		List<Activite> activites = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')").getResultList();
+		List<Activite> activites = query.getResultList();
 		em.close();
 		return activites;
 	}
@@ -125,9 +131,10 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerTousMesClubs(boolean privee, Etudiant etd) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=:privee AND a.club IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd) ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=:privee AND a.club IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd) AND STR_TO_DATE(a.date, '%d/%m/%Y') >= STR_TO_DATE(:todayDate, '%d/%m/%Y') ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 		query.setParameter("privee", privee);
 		query.setParameter("etd", etd);
+		query.setParameter("todayDate", sdf.format(Calendar.getInstance().getTime()));
 		@SuppressWarnings("unchecked")
 		List<Activite> activites = query.getResultList();
 		em.close();
@@ -139,8 +146,9 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerTousAutresClubs(Etudiant etd) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false AND a.club IN (SELECT c FROM Club c WHERE c NOT IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd)) ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.privee=false AND a.club IN (SELECT c FROM Club c WHERE c NOT IN (SELECT a.club FROM Appartenance AS a WHERE a.etudiant = :etd)) AND STR_TO_DATE(a.date, '%d/%m/%Y') >= STR_TO_DATE(:todayDate, '%d/%m/%Y') ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 		query.setParameter("etd", etd);
+		query.setParameter("todayDate", sdf.format(Calendar.getInstance().getTime()));
 		@SuppressWarnings("unchecked")
 		List<Activite> activites = query.getResultList();
 		em.close();
@@ -152,8 +160,9 @@ public class DaoActiviteImpl implements DaoActivite{
 	@Override
 	public List<Activite> listerPublique(String clubName) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=false ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
+		Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=false AND STR_TO_DATE(a.date, '%d/%m/%Y') >= STR_TO_DATE(:todayDate, '%d/%m/%Y') ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 		query.setParameter("clubName", clubName);
+		query.setParameter("todayDate", sdf.format(Calendar.getInstance().getTime()));
 		@SuppressWarnings("unchecked")
 		List<Activite> activites = query.getResultList();
 		em.close();
@@ -172,8 +181,9 @@ public class DaoActiviteImpl implements DaoActivite{
 		List<Activite> club = quer.getResultList();
 		
 		if (!club.isEmpty()) {
-			Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=true ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
+			Query query = em.createQuery("SELECT a FROM Activite a WHERE a.club.name=:clubName AND a.privee=true AND STR_TO_DATE(a.date, '%d/%m/%Y') >= STR_TO_DATE(:todayDate, '%d/%m/%Y') ORDER BY STR_TO_DATE(a.date, '%d/%m/%Y')");
 			query.setParameter("clubName", clubName);
+			query.setParameter("todayDate", sdf.format(Calendar.getInstance().getTime()));
 			@SuppressWarnings("unchecked")
 			List<Activite> activites = query.getResultList();
 			em.close();

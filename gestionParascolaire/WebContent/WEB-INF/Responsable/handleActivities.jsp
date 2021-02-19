@@ -29,6 +29,9 @@
 	                 <img src="images/${activite.imagePath}" alt="">
 	             </div>
 	             <p>${ activite.etudiants.size()} participants</p>
+	             <p>Date : ${ activite.date}</p>
+	             <p>Lieu : ${ activite.lieu}</p>
+	             <p>${ activite.privee ? "Privée" : "Publique"}</p>
 	             <div class="buttons">
 	                 <button class="edit" onclick="location.href='./modifierActivite?id=${activite.id}'">
 	                     <i class="fas fa-pen"></i>

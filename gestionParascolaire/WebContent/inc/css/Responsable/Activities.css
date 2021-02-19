@@ -1,5 +1,6 @@
 #container{
     margin-top: 90px;
+    padding-bottom: 50px;
     min-height: 100vh;
     display: flex;
     width: 80%;
@@ -22,7 +23,7 @@
     font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
-    height: 550px;
+    height: 600px;
     width: 500px;
     background-color: rgb(34, 31, 31);
     color:#f6fafb;
