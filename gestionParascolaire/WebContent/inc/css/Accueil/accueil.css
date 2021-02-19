@@ -1,5 +1,5 @@
 .container{
-    width: 78%;
+    width: 70%;
     margin: 100px auto;
     display: flex;
     justify-content: space-between;
@@ -18,7 +18,9 @@
     height: 700px;
     align-items: center;
     transition: transform 2s ease-in-out;
-    cursor: pointer;  
+    cursor: pointer;
+    margin-bottom: 30px;
+      
 }
 /*
     In flex the sum of the width of child elements 
@@ -89,12 +91,14 @@ img,.description,.wrapper{
 
 
 #buttonLeft,#buttonRight{
-    width: 50px;
-    height: 50px;
+	position: absolute;
+	top: 331px;
+    width: 43px;
+    height: 43px;
     border-radius: 25px;
-    background-color:rgb(226, 159, 71,0.5);
-    color:rgb(12, 11, 8); 
-    font-size: 20px;
+    background-color:rgb(12, 11, 8);
+    color:rgb(226, 159, 71,0.8); 
+    font-size: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,19 +106,15 @@ img,.description,.wrapper{
     cursor: pointer;
 }
 #buttonLeft:hover,#buttonRight:hover{
-    background-color: rgb(247, 218, 175);
+    background-color: rgb(12, 11, 8,0.5);
     
 }
 
 #buttonRight{
-    position: absolute;
-    top:280px;
     right: 30px;
 }
 
 #buttonLeft{
-    position: absolute;
-    top:280px;
     left: 30px;
 }
 
@@ -139,16 +139,17 @@ img,.description,.wrapper{
 
 
 .ourApp{
-    width: 90%;
+    width: 80%;
     padding: 40px;
-    color: rgb(226, 159, 71);
+    text-align:center;
+    color:rgb(176, 181, 181);
     border: solid rgba(192, 124, 34, 0.6) 1px;
-    box-shadow: 9px 9px 6px 2px rgba(192, 124, 34, 0.6);
+    box-shadow: 8px 6px 11px 1px rgba(192, 124, 34, 0.6);
     margin:40px auto;
     border-radius: 10px;
     
 }
 .ourApp h1{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 /*************************************************************************************/
