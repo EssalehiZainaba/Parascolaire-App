@@ -136,9 +136,7 @@ img,.description,.wrapper{
     border-radius: 50%;
     background-color: rgb(109, 106, 106);
 }
-#circles div:hover{
-    background-color: rgb(226, 159, 71);
-}
+
 
 .ourApp{
     width: 90%;

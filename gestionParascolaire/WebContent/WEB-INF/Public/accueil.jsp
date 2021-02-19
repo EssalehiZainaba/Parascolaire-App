@@ -24,7 +24,7 @@
            <div class="wrapper">	    
                 <img src="images/enactusAccueil.jpg">
 				<div class="description hideDescription">
-					<h1>Club Social</h1>
+					<h1>Club Enactus</h1>
 					<p>
 					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 					    Cupiditate consequuntur, illum tempora beatae itaque nihil
@@ -52,7 +52,7 @@
            <div class="wrapper">          
                 <img src="images/BTPAccueil.jpeg">
                	<div class="description hideDescription">
-					<h1>Club Social</h1>
+					<h1>Club BTP</h1>
 					<p>
 					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 					    Cupiditate consequuntur, illum tempora beatae itaque nihil
@@ -66,7 +66,7 @@
            <div class="wrapper"> 
                 <img src="images/SmoAccueil.jpeg">
                	<div class="description hideDescription">
-					<h1>Club Social</h1>
+					<h1>Club Sportif</h1>
 					<p>
 					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 					    Cupiditate consequuntur, illum tempora beatae itaque nihil
@@ -80,7 +80,7 @@
            <div class="wrapper">  
                 <img src="images/UltraAccueil.jpeg">
                	<div class="description hideDescription">
-					<h1>Club Social</h1>
+					<h1>Club Sportif</h1>
 					<p>
 					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 					    Cupiditate consequuntur, illum tempora beatae itaque nihil
