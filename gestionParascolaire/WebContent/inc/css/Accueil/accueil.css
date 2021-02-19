@@ -1,5 +1,5 @@
 .container{
-    width: 78%;
+    width: 70%;
     margin: 100px auto;
     display: flex;
     justify-content: space-between;
@@ -14,25 +14,91 @@
 
 .Slider-images{
     display: flex;
-    width:100%;
+    width:500%;
     height: 700px;
     align-items: center;
-    transition: transform 2s ease-in-out;  
+    transition: transform 2s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 30px;
+      
+}
+/*
+    In flex the sum of the width of child elements 
+    of the container equal the width of the container.
+    Here for example i gave the container the width 
+    of 500% (means 5 time the width of his container)
+    after that i gave every child a width of 100%
+*/
+
+img,.description,.wrapper{
+    height:700px;
+    width: 100%;
 }
 
- img{
-    width: 100%;
-    height: 100%;
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.description{
+    position: absolute;
+    background-color: rgba(58, 57, 57, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(176, 181, 181);
+    transition: opacity 0.5s ease-in-out;
+
+}
+
+.description h1{
+    font-size: 40px;
+}
+
+.description p{
+    width: 70%;
+    font-size: 16px;
+}
+
+.hideDescription{
+    opacity:0;
+    pointer-events: none;
+}
+
+.showDescription{
+    opacity:1;
+    pointer-events: all;
+}
+
+.readMore{
+    position: relative;
+    height: 80px;
+    width: 150px;
+    border-radius: 10px;
+    bottom: 30px;
+    background-color:rgb(176, 181, 181,0.8) ;
+    color: rgb(28, 26, 26) ;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.readMore:hover{
+    background-color:rgb(176, 181, 181,0.6);
 }
 
 
 #buttonLeft,#buttonRight{
-    width: 50px;
-    height: 50px;
+	position: absolute;
+	top: 331px;
+    width: 43px;
+    height: 43px;
     border-radius: 25px;
-    background-color:rgb(226, 159, 71,0.5);
-    color:rgb(12, 11, 8); 
-    font-size: 20px;
+    background-color:rgb(12, 11, 8);
+    color:rgb(226, 159, 71,0.8); 
+    font-size: 17px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,54 +106,50 @@
     cursor: pointer;
 }
 #buttonLeft:hover,#buttonRight:hover{
-    background-color: rgb(247, 218, 175);
+    background-color: rgb(12, 11, 8,0.5);
     
 }
 
 #buttonRight{
-    position: absolute;
-    top:280px;
     right: 30px;
 }
 
 #buttonLeft{
-    position: absolute;
-    top:280px;
     left: 30px;
 }
 
 #circles{
-    width: 30%;
+    width: 20%;
     height: 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    left:35%;
+    left:40%;
     top: 610px;
     
 }
 #circles div{
-    width: 20px;
-    height: 20px;
-    border:solid  rgb(226, 159, 71,0.5) 2px;
-    border-radius: 10px;
-}
-#circles div:hover{
-    background-color: rgb(226, 159, 71);
+    width: 12px;
+    height: 12px;
+    border:solid  rgb(109, 106, 106) 1px;
+    border-radius: 50%;
+    background-color: rgb(109, 106, 106);
 }
 
+
 .ourApp{
-    width: 90%;
+    width: 80%;
     padding: 40px;
-    color: rgb(226, 159, 71);
+    text-align:center;
+    color:rgb(176, 181, 181);
     border: solid rgba(192, 124, 34, 0.6) 1px;
-    box-shadow: 9px 9px 6px 2px rgba(192, 124, 34, 0.6);
+    box-shadow: 8px 6px 11px 1px rgba(192, 124, 34, 0.6);
     margin:40px auto;
     border-radius: 10px;
     
 }
 .ourApp h1{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 /*************************************************************************************/
