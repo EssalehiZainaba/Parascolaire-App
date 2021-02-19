@@ -24,7 +24,7 @@
         	<c:forEach items="${activites }" var="activite" varStatus="loop">
         		<div class="activite">
     			 	<div class="imageContainer">
-	                 	<img src="images/image3.jpeg" alt="">
+	                 	<img src="images/${activite.imagePath }" alt="">
 	             	</div>
 	        		<div class="row">
 	        			<span class="title">Club :</span>
@@ -34,17 +34,6 @@
 	        			<span class="title">Nom :</span>
 	        			<span>${activite.nom }</span>
 	        		</div>
-	        		<!-- Had description je pense blach ha deranjat styling o safi ==> I AGREE //Z -->
-        			<!--<div class="row">
-	        				<span>Description :</span>
-	        				<span class="description">
-	        					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta ullam, error cumque recusandae, architecto, perferendis 
-	        					officiis non fuga fugit ad provident ipsam? Velit consequatur deserunt aliquid cupiditate quam eum exercitationem.Lorem ipsum, 	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta ullam, error cumque recusandae, architecto, perferendis 
-	        					officiis non fuga fugit ad provident ipsam? Velit consequatur deserunt aliquid cupiditate quam eum exercitationem.
-	        				</span>
-	       					<span>${activite.description }</span>
-	        			</div> 
-	        		-->
 	        		<div class="row">
 	        			<span class="title">Date :</span>
 	        			<span>${activite.date }</span>

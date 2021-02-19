@@ -6,7 +6,6 @@
     background-color:rgb(3, 3, 3) ;
     border: solid rgba(192, 124, 34, 0.6) 1px;
     box-shadow: 5px 4px 10px 1px rgba(3, 3, 3, 0.897);
-    position: relative;
     transition: filter 1s ease-in-out;
     overflow: hidden;
 }
@@ -22,23 +21,31 @@
     background-position: center;    
     width: 95%;
     margin: auto;
-    display : flex;
-    flex-direction: column;
-    justify-content: space-between; 
+    height: 220px;
+    background-color: rgba(40, 38, 34, 0.58);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
 }
 
 .features figure{
-    width: 100%;
-    height: 200px;
-    background-color: rgba(40, 38, 34, 0.58);
-    border-radius: 15px;
-    position: relative;
-    margin-bottom: 20px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.features figure a {
+	height: 0;
 }
 
 .features figure img{
     border-radius: 50%;
-    width:150px;
+    width: 150px;
+    height: 150px;
     box-shadow: black 0 0 10px;
     
 }
@@ -50,19 +57,13 @@
 
 .features figcaption{
     color:white; 
-    position: absolute;
-    top: 160px;
-    left: 30px;
+	margin-top: 160px;
 }
 
-.enactus_text{
-    color:white ;
-    position: sticky;
-}
+
 .description{
     width: 80%;
-    color:white;
-    position: absolute;
-    top:10px;
-    left: 180px;
+    color: white;
+    text-align: center;
+    padding-left: 50px;
 }

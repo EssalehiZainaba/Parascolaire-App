@@ -46,9 +46,10 @@ public class ResponsableFilter implements Filter {
         {
         	if(session.getAttribute("administrateur")!=null)
         		res.sendRedirect(req.getContextPath()+"/CreerClub");
-        	else
-        		res.sendRedirect(req.getContextPath()+"/Activities");
-        		
+        	else if(session.getAttribute("etudiant")!=null)
+        		res.sendRedirect(req.getContextPath()+"/Activites");
+        	else 
+            	chain.doFilter(request, response);
         }
         else
         	chain.doFilter(request, response);

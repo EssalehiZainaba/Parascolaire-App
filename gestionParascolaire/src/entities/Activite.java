@@ -1,6 +1,5 @@
 package entities;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -26,11 +25,9 @@ public class Activite {
 	
 	private boolean privee;
 	private String nom;
-	private LocalDate date;
+	private String date;
 	private String lieu;
-	private String description;
 	private String imagePath;
-	private String size;
 	
 	@ManyToOne
 	@JoinColumn(name="id_club")
@@ -42,12 +39,11 @@ public class Activite {
 	
 	
 	public Activite() {}
-	public Activite(boolean privee, String nom, LocalDate date, String lieu, String description) {
+	public Activite(boolean privee, String nom, String date, String lieu) {
 		this.privee = privee;
 		this.nom = nom;
 		this.date = date;
 		this.lieu = lieu;
-		this.description = description;
 	}
 
 
@@ -62,43 +58,45 @@ public class Activite {
 	public String getNom() {
 		return nom;
 	}
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 	public String getLieu() {
 		return lieu;
 	}
-	public String getDescription() {
-		return description;
-	}
 	public Club getClub() {
 		return club;
+	}
+	public String getImagePath() {
+		return imagePath;
 	}
 	public int getSize() {
 		return etudiants.size();
 	}
 
 
+
+	
 	public void setId(int id) {
 		this.id = id;
 	}
 	public void setPrivee(boolean privee) {
 		this.privee = privee;
 	}
-	public void setNom_activite(String nom) {
+	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public void setDate_activite(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public void setLieu_activite(String lieu) {
+	public void setLieu(String lieu) {
 		this.lieu = lieu;
-	}
-	public void setDescription(String description) {
-		this.description = description;
 	}
 	public void setClub(Club club) {
 		this.club = club;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 	
@@ -114,12 +112,19 @@ public class Activite {
 			return true;
 		return false;
 	}
-	public String getImagePath() {
-		return imagePath;
+	
+	
+	public void clearEtudiants() {
+		for(Etudiant etudiant : etudiants) {
+			etudiant.removeActivite(this);
+		}
+		etudiants.clear();
 	}
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
+
+
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

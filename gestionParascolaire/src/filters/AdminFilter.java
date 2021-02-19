@@ -44,10 +44,11 @@ public class AdminFilter implements Filter {
         if(session.getAttribute("administrateur")==null)
         {
         	if(session.getAttribute("responsable")!=null)
-        		res.sendRedirect(req.getContextPath()+"/ajouterActivite");
-        	else
-        		res.sendRedirect(req.getContextPath()+"/Activities");
-        		
+        		res.sendRedirect(req.getContextPath()+"/charts");
+        	else if(session.getAttribute("etudiant")!=null)
+        		res.sendRedirect(req.getContextPath()+"/Activites");
+        	else 
+            	chain.doFilter(request, response);
         }
         else
         	chain.doFilter(request, response);

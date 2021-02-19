@@ -27,19 +27,10 @@
    <div id="container">
    
  		  <form id="activiteForm" method="post" action="modifierActivite" enctype="multipart/form-data">
-				<div class="text">
-	                <label >ID d'activité :</label>
-	                <input type="text" name="id" value="${activite.getId()}" />
-	            </div>
 	            <div class="text">
 	                <label id="nom">Nom d'activité :</label>
 	                <input type="text" name="nom" value="${activite.getNom() }"/>
 	                <span class="erreur" style="color:red">${am.getErreurs()["nom"]}</span>
-	            </div>
-	            <div class="text">
-	                <label id="description">Description :</label>
-	                <textarea name="description"> ${activite.getDescription() }</textarea>
-	                <span class="erreur" style="color:red">${am.getErreurs()["description"]}</span> 
 	            </div>
 	            <div class="text">
 	                <label id="lieu">Lieu :</label>
@@ -52,7 +43,6 @@
 	                <span class="erreur" style="color:red">${am.getErreurs()["date"]}</span>
 	            </div>
 	            <div class="radio ">
-	            	<label>privé/public</label>
 	            	<div><label>Privé</label><input type="radio" name="privee" value="true"></div>
 	            	<div><label>Public</label><input type="radio" name="privee" value="false"></div>
 	            	<span class="erreur" style="color:red">${am.getErreurs()["privee"]}</span>
@@ -66,8 +56,7 @@
 	                <span class="erreur" style="color:red">${am.getErreurs()["image"]} </span>
 	            </div>
 				<div class="buttons">
-					<button type="submit">Modifier</button>
-					<a class="delete" href="supprimerActivite?id=${activite.getId()}">Delete</a>
+					<button type="submit" name="id" value="${activite.getId()}">Modifier</button>
 				</div>
 	             
         </form>

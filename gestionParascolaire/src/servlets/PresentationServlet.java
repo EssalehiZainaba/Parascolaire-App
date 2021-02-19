@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,9 +14,12 @@ import javax.servlet.http.HttpSession;
 import dao.DaoClub;
 import dao.DaoClubImpl;
 
+
+
 import dao.JPAUtil;
 
 import entities.Club;
+import services.PresentationManager;
 
 
 /**
@@ -24,25 +28,38 @@ import entities.Club;
 @WebServlet("/presentation")
 public class PresentationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	DaoClub daoClub;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public PresentationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+    	super();
     }
+    
+	@Override
+	public void init() throws ServletException {
+        daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("clubId"));
 		
-		DaoClub dc = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		Club club = dc.find(id);
-
+		
+		Club club = daoClub.find(request.getParameter("clubName"));
+			
+			
+		PresentationManager pm = new PresentationManager();
+		
+		
+		Boolean status = pm.isShown(request);
+		request.setAttribute("status",status);
 		request.setAttribute("club",club);
+		
+		
 		
 		HttpSession session = request.getSession();
 		 if(session.getAttribute("etudiant")!=null)

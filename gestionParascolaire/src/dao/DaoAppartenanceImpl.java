@@ -86,7 +86,7 @@ public class DaoAppartenanceImpl implements DaoAppartenance{
 	@Override
 	public List<Appartenance> listerAppartenances(String year, int idClub) {
 		EntityManager em = factory.createEntityManager();
-		Query query = em.createQuery("SELECT a FROM Appartenance a WHERE SUBSTRING(a.dateAppartenance, 1, 4)=:year AND a.club.id= :idClub");
+		Query query = em.createQuery("SELECT a FROM Appartenance a WHERE SUBSTRING(a.dateAppartenance, 7, 10)=:year AND a.club.id= :idClub");
 		query.setParameter("year", year);
 		query.setParameter("idClub", idClub);
 		@SuppressWarnings("unchecked")

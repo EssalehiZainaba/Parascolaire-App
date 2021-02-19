@@ -1,12 +1,9 @@
 package services;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -15,15 +12,12 @@ import javax.servlet.http.Part;
 
 import dao.DaoActivite;
 import dao.DaoActiviteImpl;
-import dao.DaoClub;
-import dao.DaoClubImpl;
 import dao.JPAUtil;
 import entities.Activite;
 import entities.Club;
 
 public class ActiviteManager {
 	final static String CHAMP_NOM="nom";
-	final static String CHAMP_DESCRIPTION="description";
 	final static String CHAMP_DATE="date";
 	final static String CHAMP_LIEU="lieu";
 	final static String CHAMP_IMAGE="image";
@@ -64,7 +58,6 @@ public class ActiviteManager {
 	{
 		
 		this.validerActivite(request);
-		
 		if(erreurs.isEmpty())
 		{
 			
@@ -100,10 +93,11 @@ public class ActiviteManager {
 			
 			FilesManager filesManager = new FilesManagerImpl();
 			DaoActivite daoActivite = new DaoActiviteImpl(JPAUtil.getEntityManagerFactory());
+			filesManager.delete(chemin,daoActivite.find(id).getImagePath());
 			activite.setClub(daoActivite.find(id).getClub());
 			activite.setImagePath(filesManager.ecrireFichier(image, chemin));
 			activite.setId(id);
-			filesManager.delete(chemin,daoActivite.find(id).getImagePath());
+			
 			daoActivite.update(activite);
 			return activite;
 			
@@ -120,6 +114,7 @@ public class ActiviteManager {
 	private void validerActivite(HttpServletRequest request)
 	{
 		LocalDate date = null;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
 		
 		try {
 			image = request.getPart(CHAMP_IMAGE);
@@ -132,7 +127,6 @@ public class ActiviteManager {
 		}
 		
 		String nom = request.getParameter(CHAMP_NOM);
-		String description = request.getParameter(CHAMP_DESCRIPTION);
 		String lieu = request.getParameter(CHAMP_LIEU);
 		String charPrivee = request.getParameter(CHAMP_PRIVEE);
 		boolean privee = Boolean.parseBoolean(charPrivee);
@@ -141,13 +135,6 @@ public class ActiviteManager {
 		
 			
 		
-		
-		try {
-			this.textValidation(description);
-		}
-		catch(Exception e){
-			erreurs.put(CHAMP_DESCRIPTION, e.getMessage());
-		}
 		
 		try {
 			this.textValidation(lieu);
@@ -186,10 +173,10 @@ public class ActiviteManager {
 		}
 		
 		activite = new Activite();
-		activite.setNom_activite(nom);
-		activite.setDescription(description);
-		activite.setLieu_activite(lieu);
-		activite.setDate_activite(date);
+		activite.setNom(nom);
+		activite.setLieu(lieu);
+		if(date != null)
+			activite.setDate(date.format(formatter));
 		activite.setPrivee(privee);
 		
 		

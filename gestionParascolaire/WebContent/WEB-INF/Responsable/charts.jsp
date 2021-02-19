@@ -24,8 +24,8 @@
 	<div id="container">
 		<canvas id="myLineChart" class="myLineChart" width="930" height="250" ></canvas>
 		<div class="charts">
-		    <canvas id="myChart" class="myBarChart" width="500" height="200" ></canvas>
-		    <canvas id="myPieChart" class="myPieChart" width="800" height="200" ></canvas>
+		    <canvas id="myChart" class="myBarChart" width="400" height="200" ></canvas>
+		    <canvas id="myPieChart" class="myPieChart" width="600" height="200" ></canvas>
 	    </div>
     </div>
 	    
@@ -52,7 +52,7 @@
             datasets: [{
                 label: 'Activitées',               
                 data: [
-                	<c:forEach var="numberEtd" items="${tabNumberEtd}" >
+                	<c:forEach var="numberEtd" items="${tabNumberAct}" >
         	           ${numberEtd},
                 	</c:forEach>],
                 backgroundColor: [
@@ -111,7 +111,7 @@
               datasets: [{
                   label: 'adhérants',               
                   data: [
-                  	<c:forEach var="numberAct" items="${tabNumberAct}" >
+                  	<c:forEach var="numberAct" items="${tabNumberEtd}" >
           	           ${numberAct},
                   	</c:forEach>],
                   backgroundColor: [

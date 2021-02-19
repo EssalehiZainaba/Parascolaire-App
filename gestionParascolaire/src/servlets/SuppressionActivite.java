@@ -6,9 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import entities.ResponsableClub;
 import services.ActiviteManager;
 
 /**
@@ -35,7 +33,7 @@ public class SuppressionActivite extends HttpServlet {
 		ActiviteManager activiteManager = new ActiviteManager();
 		String chemin = (String) request.getServletContext().getAttribute("chemin");
 		activiteManager.delete(chemin, id);
-		response.sendRedirect(request.getContextPath()+"/ajouterActivite");
+		response.sendRedirect(request.getContextPath()+"/HandleActivities");
 		
 	}
 

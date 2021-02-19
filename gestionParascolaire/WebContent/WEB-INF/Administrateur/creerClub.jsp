@@ -44,7 +44,7 @@
             <c:forEach  items="${clubs }" var="club" >
                 <div class="club">
                     <p><c:out value="${ club.name }" /></p>
-                   <a href="<c:url value="/suppClub"><c:param name="id" value="${ club.id }"/></c:url>" onclick=" ConfirmDelete()" > <i class="fas fa-trash" ></i> </a>                
+                   	<a href="<c:url value="/SupprimerClub"><c:param name="clubName" value="${ club.name }"/></c:url>" onclick=" ConfirmDelete()" > <i class="fas fa-trash" ></i> </a>                
                 </div>
     
  			</c:forEach>

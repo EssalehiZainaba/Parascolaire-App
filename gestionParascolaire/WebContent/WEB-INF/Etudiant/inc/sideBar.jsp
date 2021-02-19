@@ -8,7 +8,7 @@
 
                 <a class="button link">
                     <i class="fas fa-caret-right rotated"></i>
-                    &nbsp&nbspActivités Publiques
+                    &nbsp;&nbsp;Activités Publiques
                 </a>
 
                 <ul class="sub-menu open">
@@ -19,7 +19,7 @@
 
                         <a class="button link element act-pub openn" href="#">
                             <i class="fas fa-caret-right"></i>
-                            &nbsp&nbspMes clubs
+                            &nbsp;&nbsp;Mes clubs
                         </a>
 
                         <ul class="sub-menu">
@@ -36,7 +36,7 @@
 
                         <a class="button link element act-pub openn" href="#">
                             <i class="fas fa-caret-right"></i>
-                            &nbsp&nbspAutres clubs
+                            &nbsp;&nbsp;Autres clubs
                         </a>
 
                         <ul class="sub-menu">
@@ -57,7 +57,7 @@
 
                 <a class="button link">
                     <i class="fas fa-caret-right rotated"></i>
-                    &nbsp&nbspActivités Privées
+                    &nbsp;&nbsp;Activités Privées
                 </a>
 
                 <ul class="sub-menu open">
@@ -74,12 +74,12 @@
 
                 <a class="button link">
                     <i class="fas fa-caret-right"></i>
-                    &nbsp&nbspMes Clubs
+                    &nbsp;&nbsp;Mes Clubs
                 </a>
 
                 <ul class="sub-menu">
                     <c:forEach items="${mesClubs }" var="club">
-                  		<li><a class="element my-clubs" href="">${club.name }</a></li>
+                  		<li><a class="element my-clubs" href="presentation?clubName=${club.name }">${club.name }</a></li>
                   	</c:forEach>
                 </ul>
 
@@ -90,12 +90,12 @@
 
                 <a class="button link">
                     <i class="fas fa-caret-right"></i>
-                    &nbsp&nbspAutres Clubs
+                    &nbsp;&nbsp;Autres Clubs
                 </a>
 
                 <ul class="sub-menu">
                     <c:forEach items="${autresClubs }" var="club">
-                  		<li><a class="element other-clubs" href="">${club.name }</a></li>
+                  		<li><a class="element other-clubs" href="presentation?clubName=${club.name }">${club.name }</a></li>
                   	</c:forEach>
                 </ul>
 

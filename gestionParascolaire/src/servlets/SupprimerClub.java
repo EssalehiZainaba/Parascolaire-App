@@ -1,19 +1,20 @@
 package servlets;
 
 import java.io.IOException;
+
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoActivite;
+import dao.DaoActiviteImpl;
 import dao.DaoClub;
 import dao.DaoClubImpl;
-import dao.DaoResponsableClub;
-import dao.DaoResponsableClubImpl;
 import dao.JPAUtil;
-import entities.Club;
-import entities.ResponsableClub;
+import services.DeleteClubManager;
 
 /**
  * Servlet implementation class SupprimerClub
@@ -21,6 +22,8 @@ import entities.ResponsableClub;
 @WebServlet("/SupprimerClub")
 public class SupprimerClub extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	DaoClub daoClub;
+	DaoActivite daoActivite;
        
 
     public SupprimerClub() {
@@ -28,33 +31,27 @@ public class SupprimerClub extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    @Override
+	public void init() throws ServletException {
+		
+    	EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
+		daoClub = new DaoClubImpl(factory);
+		daoActivite= new DaoActiviteImpl(factory);
+
+ 
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int idClub = Integer.parseInt(request.getParameter("id"));
-		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());	
+		String clubName = request.getParameter("clubName");
+		String chemin = (String) request.getServletContext().getAttribute("chemin");
 		
-
-		 request.setAttribute("clubs", daoClub.lister());
-		
-		if(idClub != 0)
-		{
-			
-		Club club = new Club();
-		club = daoClub.find(idClub);		
-		daoClub.delete(idClub);
+		DeleteClubManager manager = new DeleteClubManager(daoClub, daoActivite);
+		manager.deleteClub(clubName, chemin);
 		
 		
-		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
-		daoResp.delete(club.getResponsableClub().getId());
-		
-		request.setAttribute( "clubs", daoClub.lister());
-		
-        this.getServletContext().setAttribute("club", daoClub.lister());
-
+		this.getServletContext().setAttribute("club", daoClub.lister());
 		response.sendRedirect( request.getContextPath() + "/CreerClub" );
-		 }
-
 		
 	}
 
