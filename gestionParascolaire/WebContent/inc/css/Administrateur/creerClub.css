@@ -95,7 +95,7 @@
     flex-direction: column;
     align-items: center;
     transition: filter 1s ease-in-out;
-
+    transition: 1s;
 }
 
 .club{  
@@ -143,4 +143,83 @@
 
 #creerButton:hover{
     background-color:rgb(26, 24, 24,0.8);
+}
+
+#confirmDelete{
+    width: 38%;
+    height: 300px;
+    background-color: rgba(56, 55, 55, 0.9);
+    border-radius: 10px;
+    position: absolute;
+    left: 32%;
+    top: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(212, 210, 208);
+    transition: .5s;
+}
+.showConfirm{
+    visibility: visible;
+    pointer-events: all;
+}
+
+.hideConfirm{
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#confirmDelete .title{
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#confirmDelete #closeConfirm{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#confirmDelete .buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 50px;
+}
+
+#confirmDelete .buttons button{
+    height: 100%;
+    width: 40%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#confirmDelete .buttons button:hover{
+    opacity: 0.6;
+}
+
+#confirmDelete .buttons #confirm{
+    background-color: rgb(221, 73, 73);
+}
+
+#link{
+    text-decoration: none;
+    color: inherit;
+}
+
+#confirmDelete .buttons #delete{
+    background-color: rgb(238, 213, 213);
+}
+
+.blur{
+    filter: blur(15px);
+    pointer-events: none;
 }
