@@ -8,18 +8,6 @@
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/Administrateur/creerClub.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	
- 	 <script type="text/javascript">     
-        function ConfirmDelete()
-{
-     var x = confirm("voulez vous supprimer ce candidat?");
-     if (x)
-         return true;
-     else
-       return false;
-}
-     
-</script>
- 	
 </head>
 <body>
 
@@ -42,9 +30,9 @@
            
             <div id="clubsContainer"  style=${ !empty erreurs ? "filter:blur(15px)" : "" }>
             <c:forEach  items="${clubs }" var="club" >
-                <div class="club">
+                <div id="${club.name}" class="club">
                     <p><c:out value="${ club.name }" /></p>
-                   	<a href="<c:url value="/SupprimerClub"><c:param name="clubName" value="${ club.name }"/></c:url>" onclick=" ConfirmDelete()" > <i class="fas fa-trash" ></i> </a>                
+                	 <i class="fas fa-trash" ></i>
                 </div>
     
  			</c:forEach>
@@ -52,6 +40,17 @@
                     Créer<br>un club
                 </button>
             </div>
+            
+                                
+        <div id="confirmDelete" class="hideConfirm">
+            <div id="closeConfirm">X</div>
+            <div class="title">Voulez vous vraiment supprimer ce Club ?</div>
+            <div class="buttons">
+                <button id="confirm"><a id="link" href="">Supprimer</a></button>
+                <button id="cancel">Cancel</button>
+            </div>
+        </div>
+
    
    </div>  
         
