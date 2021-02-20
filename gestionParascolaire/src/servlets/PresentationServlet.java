@@ -63,7 +63,7 @@ public class PresentationServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		 if(session.getAttribute("etudiant")!=null)
-			 this.getServletContext().getRequestDispatcher( "/WEB-INF/Etudiant/presentationNonMembre.jsp" ).forward( request, response );
+			 this.getServletContext().getRequestDispatcher( "/WEB-INF/Etudiant/presentation.jsp" ).forward( request, response );
 		 else if(session.getAttribute("responsable")!=null)
 			 this.getServletContext().getRequestDispatcher( "/WEB-INF/Responsable/presentation.jsp" ).forward( request, response );
 		 else if(session.getAttribute("administrateur")!=null)
