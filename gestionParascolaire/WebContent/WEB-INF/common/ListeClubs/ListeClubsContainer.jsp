@@ -5,7 +5,7 @@
         <c:forEach var="club" items="${clubs}" >
             <section class="features">
                 <figure>
-                    <a href="presentation?clubId=${club.id }"><img src="images/${club.logoPath}"></a>
+                    <a href="presentation?clubName=${club.name }"><img src="images/${club.logoPath}"></a>
                     <figcaption>
                         <c:out value="${ club.name }" />
                     </figcaption>
