@@ -7,17 +7,12 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.DaoClub;
 import dao.DaoClubImpl;
-import dao.DaoDemandeInscription;
-import dao.DaoDemandeInscriptionImpl;
 import dao.JPAUtil;
 import entities.Club;
-import entities.DemandeInscription;
-import entities.Etudiant;
 
 public class PresentationManager {
 	
@@ -179,48 +174,6 @@ public class PresentationManager {
 		
 	}
 	
-	
-	
-	
-	
-	public Boolean isShown(HttpServletRequest request)
-	{
-		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
-		DaoDemandeInscription daoDemandeInscription = new DaoDemandeInscriptionImpl(JPAUtil.getEntityManagerFactory());
-		Club club = daoClub.find(request.getParameter("clubName"));
-		HttpSession session = request.getSession();
-		DemandeInscription demandeInscription;
-		if(session.getAttribute("responsable") == null && session.getAttribute("etudiant") == null && session.getAttribute("administrateur") == null )
-			return true;
-		else
-		{
-			if(session.getAttribute("etudiant") != null )
-			{
-				Etudiant etudiant = (Etudiant) session.getAttribute("etudiant");
-			
-				demandeInscription = daoDemandeInscription.find(club, etudiant);
-				
-				
-				if(demandeInscription==null)
-				{
-					System.out.println("not found");
-					return true;
-				}
-					
-				else
-				{
-					System.out.println("found");
-					return false;
-				}
-					
-			}
-			else
-				return false;
-		}
-				
-		
-		
-	}
 	
 	
 	
