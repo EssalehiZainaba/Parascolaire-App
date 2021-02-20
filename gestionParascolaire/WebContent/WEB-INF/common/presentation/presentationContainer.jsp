@@ -3,8 +3,8 @@
             <div class="cover">
                 <img src='<c:url value="images/${club.logoPath}"/>' class="logo">
                 <c:if test="${showBouton }">
-                	<form action='Adheration'>
-                		<button type='submit' name='clubName' value="${club.name}">S'adhérer</button>
+                	<form action="Adheration" method="post">
+                		<button type="submit" name="clubName" value="${club.name}">S'adhérer</button>
                 	</form>
             	</c:if>
             </div>

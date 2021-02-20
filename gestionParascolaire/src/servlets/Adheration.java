@@ -42,8 +42,12 @@ public class Adheration extends HttpServlet {
 	}
 
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.sendRedirect(request.getContextPath() + "/Activites");
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String clubName = request.getParameter("clubName");
 		HttpSession session = request.getSession();
