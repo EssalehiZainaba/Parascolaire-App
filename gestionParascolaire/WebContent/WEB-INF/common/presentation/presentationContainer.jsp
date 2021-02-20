@@ -1,13 +1,16 @@
 <div class="container">
         <div class="content">
             <div class="cover">
-                <img src='<c:url value="images/${club.getLogoPath()}"/>' class="logo">
-                
-                <button> Join Us</button>
+                <img src='<c:url value="images/${club.logoPath}"/>' class="logo">
+                <c:if test="${showBouton }">
+                	<form action='Adheration'>
+                		<button type='submit' name='clubName' value="${club.name}">S'adhérer</button>
+                	</form>
+            	</c:if>
             </div>
             <div class="presentation">
                 <h1>Presentation</h1>
-                <p>${club.getDescription()}</p>
+                <p>${club.description}</p>
             </div>
             <!-- Slideshow container -->
             <div class="slide" >
@@ -15,15 +18,15 @@
 
                   <!-- Full-width images with number and caption text -->
                   <div class="mySlides fade">
-                    <img src="images/${club.getImg1Path()}" style="width:100%;">
+                    <img src="images/${club.img1Path}" style="width:100%;">
                   </div>
 
                  <div class="mySlides fade">
-                    <img src="images/${club.getImg2Path()}" style="width:100%;">
+                    <img src="images/${club.img2Path}" style="width:100%;">
                   </div>
 
                   <div class="mySlides fade">
-                    <img src="images/${club.getImg3Path()}" style="width:100%;">
+                    <img src="images/${club.img3Path}" style="width:100%;">
                   </div>
 
                   <!-- Next and previous buttons -->

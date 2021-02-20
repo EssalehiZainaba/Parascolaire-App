@@ -5,11 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import entities.Activite;
 import entities.Appartenance;
-import entities.AppartenanceKey;
 import entities.Club;
 import entities.Etudiant;
 
@@ -24,17 +23,20 @@ public class DaoAppartenanceImpl implements DaoAppartenance{
 	
 	
 	@Override
-	public Appartenance find(AppartenanceKey id) {
-		Appartenance appar = null;
+	public Appartenance find(Club club, Etudiant etudiant) {
+		Appartenance appartenance;
 		EntityManager em = factory.createEntityManager();
 		try {
-			appar = em.find(Appartenance.class, id);
-		} catch(Exception e) {
-			e.printStackTrace();
+			Query query = em.createQuery("SELECT a from Appartenance a WHERE a.club=:club AND a.etudiant=:etudiant");
+			query.setParameter("club", club);
+			query.setParameter("etudiant", etudiant);
+			appartenance = (Appartenance)query.getSingleResult();
+		} catch(NoResultException e) {
+			appartenance = null;
 		} finally {
 			em.close();
 		}
-		return appar;
+		return appartenance;
 	}
 
 	
