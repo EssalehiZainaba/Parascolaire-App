@@ -23,6 +23,7 @@ public class Club {
 	@Column(columnDefinition="TEXT")
 	private String paragraphe;
 	private String logoPath;
+	private String coverPath;
 	private String img1Path;
 	private String img2Path;
 	private String img3Path;
@@ -71,6 +72,9 @@ public class Club {
 	public String getLogoPath() {
 		return logoPath;
 	}
+	public String getCoverPath() {
+		return coverPath;
+	}
 	public String getImg1Path() {
 		return img1Path;
 	}
@@ -100,6 +104,9 @@ public class Club {
 	}
 	public void setLogoPath(String logoPath) {
 		this.logoPath = logoPath;
+	}
+	public void setCoverPath(String coverPath) {
+		this.coverPath = coverPath;
 	}
 	public void setImg1Path(String img1Path) {
 		this.img1Path = img1Path;

@@ -28,10 +28,9 @@
 				<div class="description hideDescription">
 					<h1>Club Enactus</h1>
 					<p>
-					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					    Cupiditate consequuntur, illum tempora beatae itaque nihil
-					    repellendus dolorem accusantium non atque laboriosam aliquam
-					    id vitae facere voluptatem nisi eveniet esse sit!
+					    Enactus est une ONG internationale qui oeuvre dans le domaine de l’entrepreneuriat social estudiantin et le développement durable pour
+					     améliorer les vies et façonner un monde meilleur et durable .
+
 					</p>
 					<button class="readMore">Lire la suite</button>
 				</div>
@@ -42,10 +41,10 @@
                	<div class="description hideDescription">
 					<h1>Club Social</h1>
 					<p>
-					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					    Cupiditate consequuntur, illum tempora beatae itaque nihil
-					    repellendus dolorem accusantium non atque laboriosam aliquam
-					    id vitae facere voluptatem nisi eveniet esse sit!
+					Le club social Ensa Agadir est un groupe de jeunes ingénieurs, ayant un but est de développer l’esprit d’initiative,
+					 de solidarité et de responsabilité tout en se sentant utile à l’ensemble. 
+					 Pour ce faire, il nous est demandé de passer du quantitatif au travail qualitatif.
+				
 					</p>
 					<button class="readMore">Lire la suite</button>
 				</div>
@@ -56,10 +55,9 @@
                	<div class="description hideDescription">
 					<h1>Club BTP</h1>
 					<p>
-					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					    Cupiditate consequuntur, illum tempora beatae itaque nihil
-					    repellendus dolorem accusantium non atque laboriosam aliquam
-					    id vitae facere voluptatem nisi eveniet esse sit!
+					    Le club BTP est un club qui s’intéresse à intégrer les élèves ingénieurs dans
+					     le domaine du BTP et les approcher de la vie professionnelle .
+
 					</p>
 					<button class="readMore">Lire la suite</button>
 				</div>
@@ -68,12 +66,11 @@
            <div class="wrapper"> 
                 <img src="images/SmoAccueil.jpeg">
                	<div class="description hideDescription">
-					<h1>Club Sportif</h1>
+					<h1>South Meeting Olympiad</h1>
 					<p>
-					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					    Cupiditate consequuntur, illum tempora beatae itaque nihil
-					    repellendus dolorem accusantium non atque laboriosam aliquam
-					    id vitae facere voluptatem nisi eveniet esse sit!
+					    SMO - South Meeting Olympiad représente l'événement phare des activités parascolaires entretenues par
+					     les étudiants de l'ENSA Agadir, un grand tournoi de challenge qui réunit un ensemble de grandes écoles
+					      d'ingénieurs de commerce et de médecine a l'échelle nationale.
 					</p>
 					<button class="readMore">Lire la suite</button>
 				</div>
@@ -84,10 +81,8 @@
                	<div class="description hideDescription">
 					<h1>Club Sportif</h1>
 					<p>
-					    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-					    Cupiditate consequuntur, illum tempora beatae itaque nihil
-					    repellendus dolorem accusantium non atque laboriosam aliquam
-					    id vitae facere voluptatem nisi eveniet esse sit!
+					   Le Club Sportif ENSA Agadir est chargé de tous ce qui est dans le domaine sportif
+					   et culturel dans l'école.
 					</p>
 					<button class="readMore">Lire la suite</button>
 				</div>
@@ -107,20 +102,32 @@
         </div>
 
 
-            <div>
-               Para Gest (we should discuss a proper name) 
-               <br><br>
-               la plus grande plateforme du gestion des parascolaire universitaires connue a l'echelle national
-               <br><br>
-               Utilisée par des milliers Universitées partout au Maroc pour une meilleure gestion des Clubs, activitées, et etudiants
-               <br><br>
-               Une plateforme qui réunit un ensemble de grandes événements et partage des expériences univérsitaires 
-               <br><br>
-               
-               <br><br>
-              
-               
-        </div>
+           
+        
+        <div class="bloc-paragest">
+			<div class="bloc-text-paragest">
+				ParaGest
+			</div>
+		</div>
+        
+        <div class="bloc">
+			<div class="bloc-text">
+				La plus grande plateforme de gestion du parascolaire universitaire connue a l'échelle nationale.
+			</div>
+		</div>
+		
+		<div class="bloc">
+			<div class="bloc-text">
+				Utilisée par des dizaines d'universités partout au Maroc pour une meilleure gestion des clubs, activitées parascolaires, et etudiants.
+			</div>
+		</div>
+		
+		<div class="bloc">
+			<div class="bloc-text">
+				Une plateforme qui réunit un ensemble de grandes événements et partage des expériences univérsitaires.
+			</div>
+		</div>
+		
     
     </div>
 

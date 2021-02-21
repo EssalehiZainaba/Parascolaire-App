@@ -1,6 +1,7 @@
 .container{
     width: 70%;
     margin: 100px auto;
+    padding-bottom: 50px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -152,4 +153,41 @@ img,.description,.wrapper{
 .ourApp h1{
     margin-bottom: 40px;
 }
+
+.bloc {
+    width: 90%;
+    padding: 40px 50px;
+    color: rgb(226, 159, 71);
+    border: solid rgba(192, 124, 34, 0.6) 1px;
+    box-shadow: 9px 9px 6px 2px rgba(192, 124, 34, 0.6);
+    margin:40px auto;
+    border-radius: 10px;
+    background-color: rgba(40, 38, 34, 0.58);
+}
+
+.bloc-paragest {
+	width: 100%;
+    padding: 40px 50px;
+    color: rgb(226, 159, 71);
+    border-top: solid rgba(192, 124, 34, 0.6) 1px;
+    border-bottom: solid rgba(192, 124, 34, 0.6) 1px;
+    margin:40px auto;
+    background-color: rgba(40, 38, 34, 0.58);
+}
+
+
+.bloc-text {
+	font-size: 30px;
+	text-align: justify;
+}
+
+.bloc-text-paragest {
+	font-size: 52px;
+	font-weight: bold;
+	letter-spacing: 8px;
+	text-align: center;
+}
+
+
+
 /*************************************************************************************/

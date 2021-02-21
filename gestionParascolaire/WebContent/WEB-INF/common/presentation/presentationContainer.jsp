@@ -1,7 +1,7 @@
 <div class="container">
         <div class="content">
             <div class="cover">
-                <img src='<c:url value="images/${club.logoPath}"/>' class="logo">
+                <img src='<c:url value="images/${club.coverPath}"/>' class="logo">
                 <c:if test="${showBouton }">
                 	<form action="Adheration" method="post">
                 		<button type="submit" name="clubName" value="${club.name}">S'adhérer</button>

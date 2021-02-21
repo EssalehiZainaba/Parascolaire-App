@@ -181,7 +181,8 @@ public class FillDB extends HttpServlet {
         club1.setResponsableClub(daoRespo.find(10));
         club1.setDescription(description);
         club1.setParagraphe(paragraphe);
-        club1.setLogoPath("appsclub cover.jpg");
+        club1.setLogoPath("apps.jpg");
+        club1.setCoverPath("appsclub cover.jpg");
         club1.setImg1Path("image2.jpeg");
         club1.setImg2Path("image3.jpeg");
         club1.setImg3Path("image4.jpeg");
@@ -193,6 +194,7 @@ public class FillDB extends HttpServlet {
         club2.setDescription(description);
         club2.setParagraphe(paragraphe);
         club2.setLogoPath("social cover.jpg");
+        club2.setCoverPath("social cover.jpg");
         club2.setImg1Path("image2.jpeg");
         club2.setImg2Path("image3.jpeg");
         club2.setImg3Path("image4.jpeg");
@@ -203,7 +205,8 @@ public class FillDB extends HttpServlet {
         club3.setResponsableClub(daoRespo.find(12));
         club3.setDescription(description);
         club3.setParagraphe(paragraphe);
-        club3.setLogoPath("enactus cover.jpg");
+        club3.setLogoPath("enactus1.jpg");
+        club3.setCoverPath("enactus cover.jpg");
         club3.setImg1Path("image2.jpeg");
         club3.setImg2Path("image3.jpeg");
         club3.setImg3Path("image4.jpeg");
@@ -215,6 +218,7 @@ public class FillDB extends HttpServlet {
         club4.setDescription(description);
         club4.setParagraphe(paragraphe);
         club4.setLogoPath("btp cover.jpg");
+        club4.setCoverPath("btp cover.jpg");
         club4.setImg1Path("image2.jpeg");
         club4.setImg2Path("image3.jpeg");
         club4.setImg3Path("image4.jpeg");
@@ -226,6 +230,7 @@ public class FillDB extends HttpServlet {
         club5.setDescription(description);
         club5.setParagraphe(paragraphe);
         club5.setLogoPath("sportif cover.jpg");
+        club5.setCoverPath("sportif cover.jpg");
         club5.setImg1Path("image2.jpeg");
         club5.setImg2Path("image3.jpeg");
         club5.setImg3Path("image4.jpeg");

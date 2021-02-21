@@ -17,6 +17,7 @@ import entities.Club;
 public class PresentationManager {
 	
 	final static String CHAMP_LOGO="logo";
+	final static String CHAMP_COVER="cover";
 	final static String CHAMP_IMG1="image1";
 	final static String CHAMP_IMG2="image2";
 	final static String CHAMP_IMG3="image3";
@@ -50,12 +51,23 @@ public class PresentationManager {
 	{
 		
 		club = null;
-		Part partLogo=null;
+		Part partLogo = null;
+		Part partCover = null;
 		Part partImg1 = null;
 		Part partImg2 = null;
 		Part partImg3 = null;
 		try {
 			partLogo = request.getPart(CHAMP_LOGO);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			partCover = request.getPart(CHAMP_COVER);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,6 +128,14 @@ public class PresentationManager {
 		catch(Exception e){
 			erreurs.put(CHAMP_LOGO, e.getMessage());
 		}
+		
+		try {
+			this.imageValidation(partCover);
+		}
+		catch(Exception e){
+			erreurs.put(CHAMP_COVER, e.getMessage());
+		}
+		
 		try {
 			this.imageValidation(partImg1);
 		}
@@ -151,6 +171,7 @@ public class PresentationManager {
 			if(club.getLogoPath()!=null)
 			{
 				filesManager.delete(chemin,club.getLogoPath());
+				filesManager.delete(chemin,club.getCoverPath());
 				filesManager.delete(chemin,club.getImg1Path());
 				filesManager.delete(chemin,club.getImg2Path());
 				filesManager.delete(chemin,club.getImg3Path());
@@ -158,6 +179,7 @@ public class PresentationManager {
 			
 			
 			club.setLogoPath(filesManager.ecrireFichier(partLogo, chemin));
+			club.setCoverPath(filesManager.ecrireFichier(partCover, chemin));
 			club.setImg1Path(filesManager.ecrireFichier(partImg1, chemin));
 			club.setImg2Path(filesManager.ecrireFichier(partImg2, chemin));
 			club.setImg3Path(filesManager.ecrireFichier(partImg3, chemin));
