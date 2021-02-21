@@ -90,13 +90,13 @@
 
     </div>
 
-
-
+    <%@ include file="../common/popUpDeconnexion.jsp" %> 
+	
     <%@ include file="../common/footer.jsp" %>
 </body>
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 	<script type="text/javascript" src="./inc/js/common/sideBar.js"></script>
 	<script type="text/javascript" src="./inc/js/Etudiant/profil.js"></script>
-	<script type="text/javascript" src="./inc/js/common/popUpDeconnexion.js"></script>
+	<script type="text/javascript" src="./inc/js/common/popUpDeconnexion/popUpDeconnexion.js"></script>
 	
 </html>

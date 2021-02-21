@@ -76,7 +76,7 @@
 	                <span class="erreur" style="color:red">${pm.getErreurs()["image3"]} </span>
 	            </div>
 	
-	            <button type="submit">Créer</button> 
+	            <button id="submit" type="submit">Créer</button> 
         </form>
         
    </div>  
@@ -86,5 +86,5 @@
      <%@ include file="../common/footer.jsp" %>
 </body>
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
-	<script type="text/javascript" src="./inc/js/common/popUpDeconnexion.js"></script>
+	<script type="text/javascript" src="./inc/js/common/popUpDeconnexion/popUpDeconnexion.js"></script>
 </html>

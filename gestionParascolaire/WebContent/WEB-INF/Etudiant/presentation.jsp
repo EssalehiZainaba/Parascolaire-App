@@ -8,5 +8,5 @@
 	<%@ include file="../common/popUpDeconnexion.jsp" %> 
 	
 	<%@ include file="../common/footer.jsp" %>
-	
+		
 <%@ include file="../common/presentation/presentationScripts.jsp" %>
