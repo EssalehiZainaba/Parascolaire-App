@@ -8,7 +8,7 @@
         </div>
         
         <div class="buttons">
-            <button id="deconnecter"><a href="Deconnexion">Deconnecter</a></button>
+            <a id="deconnecter" href="Deconnexion">Deconnecter</a>
             <button  id="cancel">Cancel</button>
         </div>
     

@@ -44,7 +44,7 @@
     height: 50px;
 }
 
-#popUpDeconnexion .buttons button{
+#popUpDeconnexion .buttons button,#popUpDeconnexion .buttons #deconnecter{
     height: 100%;
     width: 40%;
     border: none;
@@ -52,9 +52,10 @@
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
+    cursor:pointer;
 }
 
-#popUpDeconnexion .buttons button:hover{
+#popUpDeconnexion .buttons button:hover,#popUpDeconnexion .buttons #deconnecter:hover{
     opacity: 0.6;
 }
 
@@ -63,12 +64,12 @@
     background-color: rgb(208, 44, 44);
 }
 
-#popUpDeconnexion .buttons #deconnecter a{
-    height: 100%;
-    width: 100%;
+#popUpDeconnexion .buttons #deconnecter{
     text-decoration: none;
     color: inherit;
-    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 
