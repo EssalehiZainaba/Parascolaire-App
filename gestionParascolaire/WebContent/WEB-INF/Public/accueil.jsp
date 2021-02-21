@@ -102,20 +102,32 @@
         </div>
 
 
-            <div>
-               Para Gest (we should discuss a proper name) 
-               <br><br>
-               la plus grande plateforme du gestion des parascolaire universitaires connue a l'echelle national
-               <br><br>
-               Utilisée par des milliers Universitées partout au Maroc pour une meilleure gestion des Clubs, activitées, et etudiants
-               <br><br>
-               Une plateforme qui réunit un ensemble de grandes événements et partage des expériences univérsitaires 
-               <br><br>
-               
-               <br><br>
-              
-               
-        </div>
+           
+        
+        <div class="bloc-paragest">
+			<div class="bloc-text-paragest">
+				ParaGest
+			</div>
+		</div>
+        
+        <div class="bloc">
+			<div class="bloc-text">
+				La plus grande plateforme de gestion du parascolaire universitaire connue a l'échelle nationale.
+			</div>
+		</div>
+		
+		<div class="bloc">
+			<div class="bloc-text">
+				Utilisée par des dizaines d'universités partout au Maroc pour une meilleure gestion des clubs, activitées parascolaires, et etudiants.
+			</div>
+		</div>
+		
+		<div class="bloc">
+			<div class="bloc-text">
+				Une plateforme qui réunit un ensemble de grandes événements et partage des expériences univérsitaires.
+			</div>
+		</div>
+		
     
     </div>
 
