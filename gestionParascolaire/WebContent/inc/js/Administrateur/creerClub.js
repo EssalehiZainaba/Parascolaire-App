@@ -19,7 +19,7 @@ closeAddForm.addEventListener("click",()=>{
 const clubsTrach=document.querySelectorAll(".club i");
 const popUpDelete=document.querySelector("#confirmDelete");
 const closeDeletePopUp=document.querySelector("#closeConfirm");
-const cancelButton=document.querySelector("#cancel")
+const cancelButton=document.querySelector("#cancelDelete")
 const confirmButton=document.querySelector("#confirm");
 const link=document.querySelector("#link");
 

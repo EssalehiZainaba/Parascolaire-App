@@ -1,4 +1,4 @@
-<div class="container">
+<div id="container">
         <div class="content">
             <div class="cover">
                 <img src='<c:url value="images/${club.coverPath}"/>' class="logo">

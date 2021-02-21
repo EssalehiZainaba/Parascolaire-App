@@ -76,7 +76,7 @@
 	                <span class="erreur" style="color:red">${pm.getErreurs()["image3"]} </span>
 	            </div>
 	
-	            <button type="submit">Créer</button> 
+	            <button id="submit" type="submit">Créer</button> 
         </form>
         
    </div>  

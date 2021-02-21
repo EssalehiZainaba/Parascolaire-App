@@ -67,7 +67,8 @@
 
     </div>
 
-
+	<%@ include file="../common/popUpDeconnexion.jsp" %> 
+	
 
     <%@ include file="../common/footer.jsp" %>
 </body>

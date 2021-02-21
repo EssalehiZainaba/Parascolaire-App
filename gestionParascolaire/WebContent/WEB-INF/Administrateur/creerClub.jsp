@@ -48,12 +48,13 @@
             <div class="title">Voulez vous vraiment supprimer ce Club ?</div>
             <div class="buttons">
                 <button id="confirm"><a id="link" href="">Supprimer</a></button>
-                <button id="cancel">Cancel</button>
+                <button id="cancelDelete">Cancel</button>
             </div>
         </div>
 
    
    </div>  
+   
      <%@ include file="../common/popUpDeconnexion.jsp" %> 
      <%@ include file="../common/footer.jsp" %>
 </body>

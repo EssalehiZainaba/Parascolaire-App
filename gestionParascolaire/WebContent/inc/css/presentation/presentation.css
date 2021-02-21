@@ -1,23 +1,23 @@
 
 
-.container{
+#container{
     padding-bottom: 30px;
     max-width: 1000px;
     background-color:#292121;
     margin:30px auto;
 }
-.container .cover{
+#container .cover{
     overflow: hidden;
     position: relative;
 }
-.container .cover:hover button{
+#container .cover:hover button{
     visibility: visible;
     right:calc( 50% - 46px );
 }
-.container .cover img{
+#container .cover img{
     width:100%;
 }
-.container .cover button{
+#container .cover button{
     visibility: hidden;
     border:none;
     padding: 16px 24px;
@@ -29,16 +29,16 @@
     transition: right 0.5s,visibility 0.5s;
     cursor: pointer;
 }
-.container .cover button:hover{
+#container .cover button:hover{
     background-color: #139c18;
 }
-.container .presentation h1{
+#container .presentation h1{
     font-family: "comic sans ms";
     text-align: center;
     color:white;
     margin:30px;
 }
-.container .presentation p{
+#container .presentation p{
     color:white;
     padding:10px 8%;
     line-height:30px;

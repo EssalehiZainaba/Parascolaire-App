@@ -90,8 +90,8 @@
 
     </div>
 
-
-
+    <%@ include file="../common/popUpDeconnexion.jsp" %> 
+	
     <%@ include file="../common/footer.jsp" %>
 </body>
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
