@@ -63,8 +63,16 @@ header {
     text-align:center;
 }
 
+
 .LogIn{
     width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(226, 159, 71);
+    text-decoration: none;
+    letter-spacing: 2px;
+    cursor: pointer;
 }
 
 li a,.LogIn a{
@@ -78,7 +86,7 @@ li a,.LogIn a{
     letter-spacing: 2px;
 }
 
-.links a:hover,.LogIn a:hover{
+.links a:hover,.LogIn:hover{
     background-color: rgba(224, 205, 34, 0.2);
 }
 

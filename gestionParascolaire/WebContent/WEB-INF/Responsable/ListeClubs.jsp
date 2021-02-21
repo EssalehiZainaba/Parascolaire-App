@@ -6,7 +6,7 @@
 	
 	<%@ include file="../common/ListeClubs/ListeClubsContainer.jsp" %>
 
-    
+    <%@ include file="../common/popUpDeconnexion.jsp" %> 
     <%@ include file="../common/footer.jsp" %>
     
     

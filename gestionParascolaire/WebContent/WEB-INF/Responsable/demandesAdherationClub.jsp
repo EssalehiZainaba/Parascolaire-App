@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="inc/css/Responsable/demandesAdherationClub.css">
 	<link rel="stylesheet" href="inc/css/Responsable/popUpConfirm.css">
+	<link rel="stylesheet" href="inc/css/common/popUpDeconnexion.css">
+	
+	
 	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	
 </head>
 
@@ -75,11 +78,14 @@
             <button id="cancelAccept" class="cancel">Cancel</button>
         </div>
     </div>  
-            
+     
+     <%@ include file="../common/popUpDeconnexion.jsp" %> 
      <%@ include file="../common/footer.jsp" %>
 </body>
 
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 	<script type="text/javascript" src="./inc/js/Responsable/popUpConfirm.js"></script>
+	<script type="text/javascript" src="./inc/js/common/popUpDeconnexion.js"></script>
+	
 
 </html>
