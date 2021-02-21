@@ -10,5 +10,6 @@
     
     <%@ include file="../common/footer.jsp" %>
     
-    
+<script type="text/javascript" src="./inc/js/common/popUpDeconnexion/popUpDecoSideBar.js"></script>
+   
 <%@ include file="../common/ListeClubs/ListeClubsScripts.jsp" %>
