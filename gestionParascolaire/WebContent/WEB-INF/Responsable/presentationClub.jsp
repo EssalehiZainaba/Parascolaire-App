@@ -43,6 +43,14 @@
 	                <input type="file" id="logo" name="logo" accept="image/*">
 	                <span class="erreur" style="color:red">${pm.getErreurs()["logo"]} </span>
 	            </div>
+	            <div class = "imageContainer">       
+	                <label class="images" for="cover">
+	                    <span><i class="fas fa-images"></i></span> 
+	                    ajouter couverture
+	                </label>
+	                <input type="file" id="cover" name="cover" accept="image/*">
+	                <span class="erreur" style="color:red">${pm.getErreurs()["cover"]} </span>
+	            </div>
 	            <div class = "imageContainer">
 	                <label class="images" for="image1">
 	                    <span><i class="fas fa-images"></i></span>    
