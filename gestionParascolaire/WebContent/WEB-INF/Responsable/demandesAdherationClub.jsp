@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="inc/css/Responsable/demandesAdherationClub.css">
+	<link rel="stylesheet" href="inc/css/Responsable/popUpConfirm.css">
 	<script src="https://kit.fontawesome.com/5bf11eee96.js" ></script>	
 </head>
 
@@ -32,11 +33,11 @@
 		                <p>${demande.etudiant.filiere}</p>
 		                <p>${demande.dateDemande}</p>
 		                
-		                <div class="buttons">
-		                    <button name="id_etudiant" type="submit" form="accepterDemandes" value="${demande.etudiant.id}" class="add">
+		                <div id="${demande.etudiant.id}" class="buttons">
+		                    <button  class="add">
 		                        <i class="fas fa-check"></i>
 		                    </button>
-		                    <button name="id_etudiant" type="submit" form="supprimerDemandes" value="${demande.etudiant.id}" class="remove">
+		                    <button  class="remove">
 		                        <i class="fas fa-trash-alt"></i>
 		                    </button>
 		                </div>
@@ -51,14 +52,34 @@
 				<div class="noDemandes">
 					<h1>Le Club n'a pas de demandes d'adheration !</h1>
 				</div>
-			</c:if>         	
-     
+			</c:if>  
+			     	
         </div>
     </div>
+    
+    			
+    <div id="confirmDelete" class="popUpConfirm hideConfirm">
+        <div id="closeDelete" class="closeConfirm">X</div>
+        <div class="title">Voulez vous vraiment supprimer cette Demande ?</div>
+        <div class="buttons">
+            <button id="delete" name="id_etudiant" type="submit" form="supprimerDemandes"  value="">Supprimer</button>
+            <button id="cancelDelete" class="cancel">Cancel</button>
+        </div>
+    </div>
+    
+    <div id="confirmAccept" class="popUpConfirm hideConfirm">
+        <div id="closeAccept" class="closeConfirm">X</div>
+        <div class="title">Voulez vous vraiment Accepter cette Demande ?</div>
+        <div class="buttons">
+            <button id="accept" name="id_etudiant" type="submit" form="accepterDemandes"  value="">Accepter</button>
+            <button id="cancelAccept" class="cancel">Cancel</button>
+        </div>
+    </div>  
             
      <%@ include file="../common/footer.jsp" %>
 </body>
 
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
+	<script type="text/javascript" src="./inc/js/Responsable/popUpConfirm.js"></script>
 
 </html>
