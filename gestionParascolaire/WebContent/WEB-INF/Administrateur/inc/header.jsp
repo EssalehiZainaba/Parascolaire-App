@@ -18,7 +18,7 @@
 	          </li>
 	          <li><a href="#Footer">Contactez Nous</a></li>
 	      </ul>
-	      <div class="LogIn">
-	          <a href="Deconnexion">Se deconnecter</a>  
-	      </div>
+			<div id="deconnexion" class="LogIn">
+			     Se deconnecter  
+			</div>
 	</header>

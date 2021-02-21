@@ -19,7 +19,7 @@
 	          <li><a href="#Footer">Contactez Nous</a></li>
 	      </ul>
 	      <div class="LogIn">
-	          <a href="#">Se deconnecter</a>  
+	          <a href="#">Se deconnecter</a>
 	      </div>
 	</header>
 	

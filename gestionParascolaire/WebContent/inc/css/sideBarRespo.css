@@ -1,14 +1,16 @@
 .side-bar {
-    width: 18%;
+    width: 20%;
     height: calc(100vh - 70px);
     position: fixed;
     top: 70px;
     left: 0;
     color: rgb(240, 176, 92);
     background-color: rgb(26, 24, 24);
+    font-size:15px;
     font-weight: bold;
     box-shadow:rgba(3, 3, 3, 0.898) 2px 3px 5px 1px;
     overflow-y:auto;
+    line-height:2;
 }
 
 .side-bar::-webkit-scrollbar {

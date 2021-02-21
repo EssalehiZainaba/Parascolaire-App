@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="./inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="./inc/css/sideBarRespo.css">
 	<link rel="stylesheet" href="./inc/css/Responsable/creationActivite.css">
+	<link rel="stylesheet" href="./inc/css/common/popUpDeconnexion.css">
  	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
  	
 </head>
@@ -62,8 +63,11 @@
         </form>
         
    </div>  
-        
+       
+     <%@ include file="../common/popUpDeconnexion.jsp" %>    
      <%@ include file="../common/footer.jsp" %>
 </body>
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
+	<script type="text/javascript" src="./inc/js/common/popUpDeconnexion.js"></script>
+	
 </html>

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="inc/css/common/header-footer.css">
 	<link rel="stylesheet" href="inc/css/sideBar.css">
 	<link rel="stylesheet" href="inc/css/Etudiant/activites.css">
+	<link rel="stylesheet" href="inc/css/common/popUpDeconnexion.css">
   	<script src="https://kit.fontawesome.com/5bf11eee96.js" crossorigin="anonymous"></script>	
 </head>
 <body>
@@ -73,4 +74,6 @@
 	<script type="text/javascript" src="./inc/js/common/header.js"></script>
 	<script type="text/javascript" src="./inc/js/common/sideBar.js"></script>
 	<script type="text/javascript" src="./inc/js/Etudiant/activites.js"></script>
+	<script type="text/javascript" src="./inc/js/common/popUpDeconnexion.js"></script>
+	
 </html>

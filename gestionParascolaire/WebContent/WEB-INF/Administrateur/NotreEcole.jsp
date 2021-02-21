@@ -6,6 +6,8 @@
 	
 	<%@ include file="../common/NotreEcole/NotreEcoleContainer.jsp" %>
 	
+	<%@ include file="../common/popUpDeconnexion.jsp" %> 
+	
 	<%@ include file="../common/footer.jsp" %>
 
 
