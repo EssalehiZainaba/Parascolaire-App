@@ -1,11 +1,11 @@
 #popUpDeconnexion{
-    width: 550px;
-    height: 300px;
+    width: 30%;
+    height: 35%;
     background-color: rgba(56, 55, 55, 0.9);
     border-radius: 10px;
     position: fixed;
-    left: 30%;
-    top: 250px;
+    left: 35%;
+    top: 35%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
