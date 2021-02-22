@@ -79,6 +79,7 @@ public class PresentationServlet extends HttpServlet {
 			 this.getServletContext().getRequestDispatcher( "/WEB-INF/Administrateur/presentation.jsp" ).forward( request, response );
 		 
 		 else
+			 request.setAttribute("connect", true);
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/Public/presentation.jsp").forward(request, response);
 
 

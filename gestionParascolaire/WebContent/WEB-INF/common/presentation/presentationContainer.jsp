@@ -7,6 +7,9 @@
                 		<button type="submit" name="clubName" value="${club.name}">S'adhérer</button>
                 	</form>
             	</c:if>
+            	<c:if test="${connect }">
+                	<button id="log-in">S'adhérer</button>
+            	</c:if>
             </div>
             <div class="presentation">
                 <h1>Presentation</h1>

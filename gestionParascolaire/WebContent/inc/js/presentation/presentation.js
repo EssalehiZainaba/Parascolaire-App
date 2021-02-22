@@ -32,3 +32,14 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
   timer = setTimeout(showSlides, 2000);
 } 
+
+
+//login
+
+
+let logIn = document.getElementById("log-in");
+
+logIn.addEventListener("click",()=>{
+    document.querySelector("form.sticky").style.transform="translateX(0px)";
+    document.querySelector(".container").classList.add("blur");
+})
