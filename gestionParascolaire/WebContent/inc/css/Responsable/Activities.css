@@ -52,7 +52,7 @@
     
 }
 
-.buttons button{
+.buttons button , .buttons a{
     height: 100%;
     width: 40%;
     margin:10px;
@@ -64,13 +64,24 @@
     color:#f6fafb;
     font-size: 22px;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.buttons button:hover{
+.buttons button i , .buttons a i{
+	pointer-events:none;
+}
+
+.buttons a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.buttons button:hover, .buttons a:hover{
     background-color: rgba(134, 127, 117, 0.3);
 }
 
-.buttons button.edit{
+.buttons a.edit{
     color: rgb(235, 162, 52);
 }
 .buttons button.remove{
