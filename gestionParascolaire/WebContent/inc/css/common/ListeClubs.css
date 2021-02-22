@@ -65,4 +65,7 @@
     position: absolute;
     top:10px;
     left: 180px;
+    line-height:30px;
+    font-size:26px;
+    padding:16px;
 }

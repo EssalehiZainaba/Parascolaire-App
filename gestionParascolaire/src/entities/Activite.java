@@ -22,7 +22,7 @@ public class Activite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+	private String description;
 	private boolean privee;
 	private String nom;
 	private String date;
@@ -137,6 +137,16 @@ public class Activite {
 			return false;
 		return true;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public void setEtudiants(List<Etudiant> etudiants) {
+		this.etudiants = etudiants;
+	}
+	
 	
 	
 

@@ -45,13 +45,6 @@ public class HandleActivities extends HttpServlet {
 		
 		
 		HttpSession session = request.getSession();
-		//
-		DaoResponsableClub daoResponsableClub = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
-		ResponsableClub responsableClub2 = daoResponsableClub.find(2);
-		session.setAttribute("responsable",responsableClub2);
-		
-		
-		//
 		ResponsableClub responsableClub = (ResponsableClub) session.getAttribute("responsable");
 		String clubName = responsableClub.getClub().getName();
 		List<Activite> activites = daoActivite.liste(clubName); 

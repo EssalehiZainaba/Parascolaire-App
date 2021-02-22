@@ -24,7 +24,7 @@
         	<c:forEach items="${activites }" var="activite" varStatus="loop">
         		<div class="activite">
     			 	<div class="imageContainer">
-	                 	<img src="images/image3.jpeg" alt="">
+	                 	<img src="images/${activite.imagePath }" alt="">
 	             	</div>
 	        		<div class="row">
 	        			<span class="title">Club :</span>
