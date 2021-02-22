@@ -32,7 +32,7 @@
 					     améliorer les vies et façonner un monde meilleur et durable .
 
 					</p>
-					<button class="readMore">Lire la suite</button>
+					<a class="readMore" href="presentation?clubName=Enactus">Lire la suite</a>
 				</div>
            </div>
            
@@ -46,7 +46,7 @@
 					 Pour ce faire, il nous est demandé de passer du quantitatif au travail qualitatif.
 				
 					</p>
-					<button class="readMore">Lire la suite</button>
+					<a class="readMore" href="presentation?clubName=Social">Lire la suite</a>
 				</div>
            </div>
            
@@ -59,7 +59,7 @@
 					     le domaine du BTP et les approcher de la vie professionnelle .
 
 					</p>
-					<button class="readMore">Lire la suite</button>
+					<a class="readMore" href="presentation?clubName=BTP">Lire la suite</a>
 				</div>
            </div>
            
@@ -72,7 +72,7 @@
 					     les étudiants de l'ENSA Agadir, un grand tournoi de challenge qui réunit un ensemble de grandes écoles
 					      d'ingénieurs de commerce et de médecine a l'échelle nationale.
 					</p>
-					<button class="readMore">Lire la suite</button>
+					 <a class="readMore" href="presentation?clubName=Sportif">Lire la suite</a></button>
 				</div>
            </div>
            
@@ -84,7 +84,7 @@
 					   Le Club Sportif ENSA Agadir est chargé de tous ce qui est dans le domaine sportif
 					   et culturel dans l'école.
 					</p>
-					<button class="readMore">Lire la suite</button>
+					<a class="readMore" href="presentation?clubName=Sportif">Lire la suite</a>
 				</div>
            </div>
   
