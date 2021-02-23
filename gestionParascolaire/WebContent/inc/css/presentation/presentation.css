@@ -5,6 +5,7 @@
     max-width: 1200px;
     background-color:#292121;
     margin:30px auto;
+    transition: filter 1s ease-in-out;
 }
 #container .cover{
     overflow: hidden;

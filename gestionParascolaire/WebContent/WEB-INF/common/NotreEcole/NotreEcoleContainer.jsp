@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<div id="container">
+<div class="container">
 	
 	<img class="image-ensa" src="images/imageensaa1.jpeg">
 	
