@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.DaoClub;
-import dao.DaoClubImpl;
+
 import dao.DaoUtilisateur;
 import dao.DaoUtilisateurImpl;
 import dao.JPAUtil;
@@ -21,7 +20,6 @@ import entities.Etudiant;
 import entities.ResponsableClub;
 import entities.Utilisateur;
 import services.ConnexionForm;
-import services.CreerClubForm;
 
 /**
  * Servlet implementation class Accueil
@@ -55,7 +53,6 @@ public class Accueil extends HttpServlet {
 			
 		ConnexionForm form=new ConnexionForm(daoUtilisateur);
 		Utilisateur utilisateur=form.creerUtilisateur(request);
-		
 		if(form.getErreur().size()!=0) {
 			request.setAttribute("erreurs",form.getErreur());
 			this.getServletContext().getRequestDispatcher("/WEB-INF/Public/accueil.jsp").forward(request, response);

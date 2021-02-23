@@ -108,6 +108,7 @@
 			<div class="bloc-text-paragest">
 				ParaGest
 			</div>
+		</div>
         
         <div class="bloc">
 			<div class="bloc-text">

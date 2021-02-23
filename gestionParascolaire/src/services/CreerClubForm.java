@@ -1,14 +1,8 @@
 package services;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.Properties;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -67,7 +61,7 @@ public class CreerClubForm {
 				{
 					if( daoClub.lister().get(i).getName().equals(name))
 					{
-						throw new Exception( "Ce nom du club existe deja, merci de saisir un autre nom."  );
+						throw new Exception( "ce de club nom existe deja." );
 					}
 				
 				}
@@ -132,32 +126,6 @@ public class CreerClubForm {
 		    Transport.send(message);   	
 		    
 		}
-	 
-	 public String Hashing(String password)
-	 {
-		 String saltString = "thisIsSaltString";
-		 byte[] salt = new byte[16];
-		 salt = saltString.getBytes();	
-		 String HashedPassword;
-		 
-		 KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-		 try {
-		 SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-		 byte[] hash = factory.generateSecret(spec).getEncoded();
-		 HashedPassword = Base64.getEncoder().encodeToString(hash);
-		 return HashedPassword;	
-		 }
-		 catch(NoSuchAlgorithmException e)
-		 {
-			 e.printStackTrace();
-		 }
-		 catch(InvalidKeySpecException e)
-		 {
-			 e.printStackTrace();
-		 }
-		 
-		 return null; 
-	 }
 		
 	 
 	 
@@ -196,7 +164,7 @@ public class CreerClubForm {
 		
 		 String password = password();
 		 
-		ResponsableClub resp = new ResponsableClub(Login(name), Hashing(password));
+		ResponsableClub resp = new ResponsableClub(Login(name), password);
 		DaoResponsableClub daoResp = new DaoResponsableClubImpl(JPAUtil.getEntityManagerFactory());
 		daoResp.add(resp);
 		resp = daoResp.find(resp.getId());

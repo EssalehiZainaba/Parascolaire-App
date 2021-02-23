@@ -1,13 +1,7 @@
 package services;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import java.util.Base64;
 import java.util.HashMap;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 
@@ -64,39 +58,13 @@ public class ConnexionForm {
 	  return utilisateur;
 	}
 	
-	 public String Hashing(String password)
-	 {
-		 String saltString = "thisIsSaltString";
-		 byte[] salt = new byte[16];
-		 salt = saltString.getBytes();	
-		 String HashedPassword;
-		 
-		 KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-		 try {
-		 SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-		 byte[] hash = factory.generateSecret(spec).getEncoded();
-		 HashedPassword = Base64.getEncoder().encodeToString(hash);
-		 return HashedPassword;	
-		 }
-		 catch(NoSuchAlgorithmException e)
-		 {
-			 e.printStackTrace();
-		 }
-		 catch(InvalidKeySpecException e)
-		 {
-			 e.printStackTrace();
-		 }
-		 
-		 return null; 
-	 }
-	
 	public void validationPassword(String password,Utilisateur utilisateur) throws Exception{
 		if(password.trim().length() == 0 ){
 		
 			throw new Exception( "Merci de saisir un mot de passe." );
 		}
 		else {
-			if(!(password.equals(Hashing(utilisateur.getPassword())))){
+			if(!(password.equals(utilisateur.getPassword()))){
 				throw new Exception("Votre mot de passe n'est pas correcte");
 			}
 		}
