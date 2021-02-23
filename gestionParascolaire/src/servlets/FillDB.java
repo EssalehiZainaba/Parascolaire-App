@@ -56,7 +56,6 @@ public class FillDB extends HttpServlet {
 		
 		EntityManagerFactory factory = JPAUtil.getEntityManagerFactory();
 		
-		DaoClub daoClub = new DaoClubImpl(JPAUtil.getEntityManagerFactory());
         CreerClubForm form = new CreerClubForm(daoClub);
 		
 		Date date = new Date();  
@@ -272,11 +271,13 @@ public class FillDB extends HttpServlet {
         ResponsableClub respo3 = new ResponsableClub("enactus@uiz.ac.ma", form.Hashing("enactus"));
         ResponsableClub respo4 = new ResponsableClub("btp@uiz.ac.ma", form.Hashing("btp"));
         ResponsableClub respo5 = new ResponsableClub("sportif@uiz.ac.ma", form.Hashing("sportif"));
+        //ResponsableClub respo6 = new ResponsableClub("harmony@uiz.ac.ma", form.Hashing("harmony"));
         daoRespo.add(respo1);
         daoRespo.add(respo2);
         daoRespo.add(respo3);
         daoRespo.add(respo4);
         daoRespo.add(respo5);
+        //daoRespo.add(respo6);
         
         
         
@@ -287,9 +288,9 @@ public class FillDB extends HttpServlet {
         club1.setParagraphe(paragrapheApps);
         club1.setLogoPath("apps.jpg");
         club1.setCoverPath("appsclub cover.jpg");
-        club1.setImg1Path("image2.jpeg");
-        club1.setImg2Path("image3.jpeg");
-        club1.setImg3Path("image4.jpeg");
+        club1.setImg1Path("apps1.jfif");
+        club1.setImg2Path("apps2.jfif");
+        club1.setImg3Path("apps3.jfif");
         daoClub.add(club1);
         
         Club club2 = new Club();
@@ -299,9 +300,9 @@ public class FillDB extends HttpServlet {
         club2.setParagraphe(paragrapheSocial);
         club2.setLogoPath("social.jfif");
         club2.setCoverPath("social cover.jpg");
-        club2.setImg1Path("image2.jpeg");
-        club2.setImg2Path("image3.jpeg");
-        club2.setImg3Path("image4.jpeg");
+        club2.setImg1Path("social1.jfif");
+        club2.setImg2Path("social2.jfif");
+        club2.setImg3Path("social3.jfif");
         daoClub.add(club2);
         
         Club club3 = new Club();
@@ -309,11 +310,11 @@ public class FillDB extends HttpServlet {
         club3.setResponsableClub(daoRespo.find(12));
         club3.setDescription(descriptionEnactus);
         club3.setParagraphe(paragrapheEnactus);
-        club3.setLogoPath("enactus1.jpg");
+        club3.setLogoPath("enactus.jpg");
         club3.setCoverPath("enactus cover.jpg");
-        club3.setImg1Path("image2.jpeg");
-        club3.setImg2Path("image3.jpeg");
-        club3.setImg3Path("image4.jpeg");
+        club3.setImg1Path("enactus1.jfif");
+        club3.setImg2Path("enactus2.jfif");
+        club3.setImg3Path("enactus3.jfif");
         daoClub.add(club3);
         
         Club club4 = new Club();
@@ -323,9 +324,9 @@ public class FillDB extends HttpServlet {
         club4.setParagraphe(paragrapheBTP);
         club4.setLogoPath("btp.jfif");
         club4.setCoverPath("btp cover.jpg");
-        club4.setImg1Path("image2.jpeg");
-        club4.setImg2Path("image3.jpeg");
-        club4.setImg3Path("image4.jpeg");
+        club4.setImg1Path("btp1.jfif");
+        club4.setImg2Path("btp2.jfif");
+        club4.setImg3Path("btp3.jfif");
         daoClub.add(club4);
         
         Club club5 = new Club();
@@ -335,10 +336,22 @@ public class FillDB extends HttpServlet {
         club5.setParagraphe(paragrapheSportif);
         club5.setLogoPath("sportif.jfif");
         club5.setCoverPath("sportif cover.jpg");
-        club5.setImg1Path("image2.jpeg");
-        club5.setImg2Path("image3.jpeg");
-        club5.setImg3Path("image4.jpeg");
+        club5.setImg1Path("sportif1.jfif");
+        club5.setImg2Path("sportif2.jfif");
+        club5.setImg3Path("sportif3.jfif");
         daoClub.add(club5);
+        
+        /*Club club6 = new Club();
+        club6.setName("Harmony");
+        club6.setResponsableClub(daoRespo.find(15));
+        club6.setDescription(descriptionHarmony);
+        club6.setParagraphe(paragrapheHarmony);
+        club6.setLogoPath("harmony.jfif");
+        club6.setCoverPath("harmony cover.jpg");
+        club6.setImg1Path("harmony1.jfif");
+        club6.setImg2Path("harmony2.jfif");
+        club6.setImg3Path("harmony3.jfif");
+        daoClub.add(club6);*/
         
         this.getServletContext().setAttribute("club", daoClub.lister());
         
@@ -451,24 +464,6 @@ public class FillDB extends HttpServlet {
         activite4.setImagePath("image3.jpeg");
         daoActivite.add(activite4);
         
-        Activite activite5 = new Activite();
-        activite5.setNom("Activite 3-1");
-        activite5.setClub(daoClub.find(3));
-        activite5.setLieu("Lieu 3-1");
-        activite5.setPrivee(false);
-        activite5.setDate("13/05/2021");
-        activite5.setImagePath("image3.jpeg");
-        daoActivite.add(activite5);
-        
-        Activite activite6 = new Activite();
-        activite6.setNom("Activite 3-2");
-        activite6.setClub(daoClub.find(3));
-        activite6.setLieu("Lieu 3-2");
-        activite6.setPrivee(true);
-        activite6.setDate("03/11/2021");
-        activite6.setImagePath("image3.jpeg");
-        daoActivite.add(activite6);
-        
         Activite activite7 = new Activite();
         activite7.setNom("Activite 4-1");
         activite7.setClub(daoClub.find(4));
@@ -524,15 +519,6 @@ public class FillDB extends HttpServlet {
         activite12.setImagePath("image3.jpeg");
         daoActivite.add(activite12);
         
-        Activite activite13 = new Activite();
-        activite13.setNom("Activite 3-3");
-        activite13.setClub(daoClub.find(3));
-        activite13.setLieu("Lieu 3-3");
-        activite13.setPrivee(true);
-        activite13.setDate("03/11/2020");
-        activite13.setImagePath("image3.jpeg");
-        daoActivite.add(activite13);
-        
         Activite activite14 = new Activite();
         activite14.setNom("Activite 4-3");
         activite14.setClub(daoClub.find(4));
@@ -552,8 +538,77 @@ public class FillDB extends HttpServlet {
         daoActivite.add(activite15);
         
 
+        Activite enactusAct1 = new Activite();
+        enactusAct1.setNom("Impact@Work Regional Competition - Phase 2");
+        enactusAct1.setClub(daoClub.find(3));
+        enactusAct1.setLieu("En ligne");
+        enactusAct1.setPrivee(true);
+        enactusAct1.setDate("20/03/2021");
+        enactusAct1.setImagePath("enactus-act1.jpg");
+        daoActivite.add(enactusAct1);
         
-      
+        Activite enactusAct2 = new Activite();
+        enactusAct2.setNom("Movie night");
+        enactusAct2.setClub(daoClub.find(3));
+        enactusAct2.setLieu("Amphi Mahdi Elmandjra");
+        enactusAct2.setPrivee(true);
+        enactusAct2.setDate("19/04/2016");
+        enactusAct2.setImagePath("enactus-act2.jpg");
+        daoActivite.add(enactusAct2);
+        
+        Activite enactusAct3 = new Activite();
+        enactusAct3.setNom("Recrutement Enactus ENSA Agadir");
+        enactusAct3.setClub(daoClub.find(3));
+        enactusAct3.setLieu("Stand à l'ENSAA");
+        enactusAct3.setPrivee(false);
+        enactusAct3.setDate("10/10/2016");
+        enactusAct3.setImagePath("enactus-act3.jpg");
+        daoActivite.add(enactusAct3);
+        
+        Activite enactusAct4 = new Activite();
+        enactusAct4.setNom("Recrutement Enactus ENSA Agadir");
+        enactusAct4.setClub(daoClub.find(3));
+        enactusAct4.setLieu("Stand à l'ENSAA");
+        enactusAct4.setPrivee(false);
+        enactusAct4.setDate("10/10/2017");
+        enactusAct4.setImagePath("enactus-act3.jpg");
+        daoActivite.add(enactusAct4);
+        
+        Activite enactusAct5 = new Activite();
+        enactusAct5.setNom("Recrutement Enactus ENSA Agadir");
+        enactusAct5.setClub(daoClub.find(3));
+        enactusAct5.setLieu("Stand à l'ENSAA");
+        enactusAct5.setPrivee(false);
+        enactusAct5.setDate("10/10/2018");
+        enactusAct5.setImagePath("enactus-act3.jpg");
+        daoActivite.add(enactusAct5);
+        
+        Activite enactusAct6 = new Activite();
+        enactusAct6.setNom("Recrutement Enactus ENSA Agadir");
+        enactusAct6.setClub(daoClub.find(3));
+        enactusAct6.setLieu("Stand à l'ENSAA");
+        enactusAct6.setPrivee(false);
+        enactusAct6.setDate("10/10/2019");
+        enactusAct6.setImagePath("enactus-act3.jpg");
+        daoActivite.add(enactusAct6);
+        
+        Activite enactusAct7 = new Activite();
+        enactusAct7.setNom("Recrutement Enactus ENSA Agadir");
+        enactusAct7.setClub(daoClub.find(3));
+        enactusAct7.setLieu("Stand à l'ENSAA");
+        enactusAct7.setPrivee(false);
+        enactusAct7.setDate("10/10/2020");
+        enactusAct7.setImagePath("enactus-act3.jpg");
+        daoActivite.add(enactusAct7);
+        
+        Activite enactusAct9 = new Activite();
+        enactusAct9.setNom("Présentation des projets ENACTUS 2015/2016");
+        enactusAct9.setClub(daoClub.find(3));
+        enactusAct9.setLieu("Amphi Mohamed Mokhtar Soussi");
+        enactusAct9.setPrivee(false);
+        enactusAct9.setDate("30/12/2016");
+        enactusAct9.setImagePath("enactus-act9.jpg");
+        daoActivite.add(enactusAct9);
         
         
         
