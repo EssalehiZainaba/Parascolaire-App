@@ -429,79 +429,88 @@ public class FillDB extends HttpServlet {
         
      
         Activite activite1 = new Activite();
-        activite1.setNom("Activite 1-1");
+        activite1.setNom("Computer Science: Expectations vs Reality");
         activite1.setClub(daoClub.find(1));
-        activite1.setLieu("Lieu 1-1");
+        activite1.setLieu("En Ligne");
         activite1.setPrivee(false);
-        activite1.setDate("11/05/2021");
-        activite1.setImagePath("image3.jpeg");
+        activite1.setDate("31/03/2021");
+        activite1.setImagePath("appsclub-act1.jpg");
         daoActivite.add(activite1);
         
         Activite activite2 = new Activite();
-        activite2.setNom("Activite 1-2");
+        activite2.setNom("Defense in Depth in WEB Applications");
         activite2.setClub(daoClub.find(1));
-        activite2.setLieu("Lieu 1-2");
+        activite2.setLieu("En Ligne");
         activite2.setPrivee(true);
-        activite2.setDate("01/11/2021");
-        activite2.setImagePath("image3.jpeg");
+        activite2.setDate("13/04/2021");
+        activite2.setImagePath("appsclub-act2.jpg");
         daoActivite.add(activite2);
         
+        Activite activiteApps = new Activite();
+        activiteApps.setNom("LET'S TALK v4.0");
+        activiteApps.setClub(daoClub.find(1));
+        activiteApps.setLieu("Amphi Mahdi Elmandjra");
+        activiteApps.setPrivee(false);
+        activiteApps.setDate("21/04/2021");
+        activiteApps.setImagePath("appsclub-act3.jpg");
+        daoActivite.add(activiteApps);
+        
         Activite activite3 = new Activite();
-        activite3.setNom("Activite 2-1");
+        activite3.setNom("Don Du Sang");
         activite3.setClub(daoClub.find(2));
-        activite3.setLieu("Lieu 2-1");
+        activite3.setLieu("Stand ENSA Agadir");
         activite3.setPrivee(false);
-        activite3.setDate("22/05/2021");
-        activite3.setImagePath("image3.jpeg");
+        activite3.setDate("16/05/2021");
+        activite3.setImagePath("social-act1.jpg");
         daoActivite.add(activite3);
         
         Activite activite4 = new Activite();
-        activite4.setNom("Activite 2-2");
+        activite4.setNom("ENIGMA 6ème édition");
         activite4.setClub(daoClub.find(2));
-        activite4.setLieu("Lieu 2-2");
+        activite4.setLieu("ENSA Agadir");
         activite4.setPrivee(true);
-        activite4.setDate("02/12/2021");
-        activite4.setImagePath("image3.jpeg");
+        activite4.setDate("18/04/2021");
+        activite4.setImagePath("social-act2.jpg");
         daoActivite.add(activite4);
         
         Activite activite7 = new Activite();
-        activite7.setNom("Activite 4-1");
+        activite7.setNom("Présentation du secteur Bâtiments et Travaux Publiques");
         activite7.setClub(daoClub.find(4));
-        activite7.setLieu("Lieu 4-1");
+        activite7.setLieu("Amphi Mahdi Elmandjra");
         activite7.setPrivee(false);
-        activite7.setDate("14/05/2021");
-        activite7.setImagePath("image3.jpeg");
+        activite7.setDate("08/11/2021");
+        activite7.setImagePath("btp-act1.jpg");
         daoActivite.add(activite7);
         
         Activite activite8 = new Activite();
-        activite8.setNom("Activite 4-2");
+        activite8.setNom("Rencontre Étudiant-Ingénieur");
         activite8.setClub(daoClub.find(4));
-        activite8.setLieu("Lieu 4-2");
+        activite8.setLieu("Amphi Mahdi Elmandjra");
         activite8.setPrivee(true);
         activite8.setDate("04/12/2021");
-        activite8.setImagePath("image3.jpeg");
+        activite8.setImagePath("btp-act2.jpg");
         daoActivite.add(activite8);
         
         Activite activite9 = new Activite();
-        activite9.setNom("Activite 5-1");
+        activite9.setNom("Mini Olympiads");
         activite9.setClub(daoClub.find(5));
-        activite9.setLieu("Lieu 5-1");
+        activite9.setLieu("ENSA Agadir");
         activite9.setPrivee(false);
-        activite9.setDate("15/05/2021");
-        activite9.setImagePath("image3.jpeg");
+        activite9.setDate("18/05/2021");
+        activite9.setImagePath("sportif-act1.jpg");
         daoActivite.add(activite9);
         
         Activite activite10 = new Activite();
-        activite10.setNom("Activite 5-2");
+        activite10.setNom("Olympiades Internes");
         activite10.setClub(daoClub.find(5));
-        activite10.setLieu("Lieu 5-2");
+        activite10.setLieu("ENSA Agadir");
         activite10.setPrivee(true);
-        activite10.setDate("05/11/2021");
-        activite10.setImagePath("image3.jpeg");
+        activite10.setDate("05/04/2021");
+        activite10.setImagePath("sportif-act2.jpg");
         daoActivite.add(activite10);
         
         
-        Activite activite11 = new Activite();
+        /*Activite activite11 = new Activite();
         activite11.setNom("Activite 1-3");
         activite11.setClub(daoClub.find(1));
         activite11.setLieu("Lieu 1-3");
@@ -535,7 +544,7 @@ public class FillDB extends HttpServlet {
         activite15.setPrivee(true);
         activite15.setDate("05/11/2020");
         activite15.setImagePath("image3.jpeg");
-        daoActivite.add(activite15);
+        daoActivite.add(activite15);*/
         
 
         Activite enactusAct1 = new Activite();
@@ -546,6 +555,15 @@ public class FillDB extends HttpServlet {
         enactusAct1.setDate("20/03/2021");
         enactusAct1.setImagePath("enactus-act1.jpg");
         daoActivite.add(enactusAct1);
+        
+        Activite enactusAct26 = new Activite();
+        enactusAct26.setNom("Ideathon");
+        enactusAct26.setClub(daoClub.find(3));
+        enactusAct26.setLieu("ENSA Agadir");
+        enactusAct26.setPrivee(false);
+        enactusAct26.setDate("26/04/2021");
+        enactusAct26.setImagePath("enactus-act21.jpg");
+        daoActivite.add(enactusAct26);
         
         Activite enactusAct2 = new Activite();
         enactusAct2.setNom("Movie night");
@@ -609,6 +627,154 @@ public class FillDB extends HttpServlet {
         enactusAct9.setDate("30/12/2016");
         enactusAct9.setImagePath("enactus-act9.jpg");
         daoActivite.add(enactusAct9);
+        
+        Activite enactusAct10 = new Activite();
+        enactusAct10.setNom("The Journey of an Entrepreneur: Terry Jones");
+        enactusAct10.setClub(daoClub.find(3));
+        enactusAct10.setLieu("Amphi Mahdi Elmandjra");
+        enactusAct10.setPrivee(false);
+        enactusAct10.setDate("14/11/2020");
+        enactusAct10.setImagePath("enactus-act10.jpg");
+        daoActivite.add(enactusAct10);
+        
+        Activite enactusAct11 = new Activite();
+        enactusAct11.setNom("Sustainable Innovation Fest - by Enactus");
+        enactusAct11.setClub(daoClub.find(3));
+        enactusAct11.setLieu("En ligne");
+        enactusAct11.setPrivee(false);
+        enactusAct11.setDate("11/07/2020");
+        enactusAct11.setImagePath("enactus-act11.jpg");
+        daoActivite.add(enactusAct11);
+        
+        Activite enactusAct12 = new Activite();
+        enactusAct12.setNom("A Talk with Citi Leaders");
+        enactusAct12.setClub(daoClub.find(3));
+        enactusAct12.setLieu("En ligne");
+        enactusAct12.setPrivee(false);
+        enactusAct12.setDate("02/07/2020");
+        enactusAct12.setImagePath("enactus-act12.jpg");
+        daoActivite.add(enactusAct12);
+        
+        Activite enactusAct13 = new Activite();
+        enactusAct13.setNom("Insta'Talks : A conversation with Zineb Rachid");
+        enactusAct13.setClub(daoClub.find(3));
+        enactusAct13.setLieu("En ligne");
+        enactusAct13.setPrivee(false);
+        enactusAct13.setDate("14/04/2020");
+        enactusAct13.setImagePath("enactus-act13.jpg");
+        daoActivite.add(enactusAct13);
+        
+        Activite enactusAct14 = new Activite();
+        enactusAct14.setNom("Insta'Talks : A conversation with Maha Ech-Chefaa");
+        enactusAct14.setClub(daoClub.find(3));
+        enactusAct14.setLieu("En ligne");
+        enactusAct14.setPrivee(false);
+        enactusAct14.setDate("07/04/2019");
+        enactusAct14.setImagePath("enactus-act14.jpg");
+        daoActivite.add(enactusAct14);
+        
+        Activite enactusAct15 = new Activite();
+        enactusAct15.setNom("Insta'Talks : A conversation with Ghassan Benchiheb");
+        enactusAct15.setClub(daoClub.find(3));
+        enactusAct15.setLieu("En ligne");
+        enactusAct15.setPrivee(false);
+        enactusAct15.setDate("31/03/2019");
+        enactusAct15.setImagePath("enactus-act15.jpg");
+        daoActivite.add(enactusAct15);
+        
+        Activite enactusAct16 = new Activite();
+        enactusAct16.setNom("Insta'Talks : a conversation with Adnane Addioui");
+        enactusAct16.setClub(daoClub.find(3));
+        enactusAct16.setLieu("En ligne");
+        enactusAct16.setPrivee(false);
+        enactusAct16.setDate("24/03/2019");
+        enactusAct16.setImagePath("enactus-act16.jpg");
+        daoActivite.add(enactusAct16);
+        
+        Activite enactusAct17 = new Activite();
+        enactusAct17.setNom("Enactus Impact Challenge 2019");
+        enactusAct17.setClub(daoClub.find(3));
+        enactusAct17.setLieu("ENSA Agadir");
+        enactusAct17.setPrivee(false);
+        enactusAct17.setDate("14/12/2019");
+        enactusAct17.setImagePath("enactus-act17.jpg");
+        daoActivite.add(enactusAct17);
+        
+        Activite enactusAct18 = new Activite();
+        enactusAct18.setNom("Moonshot Youth Festival");
+        enactusAct18.setClub(daoClub.find(3));
+        enactusAct18.setLieu("ENSA Agadir");
+        enactusAct18.setPrivee(false);
+        enactusAct18.setDate("18/11/2019");
+        enactusAct18.setImagePath("enactus-act18.jpg");
+        daoActivite.add(enactusAct18);
+        
+        Activite enactusAct19 = new Activite();
+        enactusAct19.setNom("Womenpreneur Experience");
+        enactusAct19.setClub(daoClub.find(3));
+        enactusAct19.setLieu("ENSA Agadir");
+        enactusAct19.setPrivee(false);
+        enactusAct19.setDate("13/11/2018");
+        enactusAct19.setImagePath("enactus-act19.jpg");
+        daoActivite.add(enactusAct19);
+        
+        Activite enactusAct20 = new Activite();
+        enactusAct20.setNom("Enactus Morocco 2018/2019 Kick Off Seminar");
+        enactusAct20.setClub(daoClub.find(3));
+        enactusAct20.setLieu("ENSA Agadir");
+        enactusAct20.setPrivee(false);
+        enactusAct20.setDate("12/10/2018");
+        enactusAct20.setImagePath("enactus-act20.jpg");
+        daoActivite.add(enactusAct20);
+        
+        Activite enactusAct21 = new Activite();
+        enactusAct21.setNom("Ideathon");
+        enactusAct21.setClub(daoClub.find(3));
+        enactusAct21.setLieu("ENSA Agadir");
+        enactusAct21.setPrivee(true);
+        enactusAct21.setDate("21/09/2018");
+        enactusAct21.setImagePath("enactus-act21.jpg");
+        daoActivite.add(enactusAct21);
+        
+        Activite enactusAct22 = new Activite();
+        enactusAct22.setNom("MEDUP Fund : Session d'information");
+        enactusAct22.setClub(daoClub.find(3));
+        enactusAct22.setLieu("ENSA Agadir");
+        enactusAct22.setPrivee(false);
+        enactusAct22.setDate("20/07/2018");
+        enactusAct22.setImagePath("enactus-act22.jpg");
+        daoActivite.add(enactusAct22);
+        
+        Activite enactusAct23 = new Activite();
+        enactusAct23.setNom("Compétition Nationale Enactus Morocco 2019");
+        enactusAct23.setClub(daoClub.find(3));
+        enactusAct23.setLieu("ENSA Agadir");
+        enactusAct23.setPrivee(true);
+        enactusAct23.setDate("18/06/2017");
+        enactusAct23.setImagePath("enactus-act23.jpg");
+        daoActivite.add(enactusAct23);
+        
+        
+        Activite enactusAct24 = new Activite();
+        enactusAct24.setNom("Meet The Leader : Maral Kalajian");
+        enactusAct24.setClub(daoClub.find(3));
+        enactusAct24.setLieu("ENSA Agadir");
+        enactusAct24.setPrivee(false);
+        enactusAct24.setDate("14/04/2017");
+        enactusAct24.setImagePath("enactus-act24.jpg");
+        daoActivite.add(enactusAct24);
+        
+        
+        Activite enactusAct25 = new Activite();
+        enactusAct25.setNom("Tech Camp");
+        enactusAct25.setClub(daoClub.find(3));
+        enactusAct25.setLieu("ENSA Agadir");
+        enactusAct25.setPrivee(false);
+        enactusAct25.setDate("18/01/2017");
+        enactusAct25.setImagePath("enactus-act25.jpg");
+        daoActivite.add(enactusAct25);
+        
+        
         
         
         

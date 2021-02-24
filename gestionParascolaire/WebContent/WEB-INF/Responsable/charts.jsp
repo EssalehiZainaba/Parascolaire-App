@@ -55,7 +55,7 @@
                 data: [
                 	<c:forEach var="numberEtd" items="${tabNumberAct}" >
         	           ${numberEtd},
-                	</c:forEach>],
+                	</c:forEach>0],
                 backgroundColor: [
                     'rgba(255, 99, 132,0.8)',
                     'rgba(54, 162, 235, 0.8)',
