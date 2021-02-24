@@ -25,7 +25,7 @@
 	<div id="container">
 		<canvas id="myLineChart" class="myLineChart" width="1000" height="350" ></canvas>
 		<div class="charts">
-		    <canvas id="myChart" class="myBarChart" width="400" height="200" ></canvas>
+		    <canvas id="myChart" class="myBarChart" width="600" height="300" ></canvas>
 		    <canvas id="myPieChart" class="myPieChart" width="600" height="200" ></canvas>
 	    </div>
     </div>
