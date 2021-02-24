@@ -161,9 +161,9 @@ img,.description,.wrapper{
 .bloc {
     width: 90%;
     padding: 40px 50px;
-    color: rgb(226, 159, 71);
-    border: solid rgba(192, 124, 34, 0.6) 1px;
-    box-shadow: 9px 9px 6px 2px rgba(192, 124, 34, 0.6);
+    color: rgb(216 210 204);
+    border: solid rgba(71 ,58 ,41, 0.6) 1px;
+    box-shadow: 3px 1px 13px 1px  rgba(192, 124, 34, 0.6);
     margin:40px auto;
     border-radius: 10px;
     background-color: rgba(40, 38, 34, 0.58);
@@ -181,7 +181,7 @@ img,.description,.wrapper{
 
 
 .bloc-text {
-	font-size: 24px;
+	font-size: 18px;
 	text-align: justify;
 }
 
