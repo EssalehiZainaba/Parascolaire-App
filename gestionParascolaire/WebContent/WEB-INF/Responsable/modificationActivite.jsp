@@ -40,7 +40,7 @@
 	            </div>
 	            <div class="text">
 	                <label id="date">Date :</label>
-	                <input type="date" name="date" value="${activite.getDate().toString() }"/>
+	                <input type="date" name="date" value="${activite.getDate().toString() }" class="date"/>
 	                <span class="erreur" style="color:red">${am.getErreurs()["date"]}</span>
 	            </div>
 	            <div class="radio ">
