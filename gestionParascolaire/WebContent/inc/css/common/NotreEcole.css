@@ -1,5 +1,5 @@
 
-.container{
+#container{
     width: 78%;
     margin: 100px auto;
     display: flex;
@@ -24,15 +24,16 @@
 .bloc {
     width: 90%;
     padding: 40px 50px;
-    color: rgb(226, 159, 71);
-    border: solid rgba(192, 124, 34, 0.6) 1px;
-    box-shadow: 9px 9px 6px 2px rgba(192, 124, 34, 0.6);
+  
+    border: solid rgba(197, 175, 146, 0.23) 1px;
+    box-shadow: 5px 3px 13px 2px rgba(163, 126, 77, 0.45);
     margin:40px auto;
     border-radius: 10px;
     background-color: rgba(40, 38, 34, 0.58);
 }
 
 .bloc-title {
+  	color: rgb(226, 159, 71);
 	padding-left: 40px;
     margin-bottom: 40px;
     font-size: 26px;
@@ -40,7 +41,8 @@
 }
 
 .bloc-text {
-	font-size: 18px;
+    font-size: 17px;
+    color: #e0dcd5;
 }
 
 .bloc-text ul {
