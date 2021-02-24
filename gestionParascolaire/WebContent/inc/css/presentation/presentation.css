@@ -10,6 +10,7 @@
 #container .cover{
     overflow: hidden;
     position: relative;
+    max-height: 700px;
 }
 #container .cover:hover button{
     opacity: 1;
@@ -58,11 +59,16 @@
   max-width: 1200px;
   position: relative;
   margin: 0 auto ;
+
 }
 
 /* Hide the images by default */
 .mySlides {
   display: none;
+}
+
+.mySlides img{
+	height: 700px;
 }
 
 /* Next & previous buttons */
