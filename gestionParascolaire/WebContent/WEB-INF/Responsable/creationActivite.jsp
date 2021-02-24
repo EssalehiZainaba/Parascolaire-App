@@ -37,11 +37,11 @@
 	            </div>
 	            <div class="text">
 	                <label id="date">Date :</label>
-	                <input type="date" name="date" value="${am.getActivite().getDate().toString() }"/>
+	                <input type="date" name="date" value="${am.getActivite().getDate().toString() }" class="date"/>
 	                <span class="erreur" style="color:red">${am.getErreurs()["date"]}</span>
 	            </div>
 	            <div class="radio ">
-	            	<div><label>Privé</label><input type="radio" name="privee" value="true"></div>
+	            	<div><label>Privé</label><input type="radio" name="privee" value="true" checked></div>
 	            	<div><label>Public</label><input type="radio" name="privee" value="false"></div>
 	            	<span class="erreur" style="color:red">${am.getErreurs()["privee"]}</span>
 	            </div>
